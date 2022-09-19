@@ -1,5 +1,5 @@
 # Summary
-My picked the first concept from my sketches from Week 3. The first concpet will be further developed into a more comprehensive, interactive dashboard.
+I picked the first concept from my sketches from [Week 3](https://github.com/muonius/msdv-major-studio-1/tree/master/week03_sketches). The first concpet will be further developed and integrated into a more comprehensive, interactive dashboard.
 
 ### Design - SDG Scoreboard 2022
 <img src="./Design.png" width="800" alt="Sketch1">
