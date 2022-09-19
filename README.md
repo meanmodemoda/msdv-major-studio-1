@@ -1,5 +1,5 @@
 # Sketches
-My overall goal is to provide a bird's eye view of the    
+My overall goal is to provide a bird's eye view of the SDG progress so far either at goal level or regional level.   
 
 ### 1. SDG Progress in 2022
 
