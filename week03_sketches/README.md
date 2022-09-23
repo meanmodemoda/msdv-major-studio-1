@@ -5,7 +5,9 @@ My overall goal is to build a dashboard tracking various SDG metrics. For this q
 Visualize SDG progress made so far by all regions and the world as a whole; Users can toggle to zoom in on progress made for a particular SDG target.
 
 <img src="./Sketch1.JPG" width="800" alt="Sketch1">
-- Dataset: Progress-Chart-2022
+
+#### Dataset: ####  
+Progress-Chart-2022 
 
 <img src="./Progress_Chart.png" width="800" alt="Progress Chart">
 
@@ -18,7 +20,8 @@ Compare the proportion of population covered by social protection by groups of p
 
 <img src="./Sketch2.JPG" width="800" alt="Sketch2">
 
-- Dataset: Indicator 1.3.1: Proportion of population covered by social protection floors/systems, by distinguishing children, unemployed persons, older persons, persons with disabilities, and the vulnerable.
+####  Dataset: #### 
+Indicator 1.3.1: Proportion of population covered by social protection floors/systems, by distinguishing children, unemployed persons, older persons, persons with disabilities, and the vulnerable.
 
 <img src="./Social_Protection_Chart.png" width="800" alt="Social Protection Chart">
 
@@ -29,9 +32,11 @@ Compare the proportion of population covered by social protection by groups of p
 
 Visualize all SDG Goal scores so far by each region.
 
-<img src="./Sketch3.JPG" width="800" alt="Sketch3">
+<img src="./Sketch3.JPG" width="800" alt="Sketch3">\
 
-- Dataset: Progress-Chart-2022
+#### Dataset: ####  
+Progress-Chart-2022 
+
 - Properties of the dataset: The dataset is about right size but data needs to be manually converted and averaged out.
 - Visualization method: A nightingale rose chart is selected for comparison of different goals by each region.  
 
