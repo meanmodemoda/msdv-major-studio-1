@@ -1,8 +1,7 @@
 # Sketches
-My overall goal is to provide a bird's eye view of the SDG progress so far either at goal level or regional level.   
+My overall goal is to build a dashboard tracking various SDG metrics. For this quantitative project, I am leaning towards creating a bird's eye view of the SDG progress so far either at goal level or regional level.  
 
 ### 1. SDG Progress in 2022
-
 Visualize SDG progress made so far by all regions and the world as a whole; Users can toggle to zoom in on progress made for a particular SDG target.
 
 <img src="./Sketch1.JPG" width="800" alt="Sketch1">
