@@ -6,11 +6,13 @@ Upon further research, I located a historical database from Sustainable Developm
 ### Data Preparation
 
 Original Data:
-<img src="./Original.png" width="500" alt="Original Data">
+
+<img src="./Original.png" width="800" alt="Original Data">
 
 Cleaned Data:
 I summarized the data at regional level and standardized naming convention. 
-<img src="./Cleaned.png" width="500" alt="Cleaned Data">
+
+<img src="./Cleaned.png" width="400" alt="Cleaned Data">
 
 ### Design Mockup - SDG Scoreboard 2022
 
