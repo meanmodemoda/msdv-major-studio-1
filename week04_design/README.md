@@ -28,7 +28,7 @@ To prevent the dashboard becoming too colorful, I chose a muted pastel color pal
 
 #### Mockup
 
-The design is centered around a sunburst chart with a horizontal scroll bar at the bottom. By clicking on individual goals in the scroll bar, the user can have an overview of the scores of each region with the world's score in the middle. 
+The design done in [Figma](https://www.figma.com/file/cC6Yy4gIl6kkQTa3xYLleT/Major-Studio-1-Quantitative-Visualization?node-id=0%3A1) is centered around a sunburst chart with a horizontal scroll bar at the bottom. By clicking on individual goals in the scroll bar, the user can have an overview of the scores of each region with the world's score in the middle. 
 
 <img src="./Design.png" width="800" alt="Design">
 
