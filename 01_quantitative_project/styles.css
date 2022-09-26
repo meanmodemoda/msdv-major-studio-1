@@ -28,7 +28,7 @@ svg {
 }
 .title {
   position: relative;
-  font-family: "Anton";
+  font-family: "Oswald";
   width: 100%;
   font-size: 3em;
   font-weight: 900;
@@ -241,10 +241,16 @@ div.swiper-scrollbar {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
 .footnote {
   text-align: right;
   padding-right: 1em;
   width: 100%;
+}
+
+.tagline {
+  width: 100%;
+  text-align: left;
 }

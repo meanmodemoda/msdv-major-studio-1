@@ -170,14 +170,6 @@ async function drawChart() {
     }
   });
 
-  const worldLabel = peripherals
-    .append("text")
-    .attr("x", -24)
-    .attr("y", 0)
-    .text("World")
-    .attr("class", "tick-label")
-    .style("font-size", "1em");
-
   // 5. Draw data
   // Draw sunburst chart
   function drawArc(metric) {
@@ -242,6 +234,25 @@ async function drawChart() {
           .startAngle(0)
           .endAngle((d) => worldScale(scoreAccessor(d)))
       );
+
+    //add white box behind world label
+    worldChart
+      .append("rect")
+      .attr("y", -12)
+      .attr("x", -26)
+      .attr("width", 50)
+      .attr("height", 20)
+      .attr("fill", "#f8f9fa")
+      .attr("opacity", 1);
+
+    //add world Label
+    const worldLabel = worldChart
+      .append("text")
+      .attr("x", -24)
+      .attr("y", 0)
+      .text("World")
+      .attr("class", "tick-label")
+      .style("font-size", "1em");
 
     //6. Draw Interaction
     const tooltip = d3.select("#tooltip");
