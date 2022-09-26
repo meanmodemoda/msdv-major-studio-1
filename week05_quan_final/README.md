@@ -17,21 +17,21 @@ I took the feedback of my classmates and redesigned the dashboard. I eliminated 
 I also completed the below features as planned.
 
 - Score grid rating
-- Text
+- Body text
 - Hover over tooltip
-- Generalize the code so user can toggle different goal metric
+- Generalize the code so users can toggle different goal metric
 - Change the toggle to a horizontal scroll
 - Highlight goal selected and mute unselected ones
 
 ### Presentation Screenshots
 
-<img src="./1.png" width="800" alt="Slide 1">
-<img src="./2.png" width="800" alt="Slide 2">
-<img src="./3.png" width="800" alt="Slide 3">
-<img src="./4.png" width="800" alt="Slide 4">
-<img src="./5.png" width="800" alt="Slide 5">
-<img src="./6.png" width="800" alt="Slide 6">
-<img src="./7.png" width="800" alt="Slide 7">
-<img src="./8.png" width="800" alt="Slide 8">
+<img src="./1.png" width="900" alt="Slide 1">
+<img src="./2.png" width="900" alt="Slide 2">
+<img src="./3.png" width="900" alt="Slide 3">
+<img src="./4.png" width="900" alt="Slide 4">
+<img src="./5.png" width="900" alt="Slide 5">
+<img src="./6.png" width="900" alt="Slide 6">
+<img src="./7.png" width="900" alt="Slide 7">
+<img src="./8.png" width="900" alt="Slide 8">
 
 [Project Link](https://muons.com/msdv-major-studio-1/01_quantitative_project/)
