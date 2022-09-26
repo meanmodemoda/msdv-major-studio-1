@@ -1,4 +1,4 @@
-# Assignment
+### Assignment
 After the second review of your project, incorporate the feedback and refine your design. 
 
 - Re-evaluate your visual design choices and refine all aspects of it in detail (pixel perfect design): Visualization method, composition, color, contrast, typography, hierarchy
