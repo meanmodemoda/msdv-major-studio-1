@@ -46,4 +46,4 @@ I coded the basic composition of the sunburst chart in d3.js. I also break down 
 
 *are nice to have features
 
-[Project Link](http://muons.com/msdv-ms1-quantitative/)
+[Project Link](https://muons.com/msdv-major-studio-1/01_quantitative_project/)
