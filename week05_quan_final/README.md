@@ -14,7 +14,7 @@ After the second review of your project, incorporate the feedback and refine you
 ### Process Update
 I took the feedback of my classmates and redesigned the dashboard. I eliminated all additional colors and will stick with the current SDG color palette which is already quite colorful. 
 
-I also completed the below features as planned.
+I also completed the below features as planned. Click [here](https://muons.com/msdv-major-studio-1/01_quantitative_project/) for the live project.
 
 - Score grid rating
 - Body text
