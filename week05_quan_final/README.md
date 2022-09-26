@@ -11,47 +11,27 @@ After the second review of your project, incorporate the feedback and refine you
   - Visualization (Still and in code)
   - Next steps, learnings and open questions
 
-### Design Revisions
+### Process Update
+I took the feedback of my classmates and redesigned the dashboard. I eliminated all additional colors and will stick with the current SDG color palette which is already quite colorful. 
 
-Original Data:
-
-<img src="./Original.png" width="800" alt="Original Data">
-
-Cleaned Data:
-I summarized the data at regional level and standardized naming convention. 
-
-<img src="./Cleaned.png" width="400" alt="Cleaned Data">
-
-### Design Mockup - SDG Scoreboard 2022
-
-#### Style Guide
-
-To prevent the dashboard becoming too colorful, I chose a muted pastel color palette.
-
-<img src="./Color.png" width="800" alt="Color Guide">
-
-<img src="./Type1.png" width="800" alt="Type 1">
-
-<img src="./Type2.png" width="800" alt="Type 2">
-
-#### Mockup
-
-The design done in [Figma](https://www.figma.com/file/cC6Yy4gIl6kkQTa3xYLleT/Major-Studio-1-Quantitative-Visualization?node-id=0%3A1) is centered around a sunburst chart with a horizontal scroll bar at the bottom. By clicking on individual goals in the scroll bar, the user can have an overview of the scores of each region with the world's score in the middle. 
-
-<img src="./Design.png" width="800" alt="Design">
-
-### Current Prototype
-
-I coded the basic composition of the sunburst chart in d3.js. I also break down what I need to do next in the following list.
+I also completed the below features as planned.
 
 - Score grid rating
-- Legend
 - Text
 - Hover over tooltip
 - Generalize the code so user can toggle different goal metric
-- Change the toggle to a horizontal scroll*
-- Highlight goal selected and mute unselected ones*
+- Change the toggle to a horizontal scroll
+- Highlight goal selected and mute unselected ones
 
-*are nice to have features
+### Presentation Screenshots
 
-[Project Link](http://muons.com/msdv-ms1-quantitative/)
+<img src="./1.png" width="800" alt="Slide 1">
+<img src="./2.png" width="800" alt="Slide 2">
+<img src="./3.png" width="800" alt="Slide 3">
+<img src="./4.png" width="800" alt="Slide 4">
+<img src="./5.png" width="800" alt="Slide 5">
+<img src="./6.png" width="800" alt="Slide 6">
+<img src="./7.png" width="800" alt="Slide 7">
+<img src="./8.png" width="800" alt="Slide 8">
+
+[Project Link](https://muons.com/msdv-major-studio-1/01_quantitative_project/)
