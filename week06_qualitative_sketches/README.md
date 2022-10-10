@@ -14,7 +14,7 @@ Visualize SDG transformation priorities, goals and targets in one flow chart.
 
 - This visualization is intended to call to attention that challenges facing high income countries and low income countries are intertwined and need to be addressed in a collabroative matter.
 - Properties of the dataset: The dataset is slightly smaller in size.
-- Visualization method: The visualization resembles a typography poster with the challenges broken away into jigsaw puzzles. The viewers need to piece the puzzle together, a process intended to remind them that challenges are interconnected and to achieve SDGs, no one should be left behind.
+- Visualization method: The visualization resembles a typography poster with the challenges broken down into a jigsaw puzzle. The viewers need to piece the puzzle together, a process intended to remind them that challenges are interconnected and to achieve SDGs, no one should be left behind.
 
 ### 3. SDG Synergies and Tradeoffs
 
