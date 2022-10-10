@@ -24,7 +24,7 @@ async function drawChart() {
 
   // 2. Create chart dimensions
 
-  const width = 450;
+  const width = 600;
   let dimensions = {
     width: width,
     height: width,
@@ -222,6 +222,7 @@ async function drawChart() {
     worldChart = newWorldChart.merge(worldChart);
 
     const world = worldChart
+      .transition()
       .select("path")
       .attr("fill", colorAccessor)
       .attr("opacity", 0.7)
@@ -326,4 +327,4 @@ function findKey(obj, val) {
   Object.keys(obj).filter((key) => obj[key] === val);
 }
 
-console.log(Object.keys(obj));
+findKey(obj);
