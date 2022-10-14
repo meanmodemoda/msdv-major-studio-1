@@ -1,10 +1,11 @@
 async function drawChart() {
   // 1. Access data
-  let dataset = await d3.csv("./transformations.csv");
+  let dataset = await d3.csv("./indicators.csv");
   group = d3.group(
     dataset,
     (d) => d["Transformation"],
-    (d) => d["Goal"]
+    (d) => d["Goal"],
+    (d) => d["Target"]
   );
 
   const root = d3.hierarchy(group);
@@ -34,7 +35,7 @@ async function drawChart() {
     .append("svg")
     .attr("width", dimensions.width)
     .attr("height", dimensions.height)
-    .attr("transform", "rotate(90,0,0)");
+    .attr("transform", "rotate(270,0,0)");
 
   const bounds = wrapper
     .append("g")
@@ -45,12 +46,16 @@ async function drawChart() {
 
   const cluster = d3
     .cluster()
-    .size([dimensions.height, dimensions.width - 400]);
+    .size([dimensions.height+300, dimensions.width - 300]);
 
   cluster(root);
 
   //Draw Tree
+  const dataCircle=root.descendants()
 
+  const circleScale = d3.scaleRadial()
+  .domain(d3.extent(dataCircle, d=>d.height))
+  .range([1,7])
   // Add the links between nodes:
   bounds
     .selectAll("path")
@@ -63,7 +68,7 @@ async function drawChart() {
         "," +
         d.x +
         "C" +
-        d.parent.y +
+        (d.parent.y +50)+
         "," +
         d.x +
         " " +
@@ -88,7 +93,7 @@ async function drawChart() {
       return `translate(${d.y},${d.x})`;
     })
     .append("circle")
-    .attr("r", 7)
+    .attr("r", d=>circleScale(d.height))
     .style("fill", "#69b3a2")
     .attr("stroke", "black")
     .style("stroke-width", 2);

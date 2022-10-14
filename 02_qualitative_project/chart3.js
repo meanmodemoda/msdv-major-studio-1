@@ -15,6 +15,7 @@ async function drawChart() {
   let dimensions = {
     width: width,
     height: width,
+    radius: width / 2,
     margin: {
       top: 10,
       right: 10,
@@ -40,42 +41,31 @@ async function drawChart() {
     .append("g")
     .style(
       "transform",
-      `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`
+      `translate(${dimensions.margin.left + dimensions.radius}px, ${
+        dimensions.margin.top + dimensions.radius
+      }px)`
     );
 
-  const cluster = d3
-    .cluster()
-    .size([dimensions.height, dimensions.width - 400]);
+  const cluster = d3.cluster().size([360, dimensions.radius - 69]);
 
   cluster(root);
 
   //Draw Tree
 
+  const linksGenerator = d3
+    .linkRadial()
+    .angle(function (d) {
+      return (d.x / 180) * Math.PI;
+    })
+    .radius(function (d) {
+      return d.y;
+    });
   // Add the links between nodes:
   bounds
     .selectAll("path")
-    .data(root.descendants().slice(1))
+    .data(root.links())
     .join("path")
-    .attr("d", function (d) {
-      return (
-        "M" +
-        d.y +
-        "," +
-        d.x +
-        "C" +
-        d.parent.y +
-        "," +
-        d.x +
-        " " +
-        (d.parent.y + 50) +
-        "," +
-        d.parent.x + // 50 and 150 are coordinates of inflexion, play with it to change links shape
-        " " +
-        d.parent.y +
-        "," +
-        d.parent.x
-      );
-    })
+    .attr("d", linksGenerator)
     .style("fill", "none")
     .attr("stroke", "#ccc");
 
@@ -85,7 +75,8 @@ async function drawChart() {
     .data(root.descendants())
     .join("g")
     .attr("transform", function (d) {
-      return `translate(${d.y},${d.x})`;
+      return `rotate(${d.x - 90})
+      translate(${d.y})`;
     })
     .append("circle")
     .attr("r", 7)

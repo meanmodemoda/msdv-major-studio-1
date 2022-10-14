@@ -1,20 +1,22 @@
 async function drawChart() {
   // 1. Access data
-  let dataset = await d3.csv("./transformations.csv");
+  let dataset = await d3.csv("./indicators.csv");
   group = d3.group(
     dataset,
     (d) => d["Transformation"],
-    (d) => d["Goal"]
+    (d) => d["Goal"],
+    (d) => d["Target"]
   );
 
   const root = d3.hierarchy(group);
-  // console.log(hierarchy.children[0].data);
+  console.log(root.children[0].children[0].children[0].data);
 
   //2. Draw Canvas
   const width = 800;
   let dimensions = {
     width: width,
     height: width,
+    radius: width / 2,
     margin: {
       top: 10,
       right: 10,
@@ -40,57 +42,55 @@ async function drawChart() {
     .append("g")
     .style(
       "transform",
-      `translate(${dimensions.margin.left}px, ${dimensions.margin.top}px)`
+      `translate(${dimensions.margin.left + dimensions.radius}px, ${
+        dimensions.margin.top + dimensions.radius
+      }px)`
     );
 
-  const cluster = d3
-    .cluster()
-    .size([dimensions.height, dimensions.width - 400]);
+  const cluster = d3.cluster().size([360, dimensions.radius - 69]);
 
   cluster(root);
 
   //Draw Tree
 
+  const linksGenerator = d3
+    .linkRadial()
+    .angle(function (d) {
+      return (d.x / 180) * Math.PI;
+    })
+    .radius(function (d) {
+      return d.y;
+    });
+
+    const dataCircle=root.descendants()
+
+  const circleScale = d3.scaleRadial()
+  .domain(d3.extent(dataCircle, d=>d.height))
+  .range([1,7])
   // Add the links between nodes:
   bounds
     .selectAll("path")
-    .data(root.descendants().slice(1))
+    .data(root.links())
     .join("path")
-    .attr("d", function (d) {
-      return (
-        "M" +
-        d.y +
-        "," +
-        d.x +
-        "C" +
-        d.parent.y +
-        "," +
-        d.x +
-        " " +
-        (d.parent.y + 50) +
-        "," +
-        d.parent.x + // 50 and 150 are coordinates of inflexion, play with it to change links shape
-        " " +
-        d.parent.y +
-        "," +
-        d.parent.x
-      );
-    })
+    .attr("d", linksGenerator)
     .style("fill", "none")
     .attr("stroke", "#ccc");
 
   // Add a circle for each node.
   bounds
     .selectAll("g")
-    .data(root.descendants())
+    .data(root.descendants().slice(1))
     .join("g")
     .attr("transform", function (d) {
-      return `translate(${d.y},${d.x})`;
+      return `rotate(${d.x - 90})
+      translate(${d.y})`;
     })
     .append("circle")
-    .attr("r", 7)
+    .attr("r", d=>circleScale(d.height))
     .style("fill", "#69b3a2")
     .attr("stroke", "black")
     .style("stroke-width", 2);
+
+    console.log(d3.extent(dataCircle, d=>d.height))
 }
 drawChart();
