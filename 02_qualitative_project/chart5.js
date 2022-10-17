@@ -35,8 +35,8 @@ async function drawChart() {
     .select("#wrapper")
     .append("svg")
     .attr("width", dimensions.width)
-    .attr("height", dimensions.height)
-    .attr("transform", "rotate(90,0,0)");
+    .attr("height", dimensions.height);
+  // .attr("transform", "rotate(180,0,0)");
 
   const bounds = wrapper
     .append("g")
@@ -51,6 +51,13 @@ async function drawChart() {
 
   cluster(root);
 
+  //4. Draw Scale
+  const dataCircle = root.descendants();
+  const circleScale = d3
+    .scaleRadial()
+    .domain(d3.extent(dataCircle, (d) => d.height))
+    .range([1, 7]);
+
   //Draw Tree
 
   const linksGenerator = d3
@@ -62,11 +69,6 @@ async function drawChart() {
       return d.y;
     });
 
-    const dataCircle=root.descendants()
-
-  const circleScale = d3.scaleRadial()
-  .domain(d3.extent(dataCircle, d=>d.height))
-  .range([1,7])
   // Add the links between nodes:
   bounds
     .selectAll("path")
@@ -79,18 +81,18 @@ async function drawChart() {
   // Add a circle for each node.
   bounds
     .selectAll("g")
-    .data(root.descendants().slice(1))
+    .data(dataCircle.slice(1))
     .join("g")
     .attr("transform", function (d) {
       return `rotate(${d.x - 90})
       translate(${d.y})`;
     })
     .append("circle")
-    .attr("r", d=>circleScale(d.height))
-    .style("fill", "#69b3a2")
+    .attr("r", (d) => circleScale(d.height))
+    .style("fill", "url(#img1)")
     .attr("stroke", "black")
-    .style("stroke-width", 2);
+    .style("stroke-width", 0.5);
 
-    console.log(d3.extent(dataCircle, d=>d.height))
+  console.log(d3.extent(dataCircle, (d) => d.height));
 }
 drawChart();

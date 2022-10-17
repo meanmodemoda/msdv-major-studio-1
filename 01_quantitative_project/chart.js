@@ -320,11 +320,3 @@ async function drawChart() {
   // 7. Set up interactions
 }
 drawChart();
-
-const obj = { 1: "good", 2: "bad" };
-
-function findKey(obj, val) {
-  Object.keys(obj).filter((key) => obj[key] === val);
-}
-
-findKey(obj);
