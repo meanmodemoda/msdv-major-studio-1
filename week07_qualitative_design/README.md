@@ -31,4 +31,4 @@ I coded the basic composition of the dendrogram chart in d3.js. I also break dow
 - Hover over tooltip
 - Side bar contents
 
-[Project Link](https://muons.com/msdv-major-studio-1/01_quantitative_project/)
+[Project Link](https://muons.com/msdv-major-studio-1/02_qualitative_project/)
