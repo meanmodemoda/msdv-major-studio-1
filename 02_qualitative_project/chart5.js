@@ -1,7 +1,7 @@
 async function drawChart() {
   // 1. Access data
   let dataset = await d3.csv("./indicators.csv");
-  group = d3.group(
+  const group = d3.group(
     dataset,
     (d) => d["Transformation"],
     (d) => d["Goal"],
