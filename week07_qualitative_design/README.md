@@ -3,9 +3,9 @@
 
 ### Data Preparation
 
-Original Data: The original data was manually compossed in tabular format.
+Original Data: The original data was manually gathered in tabular format.
 
-<img src="./initial_data.png" width="600" alt="Initial Data">
+<img src="./initial_data.png" width="800" alt="Initial Data">
 
 Cleaned Data: To create the dendrogram chart, I need to create hierarchy for the tabular data and I used d3 to convert the data.
 
