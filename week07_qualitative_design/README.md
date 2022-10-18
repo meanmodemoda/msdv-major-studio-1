@@ -5,7 +5,7 @@
 
 Original Data: The original data was manually gathered in tabular format.
 
-<img src="./initial_data.png" width="800" alt="Initial Data">
+<img src="./initial_data.png" width="1000" alt="Initial Data">
 
 Cleaned Data: To create the dendrogram chart, I need to create hierarchy for the tabular data and I used d3 to convert the data.
 
@@ -13,13 +13,13 @@ Cleaned Data: To create the dendrogram chart, I need to create hierarchy for the
 
 ### Design Mockup
 Inspired by Mortiz Stephaner's [Notabilia](https://notabilia.net/) project, I wanted to create a somewhat organic tree structure. However, I was not particularly happy with the horizontal layout.
-<img src="./initial_design.png" width="800" alt="initial design">
+<img src="./initial_design.png" width="1000" alt="initial design">
 
 ### Design Revision
 
 I settled with a circular dendogram.
 
-<img src="./design.png" width="800" alt="Design">
+<img src="./design.png" width="1000" alt="Design">
 
 ### Current Prototype
 
