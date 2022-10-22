@@ -1,16 +1,34 @@
 const width = 664;
 const height = 600;
 
+// d3.csv("./indicators.csv").then((data) => {
+//   const indicatordata = {};
+//   // console.log(data);
+
+//   const target = d3
+//     .nest()
+//     .key((d) => d["Target"])
+//     .entries(data);
+
+//   console.log(target);
+//   const targets = target.map((d) => d.key);
+
+//   const indicators = data.map((d) => d["Indicators"]);
+//   // console.log(indicators);
+// });
+
 let edgeColor = "path";
 
 const _sankey = d3
   .sankey()
-  .nodeWidth(5)
-  .nodePadding(9)
+  .nodeWidth(2)
+  .nodePadding(5)
+  .nodeSort(null)
   .extent([
-    [1, 1],
-    [width - 1, height - 5],
+    [width / 2, 0],
+    [width, height],
   ]);
+
 const sankey = ({ nodes, links }) =>
   _sankey({
     nodes: nodes.map((d) => Object.assign({}, d)),
@@ -29,10 +47,12 @@ const svg = d3
   .style("width", "100%")
   .style("height", "auto")
   .attr("transform", "rotate(270,0,0)");
+// .attr("scale", "1.5");
+// .attr("transform", "translate(0,50%)");
 
-d3.csv("../sankey.csv").then((data) => {
+d3.csv("../sankey2.csv").then((data) => {
   //set up graph in same style as original example but empty
-  sankeydata = { nodes: [], links: [] };
+  const sankeydata = { nodes: [], links: [] };
 
   data.forEach(function (d) {
     sankeydata.nodes.push({ name: d.source });
@@ -79,10 +99,10 @@ d3.csv("../sankey.csv").then((data) => {
     sankeydata.nodes[i] = { name: d };
   });
 
-  console.log(sankeydata);
+  // console.log(sankeydata);
   graph = sankey(sankeydata);
 
-  console.log(graph);
+  // console.log(graph);
 
   svg
     .append("g")
@@ -90,12 +110,12 @@ d3.csv("../sankey.csv").then((data) => {
     .selectAll("rect")
     .data(graph.nodes)
     .join("rect")
-    .attr("x", (d) => d.x1)
-    .attr("y", (d) => d.y1)
-    .attr("height", (d) => d.y0 - d.y1)
-    .attr("width", (d) => d.x1 - d.x0)
-    // .attr("height", (d) => d.y1 - d.y0)
+    .attr("x", (d) => d.x0)
+    .attr("y", (d) => d.y0)
+    // .attr("height", (d) => d.y0 - d.y1)
     // .attr("width", (d) => d.x1 - d.x0)
+    .attr("height", (d) => d.y1 - d.y0)
+    .attr("width", 0.6)
     .attr("fill", (d) => color(d.name))
     .append("title")
     .text((d) => `${d.name}\n${format(d.value)}`);
@@ -159,17 +179,17 @@ d3.csv("../sankey.csv").then((data) => {
     .append("title")
     .text((d) => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
-  // svg
-  //   .append("g")
-  //   .style("font", "10px sans-serif")
-  //   .selectAll("text")
-  //   .data(graph.nodes)
-  //   .join("text")
-  //   .attr("x", (d) => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
-  //   .attr("y", (d) => (d.y1 + d.y0) / 2)
-  //   .attr("dy", "0.35em")
-  //   .attr("text-anchor", (d) => (d.x0 < width / 2 ? "start" : "end"))
-  //   .text((d) => d.name);
+  svg
+    .append("g")
+    .style("font", "8px sans-serif")
+    .selectAll("text")
+    .data(graph.nodes)
+    .join("text")
+    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
+    .attr("y", (d) => (d.y1 + d.y0) / 2)
+    .attr("dy", "0.35em")
+    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
+    .text((d) => (d.height <= 1 ? null : d.name));
 
   // d3 = require("d3@5", "d3-sankey@0.7");
 });

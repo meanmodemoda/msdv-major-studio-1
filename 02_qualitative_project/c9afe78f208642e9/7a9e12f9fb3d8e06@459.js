@@ -1,58 +1,36 @@
-function _1(md) {
-  return md`
-# Example Components
+function _1(md){return(
+md`# Example Components
 
-This notebook contains shared utilities for [D3 charts](/collection/@d3/charts).
-  `;
-}
+This notebook contains shared utilities for [D3 charts](/collection/@d3/charts).`
+)}
 
-function _name(Inputs) {
-  return Inputs.text({ label: "Name", value: "ExampleChart" });
-}
+function _name(Inputs){return(
+Inputs.text({label: "Name", value: "ExampleChart"})
+)}
 
-function _3(howto, name) {
-  return howto(name, { open: true });
-}
+function _3(howto,name){return(
+howto(name, {open: true})
+)}
 
-function _4(howto, name) {
-  return howto(name, {
-    open: true,
-    specifier: "@d3/example",
-    imports: { d3: "d3", d3Sankey: "d3-sankey" },
-  });
-}
+function _4(howto,name){return(
+howto(name, {open: true, specifier: "@d3/example", imports: {d3: "d3", d3Sankey: "d3-sankey"}})
+)}
 
-function _currentSpecifier() {
-  const { pathname } = new URL(document.baseURI);
+function _currentSpecifier()
+{
+  const {pathname} = new URL(document.baseURI);
   return pathname.slice(pathname.startsWith("/d/") ? 3 : 1);
 }
 
-function _howto(currentSpecifier, htl, md, Inputs) {
-  return function howto(name, options = {}) {
-    if (typeof options === "string") options = { specifier: options };
-    const {
-      open,
-      imports = { d3: "d3" },
-      specifier = currentSpecifier,
-    } = options;
-    if (!name) throw new Error("missing name");
-    return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">How do I use this code? 🤔</summary>
+
+function _howto(currentSpecifier,htl,md,Inputs){return(
+function howto(name, options = {}) {
+  if (typeof options === "string") options = {specifier: options};
+  const {open, imports = {d3: "d3"}, specifier = currentSpecifier} = options;
+  if (!name) throw new Error("missing name");
+  return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">How do I use this code? 🤔</summary>
 <div style="margin-bottom: -1em;">${md`
-**To use this chart outside of Observable,** ${
-      specifier === currentSpecifier
-        ? ""
-        : `go to the <a href=/${specifier}?collection=@d3/charts target=_blank>${specifier} notebook</a>, then `
-    }copy-paste the entire function ${name} ${
-      specifier === currentSpecifier ? "below " : ""
-    }including the copyright notice into your application. You’ll also need to install (*e.g.*, <code>yarn add ${Object.values(
-      imports
-    ).join(" ")}</code>) and import (*e.g.*, ${Object.entries(imports)
-      .map(
-        ([name, value]) => `<code>import \\* as ${name} from "${value}"</code>`
-      )
-      .join(
-        ", "
-      )}) D3; see [D3’s README](https://github.com/d3/d3/blob/main/README.md) for details. To render a chart, pass ${name} an array of <i>data</i> and any desired <i>options</i>; it will return an SVG element that you can insert into the DOM.
+**To use this chart outside of Observable,** ${specifier === currentSpecifier ? "" : `go to the <a href=/${specifier}?collection=@d3/charts target=_blank>${specifier} notebook</a>, then `}copy-paste the entire function ${name} ${specifier === currentSpecifier ? "below " : ""}including the copyright notice into your application. You’ll also need to install (*e.g.*, <code>yarn add ${Object.values(imports).join(" ")}</code>) and import (*e.g.*, ${Object.entries(imports).map(([name, value]) => `<code>import \\* as ${name} from "${value}"</code>`).join(", ")}) D3; see [D3’s README](https://github.com/d3/d3/blob/main/README.md) for details. To render a chart, pass ${name} an array of <i>data</i> and any desired <i>options</i>; it will return an SVG element that you can insert into the DOM.
 
 **To use this chart on Observable,** [import it](/@observablehq/introduction-to-imports) into your notebook:
 
@@ -60,10 +38,7 @@ function _howto(currentSpecifier, htl, md, Inputs) {
 import {${name}} from "${specifier}"
 ~~~
 
-${Inputs.button("Copy code", {
-  reduce: () =>
-    navigator.clipboard.writeText(`import {${name}} from "${specifier}"`),
-})}
+${Inputs.button("Copy code", {reduce: () => navigator.clipboard.writeText(`import {${name}} from "${specifier}"`)})}
 
 Then call ${name}(*data*, *options*) as shown above.
 
@@ -72,18 +47,16 @@ To customize this chart, click the <svg width="16" height="16" viewBox="0 0 16 1
 If you have any questions or suggestions, please sign-in to leave a comment. Click the cell menu <svg viewBox="0 0 16 16" width="16" height="16" fill="currentColor" class="pointer"><circle r="1.5" cx="8" cy="2.5"></circle><circle r="1.5" cx="8" cy="7.5"></circle><circle r="1.5" cx="8" cy="12.5"></circle></svg> to the left of any cell, then click <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="w1 h1 mr1" stroke="currentColor" stroke-width="2"><path d="M13 3L9 3L3 3C2.44772 3 2 3.44772 2 4L2 11C2 11.5523 2.44772 12 3 12L7.5 12L9.5 14L11.5 12L13 12C13.5523 12 14 11.5523 14 11L14 4C14 3.44772 13.5523 3 13 3Z"></path><line x1="5" y1="6" x2="10" y2="6"></line><line x1="5" y1="9" x2="11" y2="9"></line></svg> Add comment.
 `}</div>
 </details>`;
-  };
 }
+)}
 
-function _7(altplot) {
-  return altplot(`Plot.barY(alphabet, {x: "letter", y: "frequency"}).plot()`, {
-    open: true,
-  });
-}
+function _7(altplot){return(
+altplot(`Plot.barY(alphabet, {x: "letter", y: "frequency"}).plot()`, {open: true})
+)}
 
-function _altplot(htl, md, Inputs) {
-  return function altplot(code = "", { open } = {}) {
-    return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
+function _altplot(htl,md,Inputs){return(
+function altplot(code = "", {open} = {}) {
+  return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
 <div style="margin-bottom: -1em;">${md`
 Yes! While D3’s low-level abstraction is expressive, you might find it overkill for basic charts. For exploratory data analysis, or just to visualize data quickly, consider [Observable Plot](/@observablehq/plot) instead. Plot is free, [open-source](https://github.com/observablehq/plot), built on top of D3, and maintained by the same people as D3.
 
@@ -93,55 +66,39 @@ For example, the above chart can be written as:
 ${code}
 ~~~
 
-${Inputs.button("Copy code", {
-  reduce: () => navigator.clipboard.writeText(code),
-})}
+${Inputs.button("Copy code", {reduce: () => navigator.clipboard.writeText(code)})}
 
 Try pasting this code into a new cell to see.
 
 `}</div>
 </details>`;
-  };
 }
+)}
 
-function _linkplot(htl, md) {
-  return function linkplot(link = "", { open, title } = {}) {
-    return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
+function _linkplot(htl,md){return(
+function linkplot(link = "", {open, title} = {}) {
+  return htl.html`<details open=${open} style="max-width: 640px; background: #fffced; box-sizing: border-box; padding: 10px 20px;"><summary style="font-weight: bold; cursor: pointer; outline: none;">Is there an easier way? 🤯</summary>
 <div style="margin-bottom: -1em;">${md`
 Yes! While D3’s low-level abstraction is expressive, you might find it overkill for basic charts. For exploratory data analysis, or just to visualize data quickly, consider [Observable Plot](/@observablehq/plot) instead. Plot is free, [open-source](https://github.com/observablehq/plot), built on top of D3, and maintained by the same people as D3.
 
-For example, <a href=${link}>${
-      title || link
-    }</a> reproduces the above chart, with Plot.
+For example, <a href=${link}>${title || link}</a> reproduces the above chart, with Plot.
 
 `}</div>
 </details>`;
-  };
 }
+)}
 
 export default function define(runtime, observer) {
   const main = runtime.module();
   main.variable(observer()).define(["md"], _1);
-  main
-    .variable(observer("viewof name"))
-    .define("viewof name", ["Inputs"], _name);
-  main
-    .variable(observer("name"))
-    .define("name", ["Generators", "viewof name"], (G, _) => G.input(_));
-  main.variable(observer()).define(["howto", "name"], _3);
-  main.variable(observer()).define(["howto", "name"], _4);
-  main
-    .variable(observer("currentSpecifier"))
-    .define("currentSpecifier", _currentSpecifier);
-  main
-    .variable(observer("howto"))
-    .define("howto", ["currentSpecifier", "htl", "md", "Inputs"], _howto);
+  main.variable(observer("viewof name")).define("viewof name", ["Inputs"], _name);
+  main.variable(observer("name")).define("name", ["Generators", "viewof name"], (G, _) => G.input(_));
+  main.variable(observer()).define(["howto","name"], _3);
+  main.variable(observer()).define(["howto","name"], _4);
+  main.variable(observer("currentSpecifier")).define("currentSpecifier", _currentSpecifier);
+  main.variable(observer("howto")).define("howto", ["currentSpecifier","htl","md","Inputs"], _howto);
   main.variable(observer()).define(["altplot"], _7);
-  main
-    .variable(observer("altplot"))
-    .define("altplot", ["htl", "md", "Inputs"], _altplot);
-  main
-    .variable(observer("linkplot"))
-    .define("linkplot", ["htl", "md"], _linkplot);
+  main.variable(observer("altplot")).define("altplot", ["htl","md","Inputs"], _altplot);
+  main.variable(observer("linkplot")).define("linkplot", ["htl","md"], _linkplot);
   return main;
 }

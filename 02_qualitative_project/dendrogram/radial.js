@@ -1,15 +1,14 @@
 async function drawChart() {
   // 1. Access data
   let dataset = await d3.csv("./indicators.csv");
-  const group = d3.group(
+  group = d3.group(
     dataset,
     (d) => d["Transformation"],
-    (d) => d["Goal"],
-    (d) => d["Target"]
+    (d) => d["Goal"]
   );
 
   const root = d3.hierarchy(group);
-  console.log(root.children[0].children[0].children[0].data);
+  // console.log(hierarchy.children[0].data);
 
   //2. Draw Canvas
   const width = 800;
@@ -35,8 +34,8 @@ async function drawChart() {
     .select("#wrapper")
     .append("svg")
     .attr("width", dimensions.width)
-    .attr("height", dimensions.height);
-  // .attr("transform", "rotate(180,0,0)");
+    .attr("height", dimensions.height)
+    .attr("transform", "rotate(90,0,0)");
 
   const bounds = wrapper
     .append("g")
@@ -51,14 +50,8 @@ async function drawChart() {
 
   cluster(root);
 
-  //4. Draw Scale
-  const dataCircle = root.descendants();
-  const circleScale = d3
-    .scaleLinear()
-    .domain(d3.extent(dataCircle, (d) => d.height))
-    .range([1, 20]);
-
   //Draw Tree
+
   const linksGenerator = d3
     .linkRadial()
     .angle(function (d) {
@@ -67,7 +60,6 @@ async function drawChart() {
     .radius(function (d) {
       return d.y;
     });
-
   // Add the links between nodes:
   bounds
     .selectAll("path")
@@ -77,40 +69,19 @@ async function drawChart() {
     .style("fill", "none")
     .attr("stroke", "#ccc");
 
-  //
-  const defs = bounds.append("svg:defs");
-  defs
-    .append("svg:pattern")
-    .attr("id", "image1")
-    .attr("width", 20)
-    .attr("height", 20)
-    .attr("patternUnits", "useSpaceOnUse")
-    .append("svg:image")
-    .attr(
-      "xlink:href",
-      "https://raw.githubusercontent.com/muonius/msdv-major-studio-1/54b45a8dedcdd9f3662fa887e4f86b6808f5014e/02_qualitative_project/assets/1.png"
-    )
-    .attr("width", 20)
-    .attr("height", 20)
-    .attr("x", 0)
-    .attr("y", 0);
-  // .attr("transform", "rotate(90)");
   // Add a circle for each node.
   bounds
     .selectAll("g")
-    .data(dataCircle.slice(1))
+    .data(root.descendants())
     .join("g")
     .attr("transform", function (d) {
       return `rotate(${d.x - 90})
       translate(${d.y})`;
     })
     .append("circle")
-    .attr("r", (d) => circleScale(d.height))
-    .style("fill", "url(#image1)")
+    .attr("r", 1)
+    .style("fill", "#69b3a2")
     .attr("stroke", "black")
-    .style("stroke-width", 0.5);
-
-  console.log(d3.extent(dataCircle, (d) => d.height));
-  console.log(root.children[0].children[0].data);
+    .style("stroke-width", 2);
 }
 drawChart();
