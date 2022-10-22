@@ -3,24 +3,24 @@ async function drawChart() {
 
   dataset.sort((a, b) => a["Transformation"] - b["Transformation"]);
 
-  group = d3.group(
+  let group = d3.group(
     dataset,
     (d) => d["Transformation"],
     (d) => d["Goal"],
     (d) => d["Target"],
     (d) => d["Indicators"]
   );
-  var treeData = d3.hierarchy(group);
 
+  let treeData = d3.hierarchy(group);
   // Set the dimensions and margins of the diagram
-  var margin = { top: 80, right: 20, bottom: 80, left: 90 },
+  const margin = { top: 80, right: 20, bottom: 80, left: 90 },
     width = innerWidth - margin.left - margin.right,
     height = innerHeight - margin.top - margin.bottom;
 
   // append the svg object to the body of the page
   // appends a 'group' element to 'svg'
   // moves the 'group' element to the top left margin
-  var svg = d3
+  const svg = d3
     .select("body")
     .append("svg")
     .attr("width", width + margin.right + margin.left)
@@ -28,7 +28,7 @@ async function drawChart() {
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-  var i = 0,
+  let i = 0,
     duration = 750,
     root;
 
@@ -40,16 +40,18 @@ async function drawChart() {
     return d.children;
   });
   root.x0 = height / 2;
-  root.y0 = 0;
-
+  root.y0 = width / 2;
+  console.log(treeData);
+  console.log(root);
+  //sort children in alphabetical order
   root.children.sort(function (a, b) {
     return a.data.data[0]
       .toLowerCase()
       .localeCompare(b.data.data[0].toLowerCase());
   });
   // Collapse after the second level
+  // root.children.forEach((d) => d.data.data.forEach(collapse));
   root.children.forEach(collapse);
-
   update(root);
 
   // Collapse the node and all it's children
@@ -71,7 +73,15 @@ async function drawChart() {
 
     // Normalize for fixed-depth.
     nodes.forEach(function (d) {
-      return (d.y = d.depth * 220);
+      if (d.depth === 1) {
+        return (d.y = d.depth * 180);
+      } else if (d.depth === 2) {
+        return (d.y = d.depth * 150);
+      } else if (d.depth === 3) {
+        return (d.y = d.depth * 150);
+      } else if (d.depth === 4) {
+        return (d.y = d.depth * 450);
+      }
     });
 
     // ****************** Nodes section ***************************
@@ -111,11 +121,9 @@ async function drawChart() {
         return d.children || d._children ? -10 : -20;
       })
       .attr("text-anchor", function (d) {
-        return d.children || d._children ? "start" : "start";
+        return d.descendants() ? "start" : "middle";
       })
-      .text((d) => d.data.data[0]);
-
-    console.log(source);
+      .html((d) => d.data.data[0]);
 
     // UPDATE
     var nodeUpdate = nodeEnter.merge(node);
@@ -133,6 +141,7 @@ async function drawChart() {
       .select("circle.node")
       .attr("r", 1)
       .style("fill", function (d) {
+        // return "none";
         return d._children ? "lightsteelblue" : "#fff";
       })
       .attr("cursor", "pointer");

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<style>
+
+.node circle {
+  fill: #fff;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.node text {
+  font: 12px sans-serif;
+}
+
+.link {
+  fill: none;
+  stroke: #ccc;
+  stroke-width: 2px;
+}
+
+</style>
+
+<body>
+
+<!-- load the d3.js library -->	
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://unpkg.com/d3-array@1"></script>
+<script src="https://unpkg.com/d3-collection@1"></script>
+<script src="https://unpkg.com/d3-path@1"></script>
+<script src="https://unpkg.com/d3-shape@1"></script>
+<script src="https://unpkg.com/d3-sankey@0"></script>
+<script src="https://unpkg.com/d3-require@1"></script>
+<script type="module">
+
+import * as d3 from "https://cdn.skypack.dev/d3@7"
+import * as d3Sankey from 'https://cdn.skypack.dev/d3-sankey';
+
+const div = d3.selectAll("div");
+</script>
+
+<script src="./chart.js"></script>
+</body>

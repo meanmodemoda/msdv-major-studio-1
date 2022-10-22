@@ -1,35 +1,35 @@
-Source,Target,Value
-"Education, Gender, and Inequality",No Povery,1
-No Povery,Eradicate extreme poverty,1
-No Povery,Reduce at least by half the proportion of people living in poverty,1
-No Povery,Implement social protection systems,1
-No Povery,Ensure equal rights to economic resources,1
-No Povery,Reduce exposure and vulnerability to climate-related extreme events,1
-No Povery,Ensure significant mobilization of resources,1
-No Povery,Create policy frameworks to support investment in poverty eradication,1
-"Education, Gender, and Inequality",Reduced Inequalities,1
-Reduced Inequalities,Achieve and sustain income growth of the bottom 40 per cent of the population,1
-Reduced Inequalities,"Empower and promote the social, economic and political inclusion of all",1
-Reduced Inequalities,Ensure equal opportunity and reduce inequalities of outcome,1
-Reduced Inequalities,"Adopt policies, especially fiscal, wage and social protection policies",1
-Reduced Inequalities,Improve the regulation and monitoring of global financial markets and institutions,1
-Reduced Inequalities,Ensure enhanced representation and voice for developing countries,1
-Reduced Inequalities,"Facilitate orderly, safe, regular and responsible migration and mobility of people",1
-Reduced Inequalities,Implement the principle of special and differential treatment for developing countries,1
-Reduced Inequalities,Encourage official development assistance and financial flows,1
-Reduced Inequalities,Reduce to less than 3 per cent the transaction costs of migrant remittances,1
-"Education, Gender, and Inequality",Quality Education,1
-Quality Education,"Ensure complete free, equitable and quality primary and secondary education",1
-Quality Education,Ensure quality early childhood development,1
-Quality Education,"Ensure equal access to affordable and quality technical, vocational and tertiary education",1
-Quality Education,"Increase the number of youth and adults who have relevant skills for employment, decent jobs and entrepreneurship",1
-Quality Education,Eliminate gender disparities in education,1
-Quality Education,Ensure that all youth and a substantial proportion of adults achieve literacy and numeracy,1
-Quality Education,Ensure that all learners acquire the knowledge and skills needed to promote sustainable development,1
-Quality Education,Build and upgrade education facilities,1
-Quality Education,Epand globally the number of scholarships available to developing countries,1
-Quality Education,Increase the supply of qualified teachers,1
-"Education, Gender, and Inequality",Gender Equality,1
+source,target,value
+"Education, Gender, and Inequality",1. No Povery,7
+1. No Povery,Eradicate extreme poverty,1
+1. No Povery,Reduce at least by half the proportion of people living in poverty,1
+1. No Povery,Implement social protection systems,1
+1. No Povery,Ensure equal rights to economic resources,1
+1. No Povery,Reduce exposure and vulnerability to climate-related extreme events,1
+1. No Povery,Ensure significant mobilization of resources,1
+1. No Povery,Create policy frameworks to support investment in poverty eradication,1
+"Education, Gender, and Inequality",2. Reduced Inequalities,10
+2. Reduced Inequalities,Achieve and sustain income growth of the bottom 40 per cent of the population,1
+2. Reduced Inequalities,"Empower and promote the social, economic and political inclusion of all",1
+2. Reduced Inequalities,Ensure equal opportunity and reduce inequalities of outcome,1
+2. Reduced Inequalities,"Adopt policies, especially fiscal, wage and social protection policies",1
+2. Reduced Inequalities,Improve the regulation and monitoring of global financial markets and institutions,1
+2. Reduced Inequalities,Ensure enhanced representation and voice for developing countries,1
+2. Reduced Inequalities,"Facilitate orderly, safe, regular and responsible migration and mobility of people",1
+2. Reduced Inequalities,Implement the principle of special and differential treatment for developing countries,1
+2. Reduced Inequalities,Encourage official development assistance and financial flows,1
+2. Reduced Inequalities,Reduce to less than 3 per cent the transaction costs of migrant remittances,1
+"Education, Gender, and Inequality",10. Quality Education,10
+10. Quality Education,"Ensure complete free, equitable and quality primary and secondary education",1
+10. Quality Education,Ensure quality early childhood development,1
+10. Quality Education,"Ensure equal access to affordable and quality technical, vocational and tertiary education",1
+10. Quality Education,"Increase the number of youth and adults who have relevant skills for employment, decent jobs and entrepreneurship",1
+10. Quality Education,Eliminate gender disparities in education,1
+10. Quality Education,Ensure that all youth and a substantial proportion of adults achieve literacy and numeracy,1
+10. Quality Education,Ensure that all learners acquire the knowledge and skills needed to promote sustainable development,1
+10. Quality Education,Build and upgrade education facilities,1
+10. Quality Education,Epand globally the number of scholarships available to developing countries,1
+10. Quality Education,Increase the supply of qualified teachers,1
+"Education, Gender, and Inequality",Gender Equality,9
 Gender Equality,End discrimination against all women and girls,1
 Gender Equality,Eliminate violence against all women and girls,1
 Gender Equality,Eliminate all harmful practices,1
@@ -39,7 +39,7 @@ Gender Equality,Ensure universal access to sexual and reproductive health and re
 Gender Equality,Undertake reforms to give women equal rights to economic resources,1
 Gender Equality,Enhance the use of enabling technology,1
 Gender Equality,Adopt and strengthen policies and enforceable legislation for the promotion of gender equality,1
-"Health, Wellbeing, and Demography",Good Health and Well-Being,1
+"Health, Wellbeing, and Demography",Good Health and Well-Being,13
 Good Health and Well-Being,Reduce global maternal mortality ratio,1
 Good Health and Well-Being,End preventable deaths of newborns and children under 5 years of age,1
 Good Health and Well-Being,"End the epidemics of AIDS, tuberculosis, malaria and other communicable diseases",1
@@ -53,7 +53,7 @@ Good Health and Well-Being,Strengthen the implementation of the World Health Org
 Good Health and Well-Being,Support the R&D of vaccines and medicines for the communicable and non‑communicable diseases,1
 Good Health and Well-Being,Substantially increase health financing and the development of the health workforce,1
 Good Health and Well-Being,"Strengthen the capacity of early warning, risk reduction and management of national and global health risks",1
-Energy Decarbonisation and Sustainable Industry,Responsible Consumption and Production,1
+Energy Decarbonisation and Sustainable Industry,Responsible Consumption and Production,11
 Responsible Consumption and Production,Implement the 10‑Year Framework of Programmes on Sustainable Consumption and Production Patterns,1
 Responsible Consumption and Production,Achieve the sustainable management and efficient use of natural resources,1
 Responsible Consumption and Production,Halve per capita global food waste at the retail and consumer levels,1
@@ -65,7 +65,7 @@ Responsible Consumption and Production,Ensure access of relevant information and
 Responsible Consumption and Production,Support developing countries to strengthen their scientific and technological capacity,1
 Responsible Consumption and Production,Develop and implement tools to monitor sustainable development impacts for sustainable tourism,1
 Responsible Consumption and Production,Rationalize inefficient fossil-fuel subsidies,1
-Energy Decarbonisation and Sustainable Industry,Affordable and Clean Energy,1
+Energy Decarbonisation and Sustainable Industry,Affordable and Clean Energy,5
 Affordable and Clean Energy,"Ensure universal access to affordable, reliable and modern energy services",1
 Affordable and Clean Energy,Increase substantially the share of renewable energy in the global energy mix,1
 Affordable and Clean Energy,Double the global rate of improvement in energy efficiency,1
