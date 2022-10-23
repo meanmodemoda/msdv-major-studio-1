@@ -6,7 +6,7 @@ let edgeColor = "path";
 const _sankey = d3
   .sankey()
   .nodeWidth(1)
-  .nodePadding(4)
+  .nodePadding(2)
   .nodeSort(null)
   .extent([
     [1, 1],

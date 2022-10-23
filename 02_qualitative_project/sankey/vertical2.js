@@ -1,4 +1,4 @@
-const width = 420;
+const width = 400;
 const height = 400;
 
 let edgeColor = "path";
@@ -28,7 +28,7 @@ const color = (name) => _color(name.replace(/ .*/, ""));
 const svg = d3
   .select("#chart")
   .attr("viewBox", `0 0 ${width} ${height}`)
-  .style("width", "82%")
+  .style("width", "76%")
   .style("height", "100%")
   .attr("transform", "rotate(270,0,0)");
 // .attr("scale", "1.5");
@@ -167,15 +167,15 @@ d3.csv("../sankey2.csv").then((data) => {
 
   svg
     .append("g")
-    .style("font", "8px sans-serif")
+    .style("font", "6px sans-serif")
     .selectAll("text")
     .data(graph.nodes)
     .join("text")
-    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 + 6 : d.x0 - 6))
-    .attr("y", (d) => (d.y1 + d.y0) / 2)
+    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
+    .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
     .attr("dy", "0.35em")
-    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"));
-  // .text((d) => (d.height <= 1 ? null : d.name));
+    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
+    .text((d) => (d.height <= 1 ? null : d.name));
 
   // d3 = require("d3@5", "d3-sankey@0.7");
 });
