@@ -9,8 +9,8 @@ const _sankey = d3
   .nodePadding(2.2)
   .nodeSort(null)
   .extent([
-    [width / 3, 0],
-    [width, height],
+    [width / 2.6, 0],
+    [width, height - 100],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -28,8 +28,8 @@ const color = (name) => _color(name.replace(/ .*/, ""));
 const svg = d3
   .select("#chart")
   .attr("viewBox", `0 0 ${width} ${height}`)
-  .style("width", "76%")
-  .style("height", "100%")
+  .style("width", "100%")
+  .style("height", "auto%")
   .attr("transform", "rotate(270,0,0)");
 // .attr("scale", "1.5");
 // .attr("transform", "translate(0,50%)");
