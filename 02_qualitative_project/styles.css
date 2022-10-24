@@ -2,6 +2,8 @@
 *:before,
 *:after {
   box-sizing: inherit;
+  margin: 0;
+  padding: 0;
 }
 
 /* body {
@@ -9,7 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
- padding: 2em 2em; 
+ padding: 2em 2em;
   font-size: 16px;
   color: #34495e;
   background: #f8f9fa;
@@ -26,6 +28,7 @@ svg {
   background-color: #0080ff;
   overflow: hidden;
 }
+
 .title {
   position: relative;
   font-family: "Oswald";
@@ -36,6 +39,12 @@ svg {
   line-height: 0.1em;
   padding-bottom: 0;
   color: #f8f9fa;
+}
+
+#chart{
+  left: 0;
+  top: 0;
+  position: absolute;
 }
 
 h4 {

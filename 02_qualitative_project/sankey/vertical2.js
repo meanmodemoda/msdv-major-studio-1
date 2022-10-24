@@ -1,19 +1,25 @@
+// const e = require("express");
+
 const width = 400;
-const height = 400;
+const height = 300;
 
 let edgeColor = "path";
 
 const _sankey = d3
   .sankey()
   .nodeWidth(0)
-  .nodePadding(2.2)
+  .nodeAlign(d3.sankeyCenter)
+  .nodePadding(2)
   .nodeSort(null)
   .extent([
     [width / 2.2, 0],
     [width, height - 100],
   ]);
 
-const sankey = ({ nodes, links }) =>
+const sankey = ({
+    nodes,
+    links
+  }) =>
   _sankey({
     nodes: nodes.map((d) => Object.assign({}, d)),
     links: links.map((d) => Object.assign({}, d)),
@@ -25,22 +31,43 @@ const format = (d) => `${f(d)} TWh`;
 const _color = d3.scaleOrdinal(d3.schemeCategory10);
 const color = (name) => _color(name.replace(/ .*/, ""));
 
-const svg = d3
+d3
   .select("#chart")
   .attr("viewBox", `0 0 ${width} ${height}`)
+  .style("VerticalAlignment", "Top")
   .style("width", "100%")
-  .style("height", "auto%")
-  .attr("transform", "rotate(270,0,0)");
+  .style("height", "auto")
+  // .style("border", "1px solid #000")
+  .append("g");
+
+const svg = d3.select("#chart g")
+
+// svg.append('circle')
+// .attr('cx', 0 )
+// .attr('cy', 0 )
+// .attr('r', 20)
+// .style('fill', 'red');
+
+svg.attr("transform",
+`rotate(-90, 0, 0) translate(-${window.innerHeight/2.5}, 0)`)
+
 // .attr("scale", "1.5");
 // .attr("transform", "translate(0,50%)");
 
 d3.csv("../sankey.csv").then((data) => {
   //set up graph in same style as original example but empty
-  const sankeydata = { nodes: [], links: [] };
+  const sankeydata = {
+    nodes: [],
+    links: []
+  };
 
   data.forEach(function (d) {
-    sankeydata.nodes.push({ name: d.source });
-    sankeydata.nodes.push({ name: d.target });
+    sankeydata.nodes.push({
+      name: d.source
+    });
+    sankeydata.nodes.push({
+      name: d.target
+    });
     sankeydata.links.push({
       source: d.source,
       target: d.target,
@@ -73,7 +100,9 @@ d3.csv("../sankey.csv").then((data) => {
   // now loop through each nodes to make nodes an array of objects
   // rather than an array of strings
   sankeydata.nodes.forEach(function (d, i) {
-    sankeydata.nodes[i] = { name: d };
+    sankeydata.nodes[i] = {
+      name: d
+    };
   });
 
   // console.log(sankeydata);
@@ -131,25 +160,49 @@ d3.csv("../sankey.csv").then((data) => {
       gradient
         .append("stop")
         .attr("offset", "0%")
-        .attr("stop-color", (d) => color(d.source.name));
+        .attr("stop-color", (d) => {
+
+          // the first layer
+          if (d.source.x1 > width / 2) {
+            return color(d.source.name)
+          } else {
+            return color(d.target.name)
+          }
+        });
 
       gradient
         .append("stop")
         .attr("offset", "100%")
-        .attr("stop-color", (d) => color(d.target.name));
+        .attr("stop-color", (d) => {
+
+          // the first layer
+          if (d.source.x1 > width / 2) {
+            return color(d.source.name)
+          } else {
+            return color(d.target.name)
+          }
+        });
     }
 
     link
       .append("path")
       .attr("d", d3.sankeyLinkHorizontal())
       .attr("stroke", (d) =>
-        edgeColor === "path"
-          ? d.uid
-          : edgeColor === "input"
-          ? color(d.source.name)
-          : color(d.target.name)
+        edgeColor === "path" ?
+        d.uid :
+        edgeColor === "input" ?
+        color(d.source.name) :
+        color(d.target.name)
       )
-      .attr("stroke-width", (d) => Math.max(1, d.width));
+      .attr("stroke-width", (d) => {
+
+        // the first layer
+        if (d.source.x1 > width / 2) {
+          return 0.5
+        } else {
+          return 1
+        }
+      });
   }
 
   update();
@@ -171,10 +224,24 @@ d3.csv("../sankey.csv").then((data) => {
   // .text((d) => (d.height <= 1 ? null : d.name));
 
   // Add lines
-  const lines = [
-    { x1: width - 1, y1: height - 92, x2: width - 1, y2: height },
-    { x1: width - 109, y1: height - 228, x2: width - 109, y2: height },
-    { x1: width - 218, y1: height - 228, x2: width - 218, y2: height },
+  const lines = [{
+      x1: width - 1,
+      y1: height - 92,
+      x2: width - 1,
+      y2: height
+    },
+    {
+      x1: width - 109,
+      y1: height - 228,
+      x2: width - 109,
+      y2: height
+    },
+    {
+      x1: width - 218,
+      y1: height - 228,
+      x2: width - 218,
+      y2: height
+    },
   ];
 
   lines.forEach((l) => {
