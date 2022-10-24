@@ -10,7 +10,7 @@ const _sankey = d3
   .nodeSort(null)
   .extent([
     [1, 1],
-    [width, height - 5],
+    [width, height - 50],
   ]);
 const sankey = ({ nodes, links }) =>
   _sankey({
@@ -31,7 +31,7 @@ const svg = d3
   .style("height", "auto");
 // .attr("transform", "rotate(270,0,0)");
 
-d3.csv("../sankey2.csv").then((data) => {
+d3.csv("../sankey.csv").then((data) => {
   //set up graph in same style as original example but empty
   sankeydata = { nodes: [], links: [] };
 

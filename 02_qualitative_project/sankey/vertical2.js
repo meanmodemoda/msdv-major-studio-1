@@ -9,7 +9,7 @@ const _sankey = d3
   .nodePadding(2.2)
   .nodeSort(null)
   .extent([
-    [width / 2.6, 0],
+    [width / 2.2, 0],
     [width, height - 100],
   ]);
 
@@ -34,7 +34,7 @@ const svg = d3
 // .attr("scale", "1.5");
 // .attr("transform", "translate(0,50%)");
 
-d3.csv("../sankey2.csv").then((data) => {
+d3.csv("../sankey.csv").then((data) => {
   //set up graph in same style as original example but empty
   const sankeydata = { nodes: [], links: [] };
 
@@ -49,10 +49,7 @@ d3.csv("../sankey2.csv").then((data) => {
   });
 
   // return only the distinct / unique nodes
-  // sankeydata.nodes = Array.from(
-  //   d3.group(sankeydata.nodes, (d) => d.name),
-  //   ([value]) => value
-  // );
+
   const test = d3
     .nest()
     .key((d) => d.name)
@@ -62,11 +59,7 @@ d3.csv("../sankey2.csv").then((data) => {
 
   sankeydata.nodes = test.map((d) => d.key);
   // console.log(sankeydata.nodes);
-  //   d3
-  //     .nest()
-  //     .key((d) => d.name)
-  //     .entries(sankeydata.nodes)
-  // );
+
   // loop through each link replacing the text with its index from node
   sankeydata.links.forEach(function (d, i) {
     sankeydata.links[i].source = sankeydata.nodes.indexOf(
@@ -174,8 +167,27 @@ d3.csv("../sankey2.csv").then((data) => {
     .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
     .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
     .attr("dy", "0.35em")
-    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
-    .text((d) => (d.height <= 1 ? null : d.name));
+    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"));
+  // .text((d) => (d.height <= 1 ? null : d.name));
 
-  // d3 = require("d3@5", "d3-sankey@0.7");
+  // Add lines
+  const lines = [
+    { x1: width - 1, y1: height - 92, x2: width - 1, y2: height },
+    { x1: width - 109, y1: height - 228, x2: width - 109, y2: height },
+    { x1: width - 218, y1: height - 228, x2: width - 218, y2: height },
+  ];
+
+  lines.forEach((l) => {
+    svg
+      .append("g")
+      .append("line")
+      .attr("x1", l.x1)
+      .attr("y1", l.y1)
+      .attr("x2", l.x2)
+      .attr("y2", l.y2)
+      .attr("stroke", "black")
+      .attr("stroke-width", "0.15");
+  });
+
+  // .style("stroke-width", "0.2px");
 });

@@ -50,7 +50,7 @@ const svg = d3
   .attr("scale", "0.9");
 // .attr("transform", "translate(0,50%)");
 
-d3.csv("../sankey2.csv").then((data) => {
+d3.csv("../sankey.csv").then((data) => {
   //set up graph in same style as original example but empty
   const sankeydata = { nodes: [], links: [] };
 
