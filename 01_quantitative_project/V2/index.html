@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="./styles.css" type="text/css">
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;900&family=Oswald:wght@700&family=Anton&display=swap" rel="stylesheet">
+    </link>
+
+    <title>SDG SCOREBOARD 2022 </title>
+</head>
+
+<body>
+    <!-- <nav class="header sticky">
+    <h2 class="title"> -->
+        <!-- SDG SCOREBOARD 2022 -->
+    <!-- </h2>
+  </nav> -->
+  <!-- <div class="tagline"><h4>Plotting world and regional SDG scores</h4></div> -->
+     <div class="content">
+
+    <div id="wrapper" class="wrapper"> </div>
+  
+</div> 
+
+<div class="footnote">
+  <p>Data source: https://dashboards.sdgindex.org/explorer</p>
+ 
+</div>
+<div class="tooltip" id="tooltip">
+    <div class="tooltip-metric tooltip-region">
+    <div>Region</div>
+    <div id="tooltip-region"></div>
+</div>
+<div class="tooltip-metric tooltip-goal">
+    <div>Goal</div>
+    <div id="tooltip-goal"></div>
+</div>
+<div class="tooltip-metric tooltip-score">
+    <div>Score</div>
+    <div id="tooltip-score"></div>
+</div>
+
+        <script src="https://unpkg.com/d3"></script>
+        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+        <script src="./chart.js"></script>
+    
+</body>
+
+</html>
