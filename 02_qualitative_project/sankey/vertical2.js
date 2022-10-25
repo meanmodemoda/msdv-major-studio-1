@@ -10,7 +10,7 @@ const _sankey = d3
   .nodePadding(2)
   .nodeSort(null)
   .extent([
-    [width / 2.2, 30],
+    [width / 2, 30],
     [width, height - 60],
   ]);
 
@@ -189,13 +189,6 @@ d3.csv("../sankey.csv").then((data) => {
       .on("mouseover", onMouseEnter);
 
     // add the link titles
-    link
-      .append("title")
-      .append("div")
-      .attr("class", "title")
-      .text(function (d) {
-        return d.source.name + " → " + d.target.name;
-      });
   }
 
   update();
@@ -203,6 +196,20 @@ d3.csv("../sankey.csv").then((data) => {
   // link
   //   .append("title")
   //   .text((d) => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
+
+  const foreign = svg
+    .append("foreignObject")
+    .style("class", "method")
+    .style("x", 120)
+    .style("y", 200)
+    .style("width", 100)
+    .style("background", "green")
+    .style("height", 400)
+    .append("xhtml:div")
+    // .style("transform", `rotate(-90deg, 0, 0)`)
+    .html(
+      "<h3 style='font-size: 14px; font-weight: 700; color: #004d00;'>SDG At A Glace</h3>"
+    );
 
   svg
     .append("g")
@@ -314,22 +321,10 @@ function onMouseLeave(event) {
 
 const title = d3.select("#title");
 title
-  .append("text")
-  .text(`hello`)
+  .append("g")
+  .append("html")
   .attr("color", "black")
-  .attr("font-size", "3rem")
+  .style("font-size", "5rem")
   .style("font-weight", "700")
-  .style("transform", `translate(800px,300px)`);
-
-const foreign = svg
-  .append("foreignObject")
-  .attr("class", "method")
-  .attr("x", 120)
-  .attr("y", 200)
-  .style("width", 100)
-  .style("height", 150)
-  .append("xhtml:div")
-  .style("transform", "rotate(90deg)")
-  .html(
-    "<h3 style='font-size: 14px; font-weight: 700; color: #004d00;'>SDG At A Glace</h3>"
-  );
+  .style("transform", `translate(300px,600px)`)
+  .html(`SDG At A Glace`);
