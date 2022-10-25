@@ -228,6 +228,7 @@ d3.csv("../sankey.csv").then((data) => {
     link
       .append("path")
       .attr("class", "link")
+      .attr("id", (d, i) => d.index)
       .attr("d", d3.sankeyLinkHorizontal())
       // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
       .attr("stroke", (d) => d.uid)
@@ -276,18 +277,43 @@ d3.csv("../sankey.csv").then((data) => {
     .style("fill", "#34495e")
     .style("transform", `translateX(180px) rotate(90deg)`);
 
+  //text label
+  // svg
+  //   .append("g")
+  //   .style("font", "6px sans-serif")
+  //   .selectAll("text")
+  //   .data(graph.nodes)
+  //   .join("text")
+  //   .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
+  //   .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
+  //   .attr("dy", "0.2em")
+  //   .attr("font-size")
+  //   .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
+  //   .text((d) => (d.height <= 1 ? null : d.name));
+
+  //append label
   svg
-    .append("g")
-    .style("font", "6px sans-serif")
-    .selectAll("text")
-    .data(graph.nodes)
-    .join("text")
-    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
-    .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
-    .attr("dy", "0.2em")
-    .attr("font-size")
-    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
-    .text((d) => (d.height <= 1 ? null : d.name));
+    .append("text")
+    .attr("class", "tick-label")
+    .append("textPath")
+    .attr("xlink:href", "#1")
+    .text("Goals")
+    .attr("text-align", "right");
+
+  svg
+    .append("text")
+    .attr("class", "tick-label")
+    .append("textPath")
+    .attr("xlink:href", "#1")
+    .text("Targets")
+    .style("text-align", "left");
+
+  svg
+    .append("text")
+    .attr("class", "tick-label")
+    .append("textPath")
+    .attr("xlink:href", "#0")
+    .text("Themes");
 
   //Add lines
   const lines = [
