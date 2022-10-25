@@ -23,8 +23,8 @@ const sankey = ({ nodes, links }) =>
 const f = d3.format(",.0f");
 const format = (d) => `${f(d)} TWh`;
 
-const _color = d3.scaleOrdinal(d3.schemeCategory10);
-const color = (name) => _color(name.replace(/ .*/, ""));
+// const _color = d3.scaleOrdinal(d3.schemeCategory10);
+// const color = (name) => _color(name.replace(/ .*/, ""));
 
 d3.select("#chart")
   .attr("viewBox", `0 0 ${width} ${height}`)
@@ -70,14 +70,14 @@ d3.csv("../sankey.csv").then((data) => {
 
   // return only the distinct / unique nodes
 
-  const test = d3
+  const unique = d3
     .nest()
     .key((d) => d.name)
     .entries(sankeydata.nodes);
 
   // console.log(test);
 
-  sankeydata.nodes = test.map((d) => d.key);
+  sankeydata.nodes = unique.map((d) => d.key);
   // console.log(sankeydata.nodes);
 
   // loop through each link replacing the text with its index from node
@@ -97,6 +97,29 @@ d3.csv("../sankey.csv").then((data) => {
       name: d,
     };
   });
+
+  //set up color scale
+  const palette = [
+    "#E5233D",
+    "#DEA739",
+    "#4CA146",
+    "#C7212E",
+    "#EF402D",
+    "#27BFE6",
+    "#FBC412",
+    "#A21D43",
+    "#F26A2E",
+    "#E01583",
+    "#F89D2A",
+    "#BF8D2C",
+    "#407F46",
+    "#2097D4",
+    "#59BA48",
+    "#126A9E",
+    "#15496B",
+  ];
+
+  const color = d3.scaleOrdinal().domain(sankeydata.nodes).range(palette);
 
   // console.log(sankeydata);
   graph = sankey(sankeydata);
