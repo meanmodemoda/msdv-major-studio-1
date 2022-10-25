@@ -14,7 +14,7 @@ body {
   padding: 2em 2em;
   font-size: 16px;
   color: #34495e;
-  background: #f8f9fa;
+  background: white;
 }
 
 svg {
@@ -110,7 +110,7 @@ h4 {
 .tooltip {
   opacity: 0;
   position: absolute;
-  top: 0;
+  top: 30;
   left: 0;
   width: 30em;
   padding: 0.6em 1em;
@@ -133,15 +133,6 @@ h4 {
   padding-left: 3rem;
   /* padding: 6rem; */
   transform: translate(0, 35%);
-  /* background: red; */
-}
-.placeholder.left {
-  width: 10%;
-  /* background: red; */
-}
-
-.placeholder.right {
-  width: 10%;
   /* background: red; */
 }
 .paragraph p {
@@ -267,4 +258,23 @@ ul {
   background: -webkit-linear-gradient(left, #5f9ea0, #6495ed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
+}
+
+.first-layer {
+  display: block;
+  /* background: red; */
+}
+
+.first-layer img {
+  float: left;
+}
+#first-layer {
+  /* float: right; */
+  padding-top: 5%;
+  padding-left: 25%;
+  /* background: green; */
+}
+.first-layer p {
+  padding-top: 5%;
+  padding-left: 20%;
 }

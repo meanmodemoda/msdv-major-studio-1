@@ -10,8 +10,8 @@ const _sankey = d3
   .nodePadding(2)
   .nodeSort(null)
   .extent([
-    [width / 2, 30],
-    [width, height - 60],
+    [width / 2, 10],
+    [width, height - 50],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -80,6 +80,7 @@ d3.csv("../sankey.csv").then((data) => {
   sankeydata.nodes = unique.map((d) => d.key);
   // console.log(sankeydata.nodes);
 
+  console.log(sankeydata.nodes);
   // loop through each link replacing the text with its index from node
   sankeydata.links.forEach(function (d, i) {
     sankeydata.links[i].source = sankeydata.nodes.indexOf(
@@ -119,7 +120,27 @@ d3.csv("../sankey.csv").then((data) => {
     "#15496B",
   ];
 
-  const color = d3.scaleOrdinal().domain(sankeydata.nodes).range(palette);
+  const nameRange = [
+    "01. No Poverty",
+    "02. Zero Hunger",
+    "03. Good Health and Well-Being",
+    "04. Quality Education",
+    "05. Gender Equality",
+    "06. Clean Water and Sanitation",
+    "07. Affordable and Clean Energy",
+    "08. Decent Work and Economic Growth",
+    "09. Industry, Innovation, and Infrastructure",
+    "10. Reduced Inequalities",
+    "11. Sustainable Cities and Communities",
+    "12. Responsible Consumption and Production",
+    "13. Climate Action",
+    "14. LIfe below Water",
+    "15. Life on Land",
+    "16. Peace, Justice and Strong Institutions",
+    "17. Partnerships for the Goals",
+  ];
+
+  const color = d3.scaleOrdinal().domain(nameRange).range(palette);
 
   // console.log(sankeydata);
   graph = sankey(sankeydata);
@@ -209,7 +230,8 @@ d3.csv("../sankey.csv").then((data) => {
           return 0.6;
         }
       })
-      .on("mouseover", onMouseEnter);
+      .on("mouseover", onMouseEnter)
+      .on("mouseleave", onMouseLeave);
 
     // add the link titles
   }
@@ -227,7 +249,19 @@ d3.csv("../sankey.csv").then((data) => {
     .text(`SDG at A Glace`)
     .style("font", "15px DM Sans")
     .attr("x", width / 2 + 25)
-    .attr("y", 25)
+    .attr("y", 12)
+    .attr("text-anchor", "start")
+    // .style("fill", "url(#rainbow)")
+    .style("transform", `translateX(180px) rotate(90deg)`);
+
+  const tagline = svg
+    .append("g")
+    .append("text")
+    .attr("class", "tagling")
+    .text(`Transformations, Goals and Targets`)
+    .style("font", "7px DM Sans")
+    .attr("x", width / 2 + 25)
+    .attr("y", 22)
     .attr("text-anchor", "start")
     // .style("fill", "url(#rainbow)")
     .style("transform", `translateX(180px) rotate(90deg)`);
@@ -244,25 +278,25 @@ d3.csv("../sankey.csv").then((data) => {
   //   .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"));
   // .text((d) => (d.height <= 1 ? null : d.name));
 
-  // Add lines
+  //Add lines
   // const lines = [
   //   {
   //     x1: width - 1,
-  //     y1: height - 92,
+  //     y1: height - 282,
   //     x2: width - 1,
-  //     y2: height,
+  //     y2: 0,
   //   },
   //   {
-  //     x1: width - 109,
-  //     y1: height - 228,
-  //     x2: width - 109,
-  //     y2: height,
+  //     x1: width - 75,
+  //     y1: height - 242,
+  //     x2: width - 75,
+  //     y2: 0,
   //   },
   //   {
-  //     x1: width - 218,
-  //     y1: height - 228,
-  //     x2: width - 218,
-  //     y2: height,
+  //     x1: width - 148,
+  //     y1: height - 242,
+  //     x2: width - 148,
+  //     y2: 0,
   //   },
   // ];
 
@@ -275,10 +309,9 @@ d3.csv("../sankey.csv").then((data) => {
   //     .attr("x2", l.x2)
   //     .attr("y2", l.y2)
   //     .attr("stroke", "black")
-  //     .attr("stroke-width", "0.15");
+  //     .attr("stroke-width", "0.15")
+  //     .style("stroke-width", "0.2px");
   // });
-
-  // .style("stroke-width", "0.2px");
 });
 
 const tooltip = d3.select("#tooltip");
@@ -296,13 +329,15 @@ function onMouseEnter(event) {
     tooltip
       .select("#tooltip-goal")
       .html(
-        `<img src=${img} width="80px"/>
-        <ul>
-        <li>Goal ${event.source.name}</li>
-        <li>Target ${event.target.name}</li>
-        </ul>`
+        `<div class="first-layer"><img src=${img} width="200px"/>
+        <div id="first-layer">
+        <h3 style=("font-size","5em")>Goal ${event.source.name}</h3>
+        <div class="placeholder"></div>
+        <p>Target ${event.target.name}</p>
+        </div>
+        </div>`
       )
-      .style("font-weight", "700");
+      .style("font-weight", "400");
   }
 
   if (event.source.height == 2) {
@@ -311,13 +346,15 @@ function onMouseEnter(event) {
     tooltip
       .select("#tooltip-goal")
       .html(
-        `<img src=${img} width="80px"/>
-        <ul>
-        <li style =("font-size","2em" > Transformation ${event.source.name}</li>
-        <li> Goal:${event.target.name}</li>
-        </ul>`
+        `<div class="first-layer"><img src=${img} width="200px"/>
+        <div id="first-layer">
+        <h3 style=("font-size","5em")>Transformation ${event.source.name}</h3>
+        <div class="placeholder"></div>
+        <p>Goal ${event.target.name}</p>
+        </div>
+        </div>`
       )
-      .style("font-weight", "700");
+      .style("font-weight", "400");
   }
 
   // .style("font-size", "16px");
@@ -327,11 +364,12 @@ function onMouseEnter(event) {
 
   tooltip.style(
     "transform",
-    `translate(800px,300px)`
+    `translate(800px,250px)`
 
     // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
     // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   );
+  tooltip.style("width", "500px");
   tooltip.style("opacity", 1);
 }
 
@@ -339,13 +377,3 @@ function onMouseLeave(event) {
   d3.select(this);
   tooltip.style("opacity", 0);
 }
-
-const title = d3.select("#title");
-title
-  .append("g")
-  .append("html")
-  .attr("color", "black")
-  .style("font-size", "5rem")
-  .style("font-weight", "700")
-  .style("transform", `translate(300px,600px)`)
-  .html(`SDG At A Glace`);
