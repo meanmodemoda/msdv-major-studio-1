@@ -1,9 +1,7 @@
 // const e = require("express");
-
+let link;
 const width = 300;
 const height = 300;
-
-let edgeColor = "path";
 
 const _sankey = d3
   .sankey()
@@ -12,8 +10,8 @@ const _sankey = d3
   .nodePadding(2)
   .nodeSort(null)
   .extent([
-    [width / 2.2, 0],
-    [width, height - 100],
+    [width / 2.2, 30],
+    [width, height - 60],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -123,10 +121,9 @@ d3.csv("../sankey.csv").then((data) => {
   //   .text((d) => `${d.name}\n${format(d.value)}`)
   // .attr("transform", "rotate(270,0,0)");
 
-  const link = svg
+  link = svg
     .append("g")
     .attr("fill", "none")
-    .attr("stroke-opacity", 0.5)
     .selectAll("g")
     .data(graph.links)
     .join("g")
@@ -139,55 +136,65 @@ d3.csv("../sankey.csv").then((data) => {
   // };
 
   function update() {
-    if (edgeColor === "path") {
-      const gradient = link
-        .append("linearGradient")
-        .attr("id", (d, i) => {
-          //  (d.uid = DOM.uid("link")).id
-          const id = `link-${i}`;
-          d.uid = `url(#${id})`;
-          return id;
-        })
-        .attr("gradientUnits", "userSpaceOnUse")
-        .attr("x1", (d) => d.source.x1)
-        .attr("x2", (d) => d.target.x0);
+    const gradient = link
+      .append("linearGradient")
+      .attr("id", (d, i) => {
+        //  (d.uid = DOM.uid("link")).id
+        const id = `link-${i}`;
+        d.uid = `url(#${id})`;
+        return id;
+      })
+      .attr("gradientUnits", "userSpaceOnUse")
+      .attr("x1", (d) => d.source.x1)
+      .attr("x2", (d) => d.target.x0);
 
-      gradient
-        .append("stop")
-        .attr("offset", "0%")
-        .attr("stop-color", (d) => {
-          // the first layer
-          if (d.source.x1 > width / 2) {
-            return color(d.source.name);
-          } else {
-            return color(d.target.name);
-          }
-        });
+    gradient
+      .append("stop")
+      // .attr("offset", "0%")
+      .attr("stop-color", (d) => {
+        // the first layer
+        if (d.source.x1 > width / 2) {
+          return color(d.source.name);
+        } else {
+          return color(d.target.name);
+        }
+      });
 
-      gradient
-        .append("stop")
-        .attr("offset", "100%")
-        .attr("stop-color", (d) => {
-          // the first layer
-          if (d.source.x1 > width / 2) {
-            return color(d.source.name);
-          } else {
-            return color(d.target.name);
-          }
-        });
-    }
+    gradient
+      .append("stop")
+      // .attr("offset", "100%")
+      .attr("stop-color", (d) => {
+        // the first layer
+        if (d.source.x1 > width / 2) {
+          return color(d.source.name);
+        } else {
+          return color(d.target.name);
+        }
+      });
 
     link
       .append("path")
+      .attr("class", "link")
       .attr("d", d3.sankeyLinkHorizontal())
+      .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
       .attr("stroke", (d) => d.uid)
       .attr("stroke-width", (d) => {
         // the first layer
         if (d.source.x1 > width / 2) {
           return 0.5;
         } else {
-          return 0.8;
+          return 0.6;
         }
+      })
+      .on("mouseover", onMouseEnter);
+
+    // add the link titles
+    link
+      .append("title")
+      .append("div")
+      .attr("class", "title")
+      .text(function (d) {
+        return d.source.name + " → " + d.target.name;
       });
   }
 
@@ -210,38 +217,119 @@ d3.csv("../sankey.csv").then((data) => {
   // .text((d) => (d.height <= 1 ? null : d.name));
 
   // Add lines
-  const lines = [
-    {
-      x1: width - 1,
-      y1: height - 92,
-      x2: width - 1,
-      y2: height,
-    },
-    {
-      x1: width - 109,
-      y1: height - 228,
-      x2: width - 109,
-      y2: height,
-    },
-    {
-      x1: width - 218,
-      y1: height - 228,
-      x2: width - 218,
-      y2: height,
-    },
-  ];
+  // const lines = [
+  //   {
+  //     x1: width - 1,
+  //     y1: height - 92,
+  //     x2: width - 1,
+  //     y2: height,
+  //   },
+  //   {
+  //     x1: width - 109,
+  //     y1: height - 228,
+  //     x2: width - 109,
+  //     y2: height,
+  //   },
+  //   {
+  //     x1: width - 218,
+  //     y1: height - 228,
+  //     x2: width - 218,
+  //     y2: height,
+  //   },
+  // ];
 
-  lines.forEach((l) => {
-    svg
-      .append("g")
-      .append("line")
-      .attr("x1", l.x1)
-      .attr("y1", l.y1)
-      .attr("x2", l.x2)
-      .attr("y2", l.y2)
-      .attr("stroke", "black")
-      .attr("stroke-width", "0.15");
-  });
+  // lines.forEach((l) => {
+  //   svg
+  //     .append("g")
+  //     .append("line")
+  //     .attr("x1", l.x1)
+  //     .attr("y1", l.y1)
+  //     .attr("x2", l.x2)
+  //     .attr("y2", l.y2)
+  //     .attr("stroke", "black")
+  //     .attr("stroke-width", "0.15");
+  // });
 
   // .style("stroke-width", "0.2px");
 });
+
+const tooltip = d3.select("#tooltip");
+
+//helper function
+const imgPicker = (str) => {
+  const newStr = str.split(" ")[0].slice(0, 2);
+  return newStr;
+};
+
+function onMouseEnter(event) {
+  if (event.source.height == 1) {
+    let imgCode = imgPicker(event.source.name);
+    let img = `../assets/${imgCode}.png`;
+    tooltip
+      .select("#tooltip-goal")
+      .html(
+        `<img src=${img} width="80px"/>
+        <ul>
+        <li>Goal ${event.source.name}</li>
+        <li>Target ${event.target.name}</li>
+        </ul>`
+      )
+      .style("font-weight", "700");
+  }
+
+  if (event.source.height == 2) {
+    let imgCode = imgPicker(event.target.name);
+    let img = `../assets/${imgCode}.png`;
+    tooltip
+      .select("#tooltip-goal")
+      .html(
+        `<img src=${img} width="80px"/>
+        <ul>
+        <li style =("font-size","2em" > Transformation ${event.source.name}</li>
+        <li> Goal:${event.target.name}</li>
+        </ul>`
+      )
+      .style("font-weight", "700");
+  }
+
+  // .style("font-size", "16px");
+  // Format tooltip position
+  // const x = d3.event.pageX;
+  // const y = d3.event.pageY;
+
+  tooltip.style(
+    "transform",
+    `translate(800px,300px)`
+
+    // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
+    // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
+  );
+  tooltip.style("opacity", 1);
+}
+
+function onMouseLeave(event) {
+  d3.select(this);
+  tooltip.style("opacity", 0);
+}
+
+const title = d3.select("#title");
+title
+  .append("text")
+  .text(`hello`)
+  .attr("color", "black")
+  .attr("font-size", "3rem")
+  .style("font-weight", "700")
+  .style("transform", `translate(800px,300px)`);
+
+const foreign = svg
+  .append("foreignObject")
+  .attr("class", "method")
+  .attr("x", 120)
+  .attr("y", 200)
+  .style("width", 100)
+  .style("height", 150)
+  .append("xhtml:div")
+  .style("transform", "rotate(90deg)")
+  .html(
+    "<h3 style='font-size: 14px; font-weight: 700; color: #004d00;'>SDG At A Glace</h3>"
+  );

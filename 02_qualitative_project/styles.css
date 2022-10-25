@@ -6,16 +6,16 @@
   padding: 0;
 }
 
-/* body {
+body {
   font-family: "DM Sans";
   display: flex;
   flex-direction: column;
   align-items: center;
- padding: 2em 2em;
+  padding: 2em 2em;
   font-size: 16px;
   color: #34495e;
   background: #f8f9fa;
-} */
+}
 
 svg {
   overflow: visible;
@@ -41,7 +41,7 @@ svg {
   color: #f8f9fa;
 }
 
-#chart{
+#chart {
   left: 0;
   top: 0;
   position: absolute;
@@ -112,24 +112,17 @@ h4 {
   position: absolute;
   top: 0;
   left: 0;
-  width: 15em;
+  width: 30em;
   padding: 0.6em 1em;
-  background: #fff;
-  text-align: center;
+  /* background: #fff; */
+  text-align: left;
   line-height: 1.4em;
   font-size: 0.9em;
-  border: 1px solid #ddd;
+  /* border: 1px solid #ddd; */
   z-index: 10;
   pointer-events: none;
 }
 
-.tooltip-metric {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  text-align: right;
-  /* font-size: 0.9em; */
-}
 .content {
   display: flex;
   justify-content: left;
@@ -233,19 +226,6 @@ li:hover .text {
     color: purple;
   } */
 
-div.swiper-button-prev,
-div.swiper-button-next {
-  color: #6699ff;
-}
-
-span.swiper-pagination-bullet {
-  background-color: #6699ff;
-}
-
-div.swiper-scrollbar {
-  /* background: white; */
-}
-
 .sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -268,3 +248,13 @@ div.swiper-scrollbar {
 /* #chart {
   background: red;
 } */
+
+.link:hover {
+  stroke: cornflowerblue;
+  stroke-width: 1;
+  stroke-opacity: 1;
+}
+
+ul {
+  list-style-type: none;
+}
