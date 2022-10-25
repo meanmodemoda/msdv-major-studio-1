@@ -39,7 +39,7 @@
 04. Quality Education,04.a Build and upgrade education facilities,1
 04. Quality Education,04.b Epand globally the number of scholarships available to developing countries,1
 04. Quality Education,04.c Increase the supply of qualified teachers,1
-"1. Education, Gender, and Inequality",05. Gender Equality,9
+"01. Education, Gender, and Inequality",05. Gender Equality,9
 05. Gender Equality,05.1 End discrimination against all women and girls,1
 05. Gender Equality,05.2 Eliminate violence against all women and girls,1
 05. Gender Equality,05.3 Eliminate all harmful practices,1
@@ -82,7 +82,7 @@
 "09. Industry, Innovation, and Infrastructure",09.a Facilitate sustainable and resilient infrastructure development in developing countries,1
 "09. Industry, Innovation, and Infrastructure","09.b Support domestic technology development, research and innovation in developing countries",1
 "09. Industry, Innovation, and Infrastructure",09.c Significantly increase access to information and communications technology,1
-"1. Education, Gender, and Inequality",10. Reduced Inequalities,10
+"01. Education, Gender, and Inequality",10. Reduced Inequalities,10
 10. Reduced Inequalities,10.1 Achieve and sustain income growth of the bottom 40 per cent of the population,1
 10. Reduced Inequalities,"10.2 Empower and promote the social, economic and political inclusion of all",1
 10. Reduced Inequalities,10.3 Ensure equal opportunity and reduce inequalities of outcome,1
@@ -172,16 +172,16 @@
 17. Partnerships for the Goals,"17.7 Promote the development, transfer, dissemination and diffusion of environmentally sound technologies to developing countries on favourable terms, including on concessional and preferential terms, as mutually agreed",1
 17. Partnerships for the Goals,"17.8 Fully operationalize the technology bank and science, technology and innovation capacity-building mechanism for least developed countries",1
 17. Partnerships for the Goals,17.9 Enhance international support for implementing effective and targeted capacity-building in developing countries,1
-"2. Health, Wellbeing, and Demography",03. Good Health and Well-Being,13
-3. Energy Decarbonisation and Sustainable Industry,07. Affordable and Clean Energy,5
-3. Energy Decarbonisation and Sustainable Industry,12. Responsible Consumption and Production,11
-"4. Sustainable Food, Land, Water, and Oceans",02. Zero Hunger,8
-"4. Sustainable Food, Land, Water, and Oceans",06. Clean Water and Sanitation,8
-"4. Sustainable Food, Land, Water, and Oceans",13. Climate Action,5
-"4. Sustainable Food, Land, Water, and Oceans",14. LIfe below Water,10
-"4. Sustainable Food, Land, Water, and Oceans",15. Life on Land,12
-5. Sustainable Cities and Communities,11. Sustainable Cities and Communities,10
-6. Digital Revolution for Sustainable Development,"09. Industry, Innovation, and Infrastructure",8
+"02. Health, Wellbeing, and Demography",03. Good Health and Well-Being,13
+03. Energy Decarbonisation and Sustainable Industry,07. Affordable and Clean Energy,5
+03. Energy Decarbonisation and Sustainable Industry,12. Responsible Consumption and Production,11
+"04. Sustainable Food, Land, Water, and Oceans",02. Zero Hunger,8
+"04. Sustainable Food, Land, Water, and Oceans",06. Clean Water and Sanitation,8
+"04. Sustainable Food, Land, Water, and Oceans",13. Climate Action,5
+"04. Sustainable Food, Land, Water, and Oceans",14. LIfe below Water,10
+"04. Sustainable Food, Land, Water, and Oceans",15. Life on Land,12
+05. Sustainable Cities and Communities,11. Sustainable Cities and Communities,10
+06. Digital Revolution for Sustainable Development,"09. Industry, Innovation, and Infrastructure",8
 Other,08. Decent Work and Economic Growth,12
 Other,"16. Peace, Justice and Strong Institutions",12
 Other,17. Partnerships for the Goals,19

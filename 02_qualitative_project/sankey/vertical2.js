@@ -202,7 +202,7 @@ d3.csv("../sankey.csv").then((data) => {
     .append("text")
     .attr("class", "title")
     .text(`SDG at A Glace`)
-    .style("font", "15px sans-serif")
+    .style("font", "15px DM Sans")
     .attr("x", width / 2 + 25)
     .attr("y", 25)
     .attr("text-anchor", "start")

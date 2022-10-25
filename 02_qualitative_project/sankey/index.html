@@ -2,6 +2,12 @@
 <meta charset="utf-8">
 <head>
 <link rel="stylesheet" href="../styles.css" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&family=DM+Sans:wght@400;500;700&family=Open+Sans:wght@300;400&family=Oswald:wght@700&family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+
 <script src="https://d3js.org/d3.v5.min.js"></script>
 <!-- <script type="text/javascript" src="https://unpkg.com/d3-sankey@0.7.1/build/d3-sankey.js"></script> -->
 </head>
@@ -13,16 +19,18 @@
 </select> -->
 <div id='container'>
   <defs>
-    <linearGradient id="rainbow" x1="0" x2="0" y1="0" y2="100%" gradientUnits="userSpaceOnUse" >
-      <stop stop-color="#FF5B99" offset="0%"/>
-      <stop stop-color="#FF5447" offset="20%"/>
-      <stop stop-color="#FF7B21" offset="40%"/>
-      <stop stop-color="#EAFC37" offset="60%"/>
-      <stop stop-color="#4FCB6B" offset="80%"/>
-      <stop stop-color="#51F7FE" offset="100%"/> 
-    </linearGradient>
+ 
   </defs>
-<svg id='chart' xmlns="http://www.w3.org/2000/svg" ></svg>
+<svg id='chart' xmlns="http://www.w3.org/2000/svg" >
+  <linearGradient id="gr-simple" x1="0" y1="0" x2="100%" y2="100%">
+    <stop stop-color="#E5233D" offset="0%"/>
+    <stop stop-color="#27BFE6" offset="50%"/>
+    <!-- <stop stop-color="#FBC412" offset="40%"/> -->
+    <!-- <stop stop-color="#F89D2A" offset="60%"/> -->
+    <stop stop-color="#407F46" offset="80%"/>
+    <stop stop-color="#15496B" offset="100%"/> 
+  </linearGradient>
+</svg>
 <div class="tooltip" id="tooltip">
   <div class="tooltip-metric tooltip-goal"></div>
   <div id="tooltip-goal"></div>

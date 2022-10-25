@@ -259,10 +259,12 @@ ul {
   list-style-type: none;
 }
 
-text.title {
-  font-size: 2.2em;
+.title {
+  fill: url(#gr-simple);
+  font-family: "Archivo Black";
+  /* font-size: 2.2em;
   color: red;
-  /* background: -webkit-linear-gradient(left, #5f9ea0, #6495ed);
+  background: -webkit-linear-gradient(left, #5f9ea0, #6495ed);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent; */
 }
