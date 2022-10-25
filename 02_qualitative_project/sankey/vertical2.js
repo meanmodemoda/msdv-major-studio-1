@@ -31,8 +31,8 @@ const _sankey = d3
   .nodePadding(1.5)
   .nodeSort(null)
   .extent([
-    [width / 2, 2],
-    [width, height - 2],
+    [width / 2, 10],
+    [width, height - 12],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -236,9 +236,9 @@ d3.csv("../sankey.csv").then((data) => {
         // if (d.source.x1 > width / 2) {
         //   return 0.5;
         // } else {
-        //   return 2.4;
+        //   return d.width;
         // }
-        return 0.26 * d.value;
+        return d.width;
       })
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
