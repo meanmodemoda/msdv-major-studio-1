@@ -197,30 +197,28 @@ d3.csv("../sankey.csv").then((data) => {
   //   .append("title")
   //   .text((d) => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
-  const foreign = svg
-    .append("foreignObject")
-    .style("class", "method")
-    .style("x", 120)
-    .style("y", 200)
-    .style("width", 100)
-    .style("background", "green")
-    .style("height", 400)
-    .append("xhtml:div")
-    // .style("transform", `rotate(-90deg, 0, 0)`)
-    .html(
-      "<h3 style='font-size: 14px; font-weight: 700; color: #004d00;'>SDG At A Glace</h3>"
-    );
-
-  svg
+  const title = svg
     .append("g")
-    .style("font", "6px sans-serif")
-    .selectAll("text")
-    .data(graph.nodes)
-    .join("text")
-    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
-    .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
-    .attr("dy", "0.35em")
-    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"));
+    .append("text")
+    .attr("class", "title")
+    .text(`SDG at A Glace`)
+    .style("font", "15px sans-serif")
+    .attr("x", width / 2 + 25)
+    .attr("y", 25)
+    .attr("text-anchor", "start")
+    // .style("fill", "url(#rainbow)")
+    .style("transform", `translateX(180px) rotate(90deg)`);
+
+  // svg
+  //   .append("g")
+  //   .style("font", "6px sans-serif")
+  //   .selectAll("text")
+  //   .data(graph.nodes)
+  //   .join("text")
+  //   .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
+  //   .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
+  //   .attr("dy", "0.35em")
+  //   .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"));
   // .text((d) => (d.height <= 1 ? null : d.name));
 
   // Add lines

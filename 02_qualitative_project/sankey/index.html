@@ -12,12 +12,23 @@
   <option value=path selected>Color by input-output
 </select> -->
 <div id='container'>
+  <defs>
+    <linearGradient id="rainbow" x1="0" x2="0" y1="0" y2="100%" gradientUnits="userSpaceOnUse" >
+      <stop stop-color="#FF5B99" offset="0%"/>
+      <stop stop-color="#FF5447" offset="20%"/>
+      <stop stop-color="#FF7B21" offset="40%"/>
+      <stop stop-color="#EAFC37" offset="60%"/>
+      <stop stop-color="#4FCB6B" offset="80%"/>
+      <stop stop-color="#51F7FE" offset="100%"/> 
+    </linearGradient>
+  </defs>
 <svg id='chart' xmlns="http://www.w3.org/2000/svg" ></svg>
 <div class="tooltip" id="tooltip">
   <div class="tooltip-metric tooltip-goal"></div>
   <div id="tooltip-goal"></div>
 </div>
 </div>
+
 
 <script type="text/javascript" src="../d3-sankey.js"></script>
 <script type="text/javascript" src="vertical2.js"></script>
