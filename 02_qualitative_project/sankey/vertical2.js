@@ -360,7 +360,6 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
-  console.log(event);
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
     let img = `../assets/${imgCode}.png`;
@@ -398,7 +397,6 @@ function onMouseEnter(event) {
   tooltip.style(
     "transform",
     `translate(800px,250px)`
-
     // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
     // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   );
