@@ -3,6 +3,7 @@ let link;
 const width = 300;
 const height = 300;
 
+//1. Initiate Sankey
 const _sankey = d3
   .sankey()
   .nodeWidth(0)
@@ -23,10 +24,9 @@ const sankey = ({ nodes, links }) =>
 const f = d3.format(",.0f");
 const format = (d) => `${f(d)} TWh`;
 
-// const _color = d3.scaleOrdinal(d3.schemeCategory10);
-// const color = (name) => _color(name.replace(/ .*/, ""));
-
-d3.select("#chart")
+//2. Create Bound
+const chart = d3
+  .select("#chart")
   .attr("viewBox", `0 0 ${width} ${height}`)
   .style("VerticalAlignment", "Top")
   .style("width", "100%")
@@ -36,17 +36,9 @@ d3.select("#chart")
 
 const svg = d3.select("#chart g");
 
-// svg.append('circle')
-// .attr('cx', 0 )
-// .attr('cy', 0 )
-// .attr('r', 20)
-// .style('fill', 'red');
-
 svg.attr("transform", `rotate(-90, 0, 0) translate(-${width}, 0)`);
 
-// .attr("scale", "1.5");
-// .attr("transform", "translate(0,50%)");
-
+//3. Load Data
 d3.csv("../sankey.csv").then((data) => {
   //set up graph in same style as original example but empty
   const sankeydata = {
@@ -54,6 +46,7 @@ d3.csv("../sankey.csv").then((data) => {
     links: [],
   };
 
+  //trasform csv data into flow chart data
   data.forEach(function (d) {
     sankeydata.nodes.push({
       name: d.source,
@@ -69,18 +62,15 @@ d3.csv("../sankey.csv").then((data) => {
   });
 
   // return only the distinct / unique nodes
-
   const unique = d3
     .nest()
     .key((d) => d.name)
     .entries(sankeydata.nodes);
 
-  // console.log(test);
-
   sankeydata.nodes = unique.map((d) => d.key);
   // console.log(sankeydata.nodes);
 
-  console.log(sankeydata.nodes);
+  // console.log(sankeydata.nodes);
   // loop through each link replacing the text with its index from node
   sankeydata.links.forEach(function (d, i) {
     sankeydata.links[i].source = sankeydata.nodes.indexOf(
@@ -120,6 +110,9 @@ d3.csv("../sankey.csv").then((data) => {
     "#15496B",
   ];
 
+  // const _color = d3.scaleOrdinal(d3.schemeCategory10);
+  // const color = (name) => _color(name.replace(/ .*/, ""));
+
   const nameRange = [
     "01. No Poverty",
     "02. Zero Hunger",
@@ -142,10 +135,10 @@ d3.csv("../sankey.csv").then((data) => {
 
   const color = d3.scaleOrdinal().domain(nameRange).range(palette);
 
-  // console.log(sankeydata);
+  //4. Prepare for Sankey
   graph = sankey(sankeydata);
 
-  // console.log(graph);
+  // add rects
 
   // svg
   //   .append("g")
@@ -165,6 +158,7 @@ d3.csv("../sankey.csv").then((data) => {
   //   .text((d) => `${d.name}\n${format(d.value)}`)
   // .attr("transform", "rotate(270,0,0)");
 
+  // 5. Draw Sankey
   link = svg
     .append("g")
     .attr("fill", "none")
@@ -242,6 +236,7 @@ d3.csv("../sankey.csv").then((data) => {
   //   .append("title")
   //   .text((d) => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
+  //7. Append text
   const title = svg
     .append("g")
     .append("text")
@@ -369,7 +364,7 @@ function onMouseEnter(event) {
     // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
     // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   );
-  tooltip.style("width", "500px");
+  tooltip.style("width", "50%");
   tooltip.style("opacity", 1);
 }
 

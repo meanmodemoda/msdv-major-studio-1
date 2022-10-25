@@ -5,6 +5,8 @@ I forwent the initial dendrogram design and tried to replicate the first concept
 ### Data Preparation
 
 To change from dendrogram to Sankey diagram, I need to restructure the data from hierarchy data to flow data(nodes and links).
+Here is the code I used to transform the data.
+<img src="./data_prep.png" width="1000" alt="Design">
 
 ### Design Revision
 
@@ -15,7 +17,8 @@ I tried my best to replicate the sketched flow chart.
 ### Remaining Work
 
 - Typography
-- Tooltip
+- Tooltip formatting
+- Tooltip responsive to window size
 - Potentially add guidelines
 
 [Project Link](https://muons.com/msdv-major-studio-1/02_qualitative_project/sankey)
