@@ -3,16 +3,36 @@ let link;
 const width = 300;
 const height = 300;
 
+const nameRange = [
+  "01. No Poverty",
+  "02. Zero Hunger",
+  "03. Good Health and Well-Being",
+  "04. Quality Education",
+  "05. Gender Equality",
+  "06. Clean Water and Sanitation",
+  "07. Affordable and Clean Energy",
+  "08. Decent Work and Economic Growth",
+  "09. Industry, Innovation, and Infrastructure",
+  "10. Reduced Inequalities",
+  "11. Sustainable Cities and Communities",
+  "12. Responsible Consumption and Production",
+  "13. Climate Action",
+  "14. LIfe below Water",
+  "15. Life on Land",
+  "16. Peace, Justice and Strong Institutions",
+  "17. Partnerships for the Goals",
+];
+
 //1. Initiate Sankey
 const _sankey = d3
   .sankey()
   .nodeWidth(0)
   .nodeAlign(d3.sankeyCenter)
-  .nodePadding(2)
+  .nodePadding(1.5)
   .nodeSort(null)
   .extent([
-    [width / 2, 10],
-    [width, height - 50],
+    [width / 2, 2],
+    [width, height - 2],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -61,6 +81,8 @@ d3.csv("../sankey.csv").then((data) => {
     });
   });
 
+  console.log(data[0]);
+
   // return only the distinct / unique nodes
   const unique = d3
     .nest()
@@ -89,7 +111,20 @@ d3.csv("../sankey.csv").then((data) => {
     };
   });
 
-  //set up color scale
+  //create unique source array
+  const unique2 = d3
+    .nest()
+    .key((d) => d.source)
+    .entries(data);
+
+  let sourceValue = [];
+  unique2.forEach((d) => {
+    let obj = { name: d.key, value: d.values.length };
+    sourceValue.push(obj);
+  });
+
+  console.log(sourceValue);
+
   const palette = [
     "#E5233D",
     "#DEA739",
@@ -113,26 +148,6 @@ d3.csv("../sankey.csv").then((data) => {
   // const _color = d3.scaleOrdinal(d3.schemeCategory10);
   // const color = (name) => _color(name.replace(/ .*/, ""));
 
-  const nameRange = [
-    "01. No Poverty",
-    "02. Zero Hunger",
-    "03. Good Health and Well-Being",
-    "04. Quality Education",
-    "05. Gender Equality",
-    "06. Clean Water and Sanitation",
-    "07. Affordable and Clean Energy",
-    "08. Decent Work and Economic Growth",
-    "09. Industry, Innovation, and Infrastructure",
-    "10. Reduced Inequalities",
-    "11. Sustainable Cities and Communities",
-    "12. Responsible Consumption and Production",
-    "13. Climate Action",
-    "14. LIfe below Water",
-    "15. Life on Land",
-    "16. Peace, Justice and Strong Institutions",
-    "17. Partnerships for the Goals",
-  ];
-
   const color = d3.scaleOrdinal().domain(nameRange).range(palette);
 
   //4. Prepare for Sankey
@@ -148,7 +163,7 @@ d3.csv("../sankey.csv").then((data) => {
   //   .join("rect")
   //   .attr("x", (d) => d.x0)
   //   .attr("y", (d) => d.y0 - 0.5)
-  //   .attr("height", 1)
+  //   .attr("height", 8)
   //   // .attr("height", (d) => d.y1 - d.y0)
   //   // .attr("width", (d) => d.x1 - d.x0)
   //   // .attr("height", (d) => d.y1 - d.y0)
@@ -156,7 +171,7 @@ d3.csv("../sankey.csv").then((data) => {
   //   .attr("fill", (d) => color(d.name))
   //   .append("title")
   //   .text((d) => `${d.name}\n${format(d.value)}`)
-  // .attr("transform", "rotate(270,0,0)");
+  //   .attr("transform", "rotate(270,0,0)");
 
   // 5. Draw Sankey
   link = svg
@@ -214,19 +229,19 @@ d3.csv("../sankey.csv").then((data) => {
       .append("path")
       .attr("class", "link")
       .attr("d", d3.sankeyLinkHorizontal())
-      .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+      // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
       .attr("stroke", (d) => d.uid)
       .attr("stroke-width", (d) => {
         // the first layer
-        if (d.source.x1 > width / 2) {
-          return 0.5;
-        } else {
-          return 0.6;
-        }
+        // if (d.source.x1 > width / 2) {
+        //   return 0.5;
+        // } else {
+        //   return 2.4;
+        // }
+        return 0.26 * d.value;
       })
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
-
     // add the link titles
   }
 
@@ -258,55 +273,56 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("x", width / 2 + 25)
     .attr("y", 22)
     .attr("text-anchor", "start")
-    // .style("fill", "url(#rainbow)")
+    .style("fill", "#34495e")
     .style("transform", `translateX(180px) rotate(90deg)`);
 
-  // svg
-  //   .append("g")
-  //   .style("font", "6px sans-serif")
-  //   .selectAll("text")
-  //   .data(graph.nodes)
-  //   .join("text")
-  //   .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
-  //   .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
-  //   .attr("dy", "0.35em")
-  //   .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"));
-  // .text((d) => (d.height <= 1 ? null : d.name));
+  svg
+    .append("g")
+    .style("font", "6px sans-serif")
+    .selectAll("text")
+    .data(graph.nodes)
+    .join("text")
+    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
+    .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
+    .attr("dy", "0.2em")
+    .attr("font-size")
+    .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
+    .text((d) => (d.height <= 1 ? null : d.name));
 
   //Add lines
-  // const lines = [
-  //   {
-  //     x1: width - 1,
-  //     y1: height - 282,
-  //     x2: width - 1,
-  //     y2: 0,
-  //   },
-  //   {
-  //     x1: width - 75,
-  //     y1: height - 242,
-  //     x2: width - 75,
-  //     y2: 0,
-  //   },
-  //   {
-  //     x1: width - 148,
-  //     y1: height - 242,
-  //     x2: width - 148,
-  //     y2: 0,
-  //   },
-  // ];
+  const lines = [
+    {
+      x1: width - 1,
+      y1: height - 282,
+      x2: width - 1,
+      y2: 0,
+    },
+    {
+      x1: width - 75,
+      y1: height - 242,
+      x2: width - 75,
+      y2: 0,
+    },
+    {
+      x1: width - 148,
+      y1: height - 242,
+      x2: width - 148,
+      y2: 0,
+    },
+  ];
 
-  // lines.forEach((l) => {
-  //   svg
-  //     .append("g")
-  //     .append("line")
-  //     .attr("x1", l.x1)
-  //     .attr("y1", l.y1)
-  //     .attr("x2", l.x2)
-  //     .attr("y2", l.y2)
-  //     .attr("stroke", "black")
-  //     .attr("stroke-width", "0.15")
-  //     .style("stroke-width", "0.2px");
-  // });
+  lines.forEach((l) => {
+    svg
+      .append("g")
+      .append("line")
+      .attr("x1", l.x1)
+      .attr("y1", l.y1)
+      .attr("x2", l.x2)
+      .attr("y2", l.y2)
+      .attr("stroke", "black")
+      .attr("stroke-width", "0.15")
+      .style("stroke-width", "0.2px");
+  });
 });
 
 const tooltip = d3.select("#tooltip");
@@ -318,6 +334,7 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
+  console.log(event);
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
     let img = `../assets/${imgCode}.png`;
@@ -352,11 +369,6 @@ function onMouseEnter(event) {
       .style("font-weight", "400");
   }
 
-  // .style("font-size", "16px");
-  // Format tooltip position
-  // const x = d3.event.pageX;
-  // const y = d3.event.pageY;
-
   tooltip.style(
     "transform",
     `translate(800px,250px)`
@@ -364,7 +376,7 @@ function onMouseEnter(event) {
     // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
     // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   );
-  tooltip.style("width", "50%");
+  tooltip.style("width", "40%");
   tooltip.style("opacity", 1);
 }
 
