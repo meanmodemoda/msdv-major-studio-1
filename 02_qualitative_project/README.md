@@ -1,6 +1,6 @@
 # Summary
 
-I forwent the initial dendrogram design and tried to replicate the first concept from [Week 6 design](https://github.com/muonius/msdv-major-studio-1/tree/master/week06_qualitative_sketches). I decided to experiment with Sankey diagram.
+I forwent the initial dendrogram design and tried to replicate the first concept from [Week 6's](https://github.com/muonius/msdv-major-studio-1/tree/master/week06_qualitative_sketches) design. To achieve the flow effect, I decided to experiment with Sankey diagram.
 
 ### Data Preparation
 
