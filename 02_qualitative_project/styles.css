@@ -109,7 +109,7 @@ h4 {
 
 .tooltip {
   opacity: 1;
-  /* position: absolute; */
+  position: absolute;
   top: 30;
   left: 0;
   width: 30em;
@@ -153,7 +153,7 @@ h4 {
 .container {
   /* padding: 1rem; */
   position: relative;
-  width: 5em;
+  /* width: 5em; */
 }
 
 .overlay {
@@ -284,4 +284,8 @@ ul {
 
 textPath {
   start-offset: 50%;
+}
+
+.tagline {
+  font-weight: 700;
 }

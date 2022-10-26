@@ -213,6 +213,18 @@ d3.csv("../sankey.csv").then((data) => {
 
     link
       .append("path")
+      .attr("class", "link-invisible")
+      .attr("id", (d, i) => d.index)
+      .attr("d", d3.sankeyLinkHorizontal())
+      .attr("transform", "translate(0,-3)")
+      // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+      .attr("stroke", "transparent")
+      .attr("stroke-width", (d) => {
+        return d.width;
+      });
+
+    link
+      .append("path")
       .attr("class", "link")
       // .attr("id", (d, i) => d.index)
       .attr("d", d3.sankeyLinkHorizontal())
@@ -225,27 +237,9 @@ d3.csv("../sankey.csv").then((data) => {
         } else {
           return d.width;
         }
-        return d.width;
       })
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
-
-    link
-      .append("path")
-      .attr("class", "link-invisible")
-      .attr("id", (d, i) => d.index)
-      .attr("d", d3.sankeyLinkHorizontal())
-      .attr("transform", "translate(0,-3)")
-      // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
-      .attr("stroke", "transparent")
-      .attr("stroke-width", (d) => {
-        // the first layer
-        if (d.source.height == 1) {
-          return 1;
-        } else {
-          return d.width;
-        }
-      });
 
     // add the link titles
   }
@@ -257,29 +251,30 @@ d3.csv("../sankey.csv").then((data) => {
   //   .text((d) => `${d.source.name} → ${d.target.name}\n${format(d.value)}`);
 
   //7. Append text
-  const title = svg
-    .append("g")
-    .append("text")
-    .attr("class", "title")
-    .text(`SDG at A Glace`)
-    .style("font", "15px DM Sans")
-    .attr("x", width / 2 + 25)
-    .attr("y", 12)
-    .attr("text-anchor", "start")
-    // .style("fill", "url(#rainbow)")
-    .style("transform", `translateX(180px) rotate(90deg)`);
+  // const title = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "title")
+  //   .text(`SDG at A Glace`)
+  //   .style("font", "15px DM Sans")
+  //   .attr("x", width / 2 + 25)
+  //   .attr("y", 12)
+  //   .attr("text-anchor", "start")
+  //   // .style("fill", "url(#rainbow)")
+  //   .style("transform", `translateX(180px) rotate(90deg)`);
 
   const tagline = svg
     .append("g")
     .append("text")
-    .attr("class", "tagling")
-    .text(`Transformations, Goals and Targets`)
-    .style("font", "7px DM Sans")
+    .attr("class", "tagline")
+    .text(`The Flowing Tree of SDG`)
+    .style("font", "8px DM Sans")
     .attr("x", width / 2 + 25)
     .attr("y", 22)
     .attr("text-anchor", "start")
-    .style("fill", "#34495e")
-    .style("transform", `translateX(180px) rotate(90deg)`);
+    .attr("font-weight", "400")
+    .style("fill", "gray")
+    .style("transform", `translate(175px,18px) rotate(90deg)`);
 
   //text label
   // svg
@@ -334,6 +329,7 @@ const imgPicker = (str) => {
 
 function onMouseEnter(event) {
   console.log(event);
+
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
     let img = `../assets/${imgCode}.png`;
