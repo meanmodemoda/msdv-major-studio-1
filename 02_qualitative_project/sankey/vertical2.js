@@ -166,52 +166,16 @@ d3.csv("../sankey.csv").then((data) => {
     .join("g")
     .style("mix-blend-mode", "multiply");
 
-  // const select = document.querySelector("#colorSelect");
-  // select.onchange = () => {
-  //   edgeColor = select.value;
-  //   update();
-  // };
-
-  // const gradient = link
-  //   .append("linearGradient")
-  //   .attr("id", (d, i) => {
-  //     //  (d.uid = DOM.uid("link")).id
-  //     const id = `link-${i}`;
-  //     d.uid = `url(#${id})`;
-  //     return id;
-  //   })
-  //   .attr("gradientUnits", "userSpaceOnUse")
-  //   .attr("x1", (d) => d.source.x1)
-  //   .attr("x2", (d) => d.target.x0);
-
-  // gradient
-  //   .append("stop")
-  //   // .attr("offset", "0%")
-  //   .attr("stop-color", (d) => {
-  //     // the first layer
-  //     if (d.source.x1 > width / 2) {
-  //       return color(d.source.name);
-  //     } else {
-  //       return color(d.target.name);
-  //     }
-  //   });
-
-  // gradient
-  //   .append("stop")
-  //   // .attr("offset", "100%")
-  //   .attr("stop-color", (d) => {
-  //     // the first layer
-  //     if (d.source.x1 > width / 2) {
-  //       return color(d.source.name);
-  //     } else {
-  //       return color(d.target.name);
-  //     }
-  //   });
-
   const links = link
     .append("path")
     .attr("class", "link")
-    .attr("class", (d) => d.uid)
+    .attr("class", (d) => {
+      if (d.source.x1 > width / 2) {
+        return "c" + color(d.source.name).slice(1, 7);
+      } else {
+        return "c" + color(d.source.name).slice(1, 7);
+      }
+    })
     .attr("d", d3.sankeyLinkHorizontal())
     // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
     .attr("stroke", (d) => {
@@ -228,7 +192,6 @@ d3.csv("../sankey.csv").then((data) => {
       } else {
         return d.width;
       }
-      return d.width;
     })
     .on("mouseover", onMouseEnter)
     .on("mouseleave", onMouseLeave);
@@ -322,67 +285,68 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("xlink:href", "#0")
     .text("Themes")
     .attr("alignment-baseline", "top");
-});
 
-const tooltip = d3.select("#tooltip");
+  //Draw tooltip
+  const tooltip = d3.select("#tooltip");
 
-//helper function
-const imgPicker = (str) => {
-  const newStr = str.split(" ")[0].slice(0, 2);
-  return newStr;
-};
+  //helper function
+  const imgPicker = (str) => {
+    const newStr = str.split(" ")[0].slice(0, 2);
+    return newStr;
+  };
 
-function onMouseEnter(event) {
-  console.log(this);
+  function onMouseEnter(event) {
+    const classed = d3.select(this).attr("class");
+    console.log(this);
 
-  // link.style("stroke", "black");
-  // d3.select(this).style("stroke", "#69b3b2");
+    d3.selectAll(`.${classed}`).style("stroke", "red");
 
-  if (event.source.height == 1) {
-    let imgCode = imgPicker(event.source.name);
-    let img = `../assets/${imgCode}.png`;
-    tooltip
-      .select("#tooltip-goal")
-      .html(
-        `<div class="first-layer"><img src=${img} width="150px"/>
+    if (event.source.height == 1) {
+      let imgCode = imgPicker(event.source.name);
+      let img = `../assets/${imgCode}.png`;
+      tooltip
+        .select("#tooltip-goal")
+        .html(
+          `<div class="first-layer"><img src=${img} width="150px"/>
         <div id="first-layer">
         <h3 style=("font-size","5em")>Goal ${event.source.name}</h3>
         <div class="placeholder"></div>
         <p>Target ${event.target.name}</p>
         </div>
         </div>`
-      )
-      .style("font-weight", "400");
-  }
+        )
+        .style("font-weight", "400");
+    }
 
-  if (event.source.height == 2) {
-    let imgCode = imgPicker(event.target.name);
-    let img = `../assets/${imgCode}.png`;
-    tooltip
-      .select("#tooltip-goal")
-      .html(
-        `<div class="first-layer"><img src=${img} width="150px"/>
+    if (event.source.height == 2) {
+      let imgCode = imgPicker(event.target.name);
+      let img = `../assets/${imgCode}.png`;
+      tooltip
+        .select("#tooltip-goal")
+        .html(
+          `<div class="first-layer"><img src=${img} width="150px"/>
         <div id="first-layer">
         <h3 style=("font-size","5em")>Transformation ${event.source.name}</h3>
         <div class="placeholder"></div>
         <p>Goal ${event.target.name}</p>
         </div>
         </div>`
-      )
-      .style("font-weight", "400");
+        )
+        .style("font-weight", "400");
+    }
+
+    tooltip.style(
+      "transform",
+      `translate(40rem,20rem)`
+      // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
+      // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
+    );
+    tooltip.style("width", "30%");
+    tooltip.style("opacity", 1);
   }
 
-  tooltip.style(
-    "transform",
-    `translate(40rem,20rem)`
-    // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
-    // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
-  );
-  tooltip.style("width", "30%");
-  tooltip.style("opacity", 1);
-}
-
-function onMouseLeave(event) {
-  d3.select(this);
-  tooltip.style("opacity", 0);
-}
+  function onMouseLeave(event) {
+    d3.select(this);
+    tooltip.style("opacity", 0);
+  }
+});
