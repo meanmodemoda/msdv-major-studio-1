@@ -33,16 +33,16 @@ async function drawChart() {
 
   // 2. Create chart dimensions
 
-  const width = 400;
+  const width = 300;
   let dimensions = {
     width: width,
-    height: width,
+    height: 300,
     radius: width / 2,
     margin: {
-      top: 10,
-      right: 10,
-      bottom: 10,
-      left: 10,
+      top: 40,
+      right: 40,
+      bottom: 40,
+      left: 40,
     },
   };
   dimensions.boundedWidth =
@@ -58,23 +58,6 @@ async function drawChart() {
     Math.cos(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
     Math.sin(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
   ];
-
-  // 3. Draw canvas
-
-  const wrapper = d3
-    .select("#wrapper")
-    .append("svg")
-    .attr("width", dimensions.width)
-    .attr("height", dimensions.height);
-
-  const bounds = wrapper
-    .append("g")
-    .style(
-      "transform",
-      `translate(${dimensions.margin.left + dimensions.boundedRadius}px, ${
-        dimensions.margin.top + dimensions.boundedRadius
-      }px)`
-    );
 
   // 4. Create scales
 
@@ -119,99 +102,46 @@ async function drawChart() {
   // 5. Draw data
   // Draw sunburst chart
   function drawArc(metric) {
+    // 3. Draw canvas
+
+    const wrapper = d3
+      .select("#wrapper")
+      .selectAll("svg")
+      .data(sumdata)
+      .join("svg")
+      .attr("width", dimensions.width)
+      .attr("height", dimensions.height);
+
+    const bounds = wrapper
+      .append("g")
+      .style(
+        "transform",
+        `translate(${dimensions.margin.left + dimensions.boundedRadius}px, ${
+          dimensions.margin.top + dimensions.boundedRadius
+        }px)`
+      );
     // 6. Draw peripherals
-
-    const peripherals = bounds.append("g");
-
-    const scoreTicks = radiusScale.ticks(4);
-    // console.log(scoreTicks);
-    // console.log(scoreTicks);
-
-    const gridCircles = scoreTicks.forEach((d) =>
-      peripherals
-        .append("circle")
-        .attr("r", radiusScale(d))
-        .attr("class", "grid-line")
-    );
-    //draw region label text path
-    const textPath = peripherals.append("g");
-    textPath
-      .selectAll("path")
-      .data(datagoal.filter((d) => regionAccessor(d) == "World"))
-      .join("path")
-      .attr("opacity", 0)
-      .attr(
-        "d",
-        d3
-          .arc()
-          .innerRadius(dimensions.boundedRadius)
-          .outerRadius(dimensions.boundedRadius + 15)
-          .startAngle((d) => goalScale(goalAccessor(d)) * 1.02)
-          .endAngle((d) => goalScale(goalAccessor(d)) + goalScale.bandwidth())
-          .padAngle(0.5)
-          .padRadius(innerRadius)
-      )
-      .attr("id", function (d, i) {
-        return "goal" + i;
-      });
-
-    //draw goal label
-    goal.forEach((r, i) => {
-      peripherals
-        .append("text")
-        .attr("class", "tick-label")
-        .append("textPath")
-        .attr("xlink:href", "#goal" + i)
-        // .style("font-size", "8px")
-        .text(r.split(" ")[0].slice(0, 2));
-    });
-
-    //add white background to score label
-    const tickLabelBackgrounds = scoreTicks.map((d) => {
-      if (d != 0) {
-        return peripherals
-          .append("rect")
-          .attr("y", -radiusScale(d) - 10)
-          .attr("x", -18)
-          .attr("width", 30)
-          .attr("height", 20)
-          .attr("fill", "#f8f9fa");
-      }
-    });
-
-    //add score label
-    const tickLabels = scoreTicks.map((d) => {
-      if (d != 0) {
-        return peripherals
-          .append("text")
-          .attr("x", -12)
-          .attr("y", -radiusScale(d) + 2)
-          .attr("class", "tick-label-score")
-          .text(`${d}%`);
-      }
-    });
 
     let barChart = bounds.append("g");
 
     barChart
       .selectAll("path")
-      .data(datagoal.filter((d) => regionAccessor(d) == metric))
+      .data(sumdata)
       .join("path")
       .attr("class", "bar-chart")
       .attr("fill", colorAccessor)
       .attr("opacity", 0.7)
-      .attr("fill", (d) => colorScale(goalAccessor(d)))
-      .attr(
-        "d",
-        d3
-          .arc()
-          .innerRadius(innerRadius)
-          .outerRadius((d) => radiusScale(scoreAccessor(d)))
-          .startAngle((d) => goalScale(goalAccessor(d)))
-          .endAngle((d) => goalScale(goalAccessor(d)) + goalScale.bandwidth())
-          .padAngle(0.5)
-          .padRadius(innerRadius)
-      );
+      .attr("fill", (d) => colorScale((d) => d[0]))
+      .attr("d", function (d) {
+        return d3
+          .line()
+          .x(function (d) {
+            return radiusScale((d) => d["Value"]);
+          })
+          .y(function (d) {
+            return y(+d.n);
+          })(d[1]);
+      });
 
     //6. Draw Interaction
     const tooltip = d3.select("#tooltip");
@@ -259,7 +189,7 @@ async function drawChart() {
     }
   }
 
-  drawArc("OECD members");
-  // drawArc("World");
+  // drawArc("OECD members");
+  drawArc("World");
 }
 drawChart();

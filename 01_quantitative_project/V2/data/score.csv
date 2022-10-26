@@ -1,13 +1,5 @@
-﻿Region,Goals,Value,Color
-East & South Asia,01. No Poverty,76.8,#E5233D
-East & South Asia,02. Zero Hunger,65.5,#DEA739
-East & South Asia,03. Good Health and Well-Being,69.6,#4CA146
-East & South Asia,04. Quality Education,86.3,#C7212E
-East & South Asia,05. Gender Equality,55.9,#EF402D
-East & South Asia,06. Clean Water and Sanitation,65.1,#27BFE6
-East & South Asia,07. Affordable and Clean Energy,66.1,#FBC412
-East & South Asia,08. Decent Work and Economic Growth,69.5,#A21D43
-East & South Asia,"09. Industry, Innovation, and Infrastructure",57.8,#F26A2E
+﻿region,goal,value,color
+East & South Asia,1. No Poverty,76.8,#E5233D
 East & South Asia,10. Reduced Inequalities,37.1,#E01583
 East & South Asia,11. Sustainable Cities and Communities,63.2,#F89D2A
 East & South Asia,12. Responsible Consumption and Production,93.4,#BF8D2C
@@ -16,16 +8,15 @@ East & South Asia,14. LIfe below Water,56.2,#2097D4
 East & South Asia,15. Life on Land,51.5,#59BA48
 East & South Asia,"16. Peace, Justice and Strong Institutions",61.7,#126A9E
 East & South Asia,17. Partnerships for the Goals,50.8,#15496B
-East & South Asia,Overall,65.8,
-East Europe & Central Asia,01. No Poverty,95.7,#E5233D
-East Europe & Central Asia,02. Zero Hunger,58.1,#DEA739
-East Europe & Central Asia,03. Good Health and Well-Being,74.1,#4CA146
-East Europe & Central Asia,04. Quality Education,86.9,#C7212E
-East Europe & Central Asia,05. Gender Equality,60.5,#EF402D
-East Europe & Central Asia,06. Clean Water and Sanitation,71.3,#27BFE6
-East Europe & Central Asia,07. Affordable and Clean Energy,63.2,#FBC412
-East Europe & Central Asia,08. Decent Work and Economic Growth,68.9,#A21D43
-East Europe & Central Asia,"09. Industry, Innovation, and Infrastructure",51.2,#F26A2E
+East & South Asia,2. Zero Hunger,65.5,#DEA739
+East & South Asia,3. Good Health and Well-Being,69.6,#4CA146
+East & South Asia,4. Quality Education,86.3,#C7212E
+East & South Asia,5. Gender Equality,55.9,#EF402D
+East & South Asia,6. Clean Water and Sanitation,65.1,#27BFE6
+East & South Asia,7. Affordable and Clean Energy,66.1,#FBC412
+East & South Asia,8. Decent Work and Economic Growth,69.5,#A21D43
+East & South Asia,"9. Industry, Innovation, and Infrastructure",57.8,#F26A2E
+East Europe & Central Asia,1. No Poverty,95.7,#E5233D
 East Europe & Central Asia,10. Reduced Inequalities,82.7,#E01583
 East Europe & Central Asia,11. Sustainable Cities and Communities,72.8,#F89D2A
 East Europe & Central Asia,12. Responsible Consumption and Production,87.4,#BF8D2C
@@ -34,16 +25,15 @@ East Europe & Central Asia,14. LIfe below Water,61.9,#2097D4
 East Europe & Central Asia,15. Life on Land,65.8,#59BA48
 East Europe & Central Asia,"16. Peace, Justice and Strong Institutions",61.9,#126A9E
 East Europe & Central Asia,17. Partnerships for the Goals,65.7,#15496B
-East Europe & Central Asia,Overall,71.1,
-Latin America & Caribbean,01. No Poverty,80.2,#E5233D
-Latin America & Caribbean,02. Zero Hunger,63.8,#DEA739
-Latin America & Caribbean,03. Good Health and Well-Being,75.2,#4CA146
-Latin America & Caribbean,04. Quality Education,88.6,#C7212E
-Latin America & Caribbean,05. Gender Equality,70.3,#EF402D
-Latin America & Caribbean,06. Clean Water and Sanitation,80.8,#27BFE6
-Latin America & Caribbean,07. Affordable and Clean Energy,84.5,#FBC412
-Latin America & Caribbean,08. Decent Work and Economic Growth,65.2,#A21D43
-Latin America & Caribbean,"09. Industry, Innovation, and Infrastructure",48,#F26A2E
+East Europe & Central Asia,2. Zero Hunger,58.1,#DEA739
+East Europe & Central Asia,3. Good Health and Well-Being,74.1,#4CA146
+East Europe & Central Asia,4. Quality Education,86.9,#C7212E
+East Europe & Central Asia,5. Gender Equality,60.5,#EF402D
+East Europe & Central Asia,6. Clean Water and Sanitation,71.3,#27BFE6
+East Europe & Central Asia,7. Affordable and Clean Energy,63.2,#FBC412
+East Europe & Central Asia,8. Decent Work and Economic Growth,68.9,#A21D43
+East Europe & Central Asia,"9. Industry, Innovation, and Infrastructure",51.2,#F26A2E
+Latin America & Caribbean,1. No Poverty,80.2,#E5233D
 Latin America & Caribbean,10. Reduced Inequalities,20.3,#E01583
 Latin America & Caribbean,11. Sustainable Cities and Communities,76,#F89D2A
 Latin America & Caribbean,12. Responsible Consumption and Production,86.5,#BF8D2C
@@ -52,16 +42,15 @@ Latin America & Caribbean,14. LIfe below Water,61.1,#2097D4
 Latin America & Caribbean,15. Life on Land,61.6,#59BA48
 Latin America & Caribbean,"16. Peace, Justice and Strong Institutions",60,#126A9E
 Latin America & Caribbean,17. Partnerships for the Goals,66.9,#15496B
-Latin America & Caribbean,Overall,69.5,
-Mid East & North Africa,01. No Poverty,86.4,#E5233D
-Mid East & North Africa,02. Zero Hunger,60.4,#DEA739
-Mid East & North Africa,03. Good Health and Well-Being,72.5,#4CA146
-Mid East & North Africa,04. Quality Education,68.8,#C7212E
-Mid East & North Africa,05. Gender Equality,43.6,#EF402D
-Mid East & North Africa,06. Clean Water and Sanitation,58.2,#27BFE6
-Mid East & North Africa,07. Affordable and Clean Energy,64.7,#FBC412
-Mid East & North Africa,08. Decent Work and Economic Growth,62.1,#A21D43
-Mid East & North Africa,"09. Industry, Innovation, and Infrastructure",50.7,#F26A2E
+Latin America & Caribbean,2. Zero Hunger,63.8,#DEA739
+Latin America & Caribbean,3. Good Health and Well-Being,75.2,#4CA146
+Latin America & Caribbean,4. Quality Education,88.6,#C7212E
+Latin America & Caribbean,5. Gender Equality,70.3,#EF402D
+Latin America & Caribbean,6. Clean Water and Sanitation,80.8,#27BFE6
+Latin America & Caribbean,7. Affordable and Clean Energy,84.5,#FBC412
+Latin America & Caribbean,8. Decent Work and Economic Growth,65.2,#A21D43
+Latin America & Caribbean,"9. Industry, Innovation, and Infrastructure",48,#F26A2E
+Mid East & North Africa,1. No Poverty,86.4,#E5233D
 Mid East & North Africa,10. Reduced Inequalities,73.6,#E01583
 Mid East & North Africa,11. Sustainable Cities and Communities,61.2,#F89D2A
 Mid East & North Africa,12. Responsible Consumption and Production,89.3,#BF8D2C
@@ -70,16 +59,15 @@ Mid East & North Africa,14. LIfe below Water,63.3,#2097D4
 Mid East & North Africa,15. Life on Land,64.2,#59BA48
 Mid East & North Africa,"16. Peace, Justice and Strong Institutions",68,#126A9E
 Mid East & North Africa,17. Partnerships for the Goals,63.2,#15496B
-Mid East & North Africa,Overall,66.5,
-Oceania,01. No Poverty,33.4,#E5233D
-Oceania,02. Zero Hunger,28.6,#DEA739
-Oceania,03. Good Health and Well-Being,44.7,#4CA146
-Oceania,04. Quality Education,58.7,#C7212E
-Oceania,05. Gender Equality,43.4,#EF402D
-Oceania,06. Clean Water and Sanitation,15.8,#27BFE6
-Oceania,07. Affordable and Clean Energy,45.7,#FBC412
-Oceania,08. Decent Work and Economic Growth,66.5,#A21D43
-Oceania,"09. Industry, Innovation, and Infrastructure",12.3,#F26A2E
+Mid East & North Africa,2. Zero Hunger,60.4,#DEA739
+Mid East & North Africa,3. Good Health and Well-Being,72.5,#4CA146
+Mid East & North Africa,4. Quality Education,68.8,#C7212E
+Mid East & North Africa,5. Gender Equality,43.6,#EF402D
+Mid East & North Africa,6. Clean Water and Sanitation,58.2,#27BFE6
+Mid East & North Africa,7. Affordable and Clean Energy,64.7,#FBC412
+Mid East & North Africa,8. Decent Work and Economic Growth,62.1,#A21D43
+Mid East & North Africa,"9. Industry, Innovation, and Infrastructure",50.7,#F26A2E
+Oceania,1. No Poverty,33.4,#E5233D
 Oceania,10. Reduced Inequalities,47.8,#E01583
 Oceania,11. Sustainable Cities and Communities,75.3,#F89D2A
 Oceania,12. Responsible Consumption and Production,86.3,#BF8D2C
@@ -88,16 +76,15 @@ Oceania,14. LIfe below Water,65.7,#2097D4
 Oceania,15. Life on Land,51.1,#59BA48
 Oceania,"16. Peace, Justice and Strong Institutions",62.1,#126A9E
 Oceania,17. Partnerships for the Goals,45.2,#15496B
-Oceania,Overall,51.8,
-OECD members,01. No Poverty,97.8,#E5233D
-OECD members,02. Zero Hunger,69.5,#DEA739
-OECD members,03. Good Health and Well-Being,89.4,#4CA146
-OECD members,04. Quality Education,94.6,#C7212E
-OECD members,05. Gender Equality,74.6,#EF402D
-OECD members,06. Clean Water and Sanitation,84.8,#27BFE6
-OECD members,07. Affordable and Clean Energy,74.3,#FBC412
-OECD members,08. Decent Work and Economic Growth,77,#A21D43
-OECD members,"09. Industry, Innovation, and Infrastructure",90.1,#F26A2E
+Oceania,2. Zero Hunger,28.6,#DEA739
+Oceania,3. Good Health and Well-Being,44.7,#4CA146
+Oceania,4. Quality Education,58.7,#C7212E
+Oceania,5. Gender Equality,43.4,#EF402D
+Oceania,6. Clean Water and Sanitation,15.8,#27BFE6
+Oceania,7. Affordable and Clean Energy,45.7,#FBC412
+Oceania,8. Decent Work and Economic Growth,66.5,#A21D43
+Oceania,"9. Industry, Innovation, and Infrastructure",12.3,#F26A2E
+OECD members,1. No Poverty,97.8,#E5233D
 OECD members,10. Reduced Inequalities,65.1,#E01583
 OECD members,11. Sustainable Cities and Communities,87.7,#F89D2A
 OECD members,12. Responsible Consumption and Production,70.8,#BF8D2C
@@ -106,16 +93,15 @@ OECD members,14. LIfe below Water,62,#2097D4
 OECD members,15. Life on Land,65.4,#59BA48
 OECD members,"16. Peace, Justice and Strong Institutions",76.1,#126A9E
 OECD members,17. Partnerships for the Goals,70,#15496B
-OECD members,Overall,77.1,
-Sub-Saharan Africa,01. No Poverty,24.2,#E5233D
-Sub-Saharan Africa,02. Zero Hunger,57.3,#DEA739
-Sub-Saharan Africa,03. Good Health and Well-Being,40.5,#4CA146
-Sub-Saharan Africa,04. Quality Education,42.4,#C7212E
-Sub-Saharan Africa,05. Gender Equality,52.3,#EF402D
-Sub-Saharan Africa,06. Clean Water and Sanitation,51.8,#27BFE6
-Sub-Saharan Africa,07. Affordable and Clean Energy,54.1,#FBC412
-Sub-Saharan Africa,08. Decent Work and Economic Growth,58.6,#A21D43
-Sub-Saharan Africa,"09. Industry, Innovation, and Infrastructure",24.2,#F26A2E
+OECD members,2. Zero Hunger,69.5,#DEA739
+OECD members,3. Good Health and Well-Being,89.4,#4CA146
+OECD members,4. Quality Education,94.6,#C7212E
+OECD members,5. Gender Equality,74.6,#EF402D
+OECD members,6. Clean Water and Sanitation,84.8,#27BFE6
+OECD members,7. Affordable and Clean Energy,74.3,#FBC412
+OECD members,8. Decent Work and Economic Growth,77,#A21D43
+OECD members,"9. Industry, Innovation, and Infrastructure",90.1,#F26A2E
+Sub-Saharan Africa,1. No Poverty,24.2,#E5233D
 Sub-Saharan Africa,10. Reduced Inequalities,33.9,#E01583
 Sub-Saharan Africa,11. Sustainable Cities and Communities,46.7,#F89D2A
 Sub-Saharan Africa,12. Responsible Consumption and Production,95.9,#BF8D2C
@@ -124,16 +110,15 @@ Sub-Saharan Africa,14. LIfe below Water,67.7,#2097D4
 Sub-Saharan Africa,15. Life on Land,66.2,#59BA48
 Sub-Saharan Africa,"16. Peace, Justice and Strong Institutions",49.6,#126A9E
 Sub-Saharan Africa,17. Partnerships for the Goals,47.9,#15496B
-Sub-Saharan Africa,Overall,53.5,
-World,01. No Poverty,73.1,#E5233D
-World,02. Zero Hunger,64.4,#DEA739
-World,03. Good Health and Well-Being,69.4,#4CA146
-World,04. Quality Education,80.2,#C7212E
-World,05. Gender Equality,59,#EF402D
-World,06. Clean Water and Sanitation,65.4,#27BFE6
-World,07. Affordable and Clean Energy,67.4,#FBC412
-World,08. Decent Work and Economic Growth,68.2,#A21D43
-World,"09. Industry, Innovation, and Infrastructure",60.1,#F26A2E
+Sub-Saharan Africa,2. Zero Hunger,57.3,#DEA739
+Sub-Saharan Africa,3. Good Health and Well-Being,40.5,#4CA146
+Sub-Saharan Africa,4. Quality Education,42.4,#C7212E
+Sub-Saharan Africa,5. Gender Equality,52.3,#EF402D
+Sub-Saharan Africa,6. Clean Water and Sanitation,51.8,#27BFE6
+Sub-Saharan Africa,7. Affordable and Clean Energy,54.1,#FBC412
+Sub-Saharan Africa,8. Decent Work and Economic Growth,58.6,#A21D43
+Sub-Saharan Africa,"9. Industry, Innovation, and Infrastructure",24.2,#F26A2E
+World,1. No Poverty,73.1,#E5233D
 World,10. Reduced Inequalities,36.8,#E01583
 World,11. Sustainable Cities and Communities,66.4,#F89D2A
 World,12. Responsible Consumption and Production,88.8,#BF8D2C
@@ -142,4 +127,11 @@ World,14. LIfe below Water,59.5,#2097D4
 World,15. Life on Land,58.1,#59BA48
 World,"16. Peace, Justice and Strong Institutions",63.4,#126A9E
 World,17. Partnerships for the Goals,55.8,#15496B
-World,Overall,66,
+World,2. Zero Hunger,64.4,#DEA739
+World,3. Good Health and Well-Being,69.4,#4CA146
+World,4. Quality Education,80.2,#C7212E
+World,5. Gender Equality,59,#EF402D
+World,6. Clean Water and Sanitation,65.4,#27BFE6
+World,7. Affordable and Clean Energy,67.4,#FBC412
+World,8. Decent Work and Economic Growth,68.2,#A21D43
+World,"9. Industry, Innovation, and Infrastructure",60.1,#F26A2E
