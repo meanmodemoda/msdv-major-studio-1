@@ -109,7 +109,7 @@ h4 {
 
 .tooltip {
   opacity: 1;
-  position: absolute;
+  /* position: absolute; */
   top: 30;
   left: 0;
   width: 30em;

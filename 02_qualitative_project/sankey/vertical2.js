@@ -32,7 +32,7 @@ const _sankey = d3
   .nodeSort(null)
   .extent([
     [width / 2, 15],
-    [width, height - 12],
+    [width, height - 15],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -110,20 +110,6 @@ d3.csv("../sankey.csv").then((data) => {
       name: d,
     };
   });
-
-  //create unique source array
-  const unique2 = d3
-    .nest()
-    .key((d) => d.source)
-    .entries(data);
-
-  let sourceValue = [];
-  unique2.forEach((d) => {
-    let obj = { name: d.key, value: d.values.length };
-    sourceValue.push(obj);
-  });
-
-  console.log(sourceValue);
 
   const palette = [
     "#E5233D",
@@ -234,11 +220,11 @@ d3.csv("../sankey.csv").then((data) => {
       .attr("stroke", (d) => d.uid)
       .attr("stroke-width", (d) => {
         // the first layer
-        // if (d.source.x1 > width / 2) {
-        //   return 0.5;
-        // } else {
-        //   return d.width;
-        // }
+        if (d.source.x1 > width / 2) {
+          return d.width * 1.8;
+        } else {
+          return d.width;
+        }
         return d.width;
       })
       .on("mouseover", onMouseEnter)
@@ -246,7 +232,7 @@ d3.csv("../sankey.csv").then((data) => {
 
     link
       .append("path")
-      .attr("class", "link3")
+      .attr("class", "link-invisible")
       .attr("id", (d, i) => d.index)
       .attr("d", d3.sankeyLinkHorizontal())
       .attr("transform", "translate(0,-3)")
@@ -254,12 +240,11 @@ d3.csv("../sankey.csv").then((data) => {
       .attr("stroke", "transparent")
       .attr("stroke-width", (d) => {
         // the first layer
-        // if (d.source.x1 > width / 2) {
-        //   return 0.5;
-        // } else {
-        //   return d.width;
-        // }
-        return d.width;
+        if (d.source.height == 1) {
+          return 1;
+        } else {
+          return d.width;
+        }
       });
 
     // add the link titles
@@ -337,46 +322,6 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("xlink:href", "#0")
     .text("Themes")
     .attr("alignment-baseline", "top");
-
-  const curve = svg
-    .append("svg:image")
-    .attr("xlink:href", "./Vector 1.svg")
-    .attr("transform", "rotate(-90 0 0)");
-
-  //Add lines
-  // const lines = [
-  //   {
-  //     x1: width - 1,
-  //     y1: height - 282,
-  //     x2: width - 1,
-  //     y2: 0,
-  //   },
-  //   {
-  //     x1: width - 75,
-  //     y1: height - 242,
-  //     x2: width - 75,
-  //     y2: 0,
-  //   },
-  //   {
-  //     x1: width - 148,
-  //     y1: height - 242,
-  //     x2: width - 148,
-  //     y2: 0,
-  //   },
-  // ];
-
-  // lines.forEach((l) => {
-  //   svg
-  //     .append("g")
-  //     .append("line")
-  //     .attr("x1", l.x1)
-  //     .attr("y1", l.y1)
-  //     .attr("x2", l.x2)
-  //     .attr("y2", l.y2)
-  //     .attr("stroke", "black")
-  //     .attr("stroke-width", "0.15")
-  //     .style("stroke-width", "0.2px");
-  // });
 });
 
 const tooltip = d3.select("#tooltip");
@@ -388,6 +333,7 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
+  console.log(event);
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
     let img = `../assets/${imgCode}.png`;
@@ -406,7 +352,6 @@ function onMouseEnter(event) {
   }
 
   if (event.source.height == 2) {
-    console.log(event);
     let imgCode = imgPicker(event.target.name);
     let img = `../assets/${imgCode}.png`;
     tooltip
@@ -425,7 +370,7 @@ function onMouseEnter(event) {
 
   tooltip.style(
     "transform",
-    `translate(850px,250px)`
+    `translate(40rem,20rem)`
     // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
     // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   );
