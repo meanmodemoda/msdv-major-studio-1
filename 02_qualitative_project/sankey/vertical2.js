@@ -31,7 +31,7 @@ const _sankey = d3
   .nodePadding(1.5)
   .nodeSort(null)
   .extent([
-    [width / 2, 10],
+    [width / 2, 15],
     [width, height - 12],
   ]);
 
@@ -228,7 +228,7 @@ d3.csv("../sankey.csv").then((data) => {
     link
       .append("path")
       .attr("class", "link")
-      .attr("id", (d, i) => d.index)
+      // .attr("id", (d, i) => d.index)
       .attr("d", d3.sankeyLinkHorizontal())
       // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
       .attr("stroke", (d) => d.uid)
@@ -243,6 +243,25 @@ d3.csv("../sankey.csv").then((data) => {
       })
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
+
+    link
+      .append("path")
+      .attr("class", "link3")
+      .attr("id", (d, i) => d.index)
+      .attr("d", d3.sankeyLinkHorizontal())
+      .attr("transform", "translate(0,-3)")
+      // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+      .attr("stroke", "transparent")
+      .attr("stroke-width", (d) => {
+        // the first layer
+        // if (d.source.x1 > width / 2) {
+        //   return 0.5;
+        // } else {
+        //   return d.width;
+        // }
+        return d.width;
+      });
+
     // add the link titles
   }
 
@@ -293,6 +312,7 @@ d3.csv("../sankey.csv").then((data) => {
 
   //append label
   svg
+    .append("g")
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
@@ -301,54 +321,62 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("text-align", "right");
 
   svg
+    .append("g")
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
+    .attr("startOffset", "75%")
     .attr("xlink:href", "#1")
-    .text("Targets")
-    .style("text-align", "left");
+    .text("Targets");
 
-  svg
+  const themes = svg
+    .append("g")
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
     .attr("xlink:href", "#0")
-    .text("Themes");
+    .text("Themes")
+    .attr("alignment-baseline", "top");
+
+  const curve = svg
+    .append("svg:image")
+    .attr("xlink:href", "./Vector 1.svg")
+    .attr("transform", "rotate(-90 0 0)");
 
   //Add lines
-  const lines = [
-    {
-      x1: width - 1,
-      y1: height - 282,
-      x2: width - 1,
-      y2: 0,
-    },
-    {
-      x1: width - 75,
-      y1: height - 242,
-      x2: width - 75,
-      y2: 0,
-    },
-    {
-      x1: width - 148,
-      y1: height - 242,
-      x2: width - 148,
-      y2: 0,
-    },
-  ];
+  // const lines = [
+  //   {
+  //     x1: width - 1,
+  //     y1: height - 282,
+  //     x2: width - 1,
+  //     y2: 0,
+  //   },
+  //   {
+  //     x1: width - 75,
+  //     y1: height - 242,
+  //     x2: width - 75,
+  //     y2: 0,
+  //   },
+  //   {
+  //     x1: width - 148,
+  //     y1: height - 242,
+  //     x2: width - 148,
+  //     y2: 0,
+  //   },
+  // ];
 
-  lines.forEach((l) => {
-    svg
-      .append("g")
-      .append("line")
-      .attr("x1", l.x1)
-      .attr("y1", l.y1)
-      .attr("x2", l.x2)
-      .attr("y2", l.y2)
-      .attr("stroke", "black")
-      .attr("stroke-width", "0.15")
-      .style("stroke-width", "0.2px");
-  });
+  // lines.forEach((l) => {
+  //   svg
+  //     .append("g")
+  //     .append("line")
+  //     .attr("x1", l.x1)
+  //     .attr("y1", l.y1)
+  //     .attr("x2", l.x2)
+  //     .attr("y2", l.y2)
+  //     .attr("stroke", "black")
+  //     .attr("stroke-width", "0.15")
+  //     .style("stroke-width", "0.2px");
+  // });
 });
 
 const tooltip = d3.select("#tooltip");
@@ -366,7 +394,7 @@ function onMouseEnter(event) {
     tooltip
       .select("#tooltip-goal")
       .html(
-        `<div class="first-layer"><img src=${img} width="200px"/>
+        `<div class="first-layer"><img src=${img} width="150px"/>
         <div id="first-layer">
         <h3 style=("font-size","5em")>Goal ${event.source.name}</h3>
         <div class="placeholder"></div>
@@ -378,12 +406,13 @@ function onMouseEnter(event) {
   }
 
   if (event.source.height == 2) {
+    console.log(event);
     let imgCode = imgPicker(event.target.name);
     let img = `../assets/${imgCode}.png`;
     tooltip
       .select("#tooltip-goal")
       .html(
-        `<div class="first-layer"><img src=${img} width="200px"/>
+        `<div class="first-layer"><img src=${img} width="150px"/>
         <div id="first-layer">
         <h3 style=("font-size","5em")>Transformation ${event.source.name}</h3>
         <div class="placeholder"></div>
@@ -396,11 +425,11 @@ function onMouseEnter(event) {
 
   tooltip.style(
     "transform",
-    `translate(800px,250px)`
+    `translate(850px,250px)`
     // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
     // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   );
-  tooltip.style("width", "40%");
+  tooltip.style("width", "30%");
   tooltip.style("opacity", 1);
 }
 

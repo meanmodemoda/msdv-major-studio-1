@@ -108,7 +108,7 @@ h4 {
 }
 
 .tooltip {
-  opacity: 0;
+  opacity: 1;
   position: absolute;
   top: 30;
   left: 0;
@@ -280,4 +280,8 @@ ul {
 .first-layer p {
   padding-top: 5%;
   /* padding-left: 20%; */
+}
+
+textPath {
+  start-offset: 50%;
 }
