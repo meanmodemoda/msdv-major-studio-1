@@ -328,7 +328,7 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
-  console.log(event);
+  console.log(this);
 
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
@@ -364,12 +364,16 @@ function onMouseEnter(event) {
       .style("font-weight", "400");
   }
 
-  tooltip.style(
-    "transform",
-    `translate(40rem,20rem)`
-    // `translate(${window.innerWidth}/2,${window.innerHeight}/2)`
-    // `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
-  );
+  //Format tooltip position
+  const x = event.pageX;
+  const y = event.pageY;
+
+  tooltip.style("transform", `translate(800px,200px)`);
+
+  // tooltip.style(
+  //   "transform",
+  //   `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
+  // );
   tooltip.style("width", "30%");
   tooltip.style("opacity", 1);
 }
