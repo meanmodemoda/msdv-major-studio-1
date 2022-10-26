@@ -81,8 +81,6 @@ d3.csv("../sankey.csv").then((data) => {
     });
   });
 
-  console.log(data[0]);
-
   // return only the distinct / unique nodes
   const unique = d3
     .nest()
@@ -174,83 +172,85 @@ d3.csv("../sankey.csv").then((data) => {
   //   update();
   // };
 
-  function update() {
-    const gradient = link
-      .append("linearGradient")
-      .attr("id", (d, i) => {
-        //  (d.uid = DOM.uid("link")).id
-        const id = `link-${i}`;
-        d.uid = `url(#${id})`;
-        return id;
-      })
-      .attr("gradientUnits", "userSpaceOnUse")
-      .attr("x1", (d) => d.source.x1)
-      .attr("x2", (d) => d.target.x0);
+  // const gradient = link
+  //   .append("linearGradient")
+  //   .attr("id", (d, i) => {
+  //     //  (d.uid = DOM.uid("link")).id
+  //     const id = `link-${i}`;
+  //     d.uid = `url(#${id})`;
+  //     return id;
+  //   })
+  //   .attr("gradientUnits", "userSpaceOnUse")
+  //   .attr("x1", (d) => d.source.x1)
+  //   .attr("x2", (d) => d.target.x0);
 
-    gradient
-      .append("stop")
-      // .attr("offset", "0%")
-      .attr("stop-color", (d) => {
-        // the first layer
-        if (d.source.x1 > width / 2) {
-          return color(d.source.name);
-        } else {
-          return color(d.target.name);
-        }
-      });
+  // gradient
+  //   .append("stop")
+  //   // .attr("offset", "0%")
+  //   .attr("stop-color", (d) => {
+  //     // the first layer
+  //     if (d.source.x1 > width / 2) {
+  //       return color(d.source.name);
+  //     } else {
+  //       return color(d.target.name);
+  //     }
+  //   });
 
-    gradient
-      .append("stop")
-      // .attr("offset", "100%")
-      .attr("stop-color", (d) => {
-        // the first layer
-        if (d.source.x1 > width / 2) {
-          return color(d.source.name);
-        } else {
-          return color(d.target.name);
-        }
-      });
+  // gradient
+  //   .append("stop")
+  //   // .attr("offset", "100%")
+  //   .attr("stop-color", (d) => {
+  //     // the first layer
+  //     if (d.source.x1 > width / 2) {
+  //       return color(d.source.name);
+  //     } else {
+  //       return color(d.target.name);
+  //     }
+  //   });
 
-    link
-      .append("path")
-      .attr("class", "link")
-      // .attr("id", (d, i) => d.index)
-      .attr("d", d3.sankeyLinkHorizontal())
-      // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
-      .attr("stroke", (d) => d.uid)
-      .attr("stroke-width", (d) => {
-        // the first layer
-        if (d.source.x1 > width / 2) {
-          return d.width * 1.8;
-        } else {
-          return d.width;
-        }
+  const links = link
+    .append("path")
+    .attr("class", "link")
+    .attr("class", (d) => d.uid)
+    .attr("d", d3.sankeyLinkHorizontal())
+    // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+    .attr("stroke", (d) => {
+      if (d.source.x1 > width / 2) {
+        return color(d.source.name);
+      } else {
+        return color(d.target.name);
+      }
+    })
+    .attr("stroke-width", (d) => {
+      // the first layer
+      if (d.source.x1 > width / 2) {
+        return d.width * 1.8;
+      } else {
         return d.width;
-      })
-      .on("mouseover", onMouseEnter)
-      .on("mouseleave", onMouseLeave);
+      }
+      return d.width;
+    })
+    .on("mouseover", onMouseEnter)
+    .on("mouseleave", onMouseLeave);
 
-    link
-      .append("path")
-      .attr("class", "link-invisible")
-      .attr("id", (d, i) => d.index)
-      .attr("d", d3.sankeyLinkHorizontal())
-      .attr("transform", "translate(0,-3)")
-      // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
-      .attr("stroke", "transparent")
-      .attr("stroke-width", (d) => {
-        // the first layer
-        if (d.source.height == 1) {
-          return 1;
-        } else {
-          return d.width;
-        }
-      });
+  link
+    .append("path")
+    .attr("class", "link-invisible")
+    .attr("id", (d, i) => d.index)
+    .attr("d", d3.sankeyLinkHorizontal())
+    .attr("transform", "translate(0,-3)")
+    // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+    .attr("stroke", "transparent")
+    .attr("stroke-width", (d) => {
+      // the first layer
+      if (d.source.height == 1) {
+        return 1;
+      } else {
+        return d.width;
+      }
+    });
 
-    // add the link titles
-  }
-
-  update();
+  // add the link titles
 
   // link
   //   .append("title")
@@ -333,7 +333,11 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
-  console.log(event);
+  console.log(this);
+
+  // link.style("stroke", "black");
+  // d3.select(this).style("stroke", "#69b3b2");
+
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
     let img = `../assets/${imgCode}.png`;

@@ -243,11 +243,11 @@ li:hover .text {
   background: red;
 } */
 
-.link:hover {
+/* .link:hover {
   stroke: cornflowerblue;
   stroke-width: 1;
   stroke-opacity: 1;
-}
+} */
 
 ul {
   list-style-type: none;
