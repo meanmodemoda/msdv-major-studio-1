@@ -1,7 +1,24 @@
 // set the dimensions and margins of the graph
-const margin = { top: 30, right: 0, bottom: 30, left: 50 },
-  width = 810 - margin.left - margin.right,
-  height = 210 - margin.top - margin.bottom;
+const width = 400;
+let dimensions = {
+  width: width,
+  height: width,
+  radius: width / 2,
+  margin: {
+    top: 10,
+    right: 10,
+    bottom: 10,
+    left: 10,
+  },
+};
+dimensions.boundedWidth =
+  dimensions.width - dimensions.margin.left - dimensions.margin.right;
+dimensions.boundedHeight =
+  dimensions.height - dimensions.margin.top - dimensions.margin.bottom;
+dimensions.boundedRadius =
+  dimensions.radius - (dimensions.margin.left + dimensions.margin.right) / 2;
+innerRadius = 0;
+outerRadius = dimensions.boundedWidth / 2;
 
 //Read the data
 d3.csv("./data/score.csv").then(function (data) {
@@ -11,7 +28,12 @@ d3.csv("./data/score.csv").then(function (data) {
 
   console.log(goal);
   // What is the list of groups?
-  allKeys = new Set(data.map((d) => d.region));
+  const region = new Set(data.map((d) => d.region));
+
+  const regionAccessor = (d) => d.region;
+  const goalAccessor = (d) => d.goal;
+  const scoreAccessor = (d) => d.value;
+  const colorAccessor = (d) => d.color;
 
   // console.log(allKeys);
   // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
@@ -21,53 +43,28 @@ d3.csv("./data/score.csv").then(function (data) {
     .data(sumstat)
     .enter()
     .append("svg")
-    .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("width", dimensions.width)
+    .attr("height", dimensions.height)
     .append("g")
-    .attr("transform", `translate(${margin.left},${margin.top})`);
-
-  console.log(
-    d3.extent(data, function (d) {
-      return d.goal;
-    })
-  );
+    .style(
+      "transform",
+      `translate(${dimensions.margin.left + dimensions.boundedRadius}px, ${
+        dimensions.margin.top + dimensions.boundedRadius
+      }px)`
+    );
 
   // Add X axis --> it is a date format
-  const x = d3.scaleBand().domain(goal).range([0, width]).padding(0.02);
-  svg
-    .append("g")
-    .attr("transform", `translate(0, ${height})`)
-    .call(d3.axisBottom(x).ticks(17));
+  const goalScale = d3
+    .scaleBand()
+    .domain(goal)
+    .range([0, Math.PI * 2]);
 
-  //Add Y axis
-  const y = d3
+  const radiusScale = d3
     .scaleLinear()
-    .domain([
-      0,
-      d3.max(data, function (d) {
-        return +d.value;
-      }),
-    ])
-    .range([height, 0]);
-  svg.append("g").call(d3.axisLeft(y).ticks(5));
+    .domain([0, 100])
+    .range([innerRadius, outerRadius]);
 
-  // color palette
-  const color = d3
-    .scaleOrdinal()
-    .domain(allKeys)
-    .range([
-      "#e41a1c",
-      "#377eb8",
-      "#4daf4a",
-      "#984ea3",
-      "#ff7f00",
-      "#ffff33",
-      "#a65628",
-      "#f781bf",
-      "#999999",
-    ]);
-
-  const color2 = d3
+  const colorScale = d3
     .scaleOrdinal()
     .domain(goal)
     .range([
@@ -90,25 +87,43 @@ d3.csv("./data/score.csv").then(function (data) {
       "#84BCE0",
     ]);
 
+  // color palette
+  const color = d3
+    .scaleOrdinal()
+    .domain(region)
+    .range([
+      "#e41a1c",
+      "#377eb8",
+      "#4daf4a",
+      "#984ea3",
+      "#ff7f00",
+      "#ffff33",
+      "#a65628",
+      "#f781bf",
+      "#999999",
+    ]);
+
   // Draw the line
   svg
-    .selectAll(".bar")
+    .selectAll("path")
     .data(function (d) {
       return d[1];
     })
-    .join("rect")
-    .attr("class", "bar")
-    .attr("x", function (d) {
-      return x(d.goal);
-    })
-    .attr("y", function (d) {
-      return y(+d.value);
-    })
-    .attr("width", x.bandwidth())
-    .attr("height", function (d) {
-      return height - y(d.value);
-    })
-    .attr("fill", (d) => color2(d.goal));
+    .join("path")
+    .attr("class", "bar-chart")
+    .attr("opacity", 0.7)
+    .attr("fill", (d) => colorScale(goalAccessor(d)))
+    .attr(
+      "d",
+      d3
+        .arc()
+        .innerRadius(innerRadius)
+        .outerRadius((d) => radiusScale(scoreAccessor(d)))
+        .startAngle((d) => goalScale(goalAccessor(d)))
+        .endAngle((d) => goalScale(goalAccessor(d)) + goalScale.bandwidth())
+        .padAngle(0.5)
+        .padRadius(innerRadius)
+    );
 
   // .attr("d", function (d) {
   //   return d3

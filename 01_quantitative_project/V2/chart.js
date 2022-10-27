@@ -2,7 +2,7 @@ async function drawChart() {
   // 1. Access data
   let dataset = await d3.csv("./data/score.csv");
   //remove world from region
-  const datagoal = dataset.filter((d) => d["Goals"] != "Overall");
+  const datagoal = dataset.filter((d) => d.goal != "Overall");
 
   console.log(datagoal);
 
@@ -12,10 +12,10 @@ async function drawChart() {
 
   // console.log(dataset);
   // console.log(dataworld);
-  const regionAccessor = (d) => d["Region"];
-  const goalAccessor = (d) => d["Goals"];
-  const scoreAccessor = (d) => d["Value"];
-  const colorAccessor = (d) => d["Color"];
+  const regionAccessor = (d) => d.region;
+  const goalAccessor = (d) => d.goal;
+  const scoreAccessor = (d) => d.value;
+  const colorAccessor = (d) => d.color;
   // console.log(regionAccessor(dataset[1]));
 
   // add metric function
@@ -24,7 +24,7 @@ async function drawChart() {
   // region.unshift("World");
   // region = region.slice(0, region.length - 1);
 
-  console.log(region);
+  console.log(goal);
 
   // region = region.slice(0, region.length - 1);
 
