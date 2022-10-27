@@ -24,10 +24,9 @@ outerRadius = dimensions.boundedWidth / 2;
 d3.csv("./data/score.csv").then(function (data1) {
   // group the data: I want to draw one line per group
   const datagoal = data1.filter((d) => d.goal != "Overall");
-  const data = data1.filter((d) => d.region != "World");
-  // const dataworld = data1.filter((d) => (d.region = "World"));
-  const sumstat = d3.group(data1, (d) => d.region); // nest function allows to group the calculation per level of a factor
-  const goal = d3.groups(data1, (d) => d.goal).map((d) => d[0]);
+  const data = data1.filter((d) => (d.region = "World"));
+  const sumstat = d3.group(data, (d) => d.region); // nest function allows to group the calculation per level of a factor
+  const goal = d3.groups(data, (d) => d.goal).map((d) => d[0]);
 
   // What is the list of groups?
   const region = new Set(data.map((d) => d.region));
@@ -39,17 +38,14 @@ d3.csv("./data/score.csv").then(function (data1) {
 
   // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
   const svg = d3
-    .selectAll("#my_dataviz")
+    .select("#world")
     .selectAll("charts")
     .data(sumstat)
     .enter()
-    .append("div")
-    .attr("id", "a")
     .append("svg")
     .attr("width", dimensions.width)
     .attr("height", dimensions.height)
     .append("g")
-    .attr("class", "multiple")
     .style(
       "transform",
       `translate(${dimensions.margin.left + dimensions.boundedRadius}px, ${

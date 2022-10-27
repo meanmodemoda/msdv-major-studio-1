@@ -28,11 +28,11 @@ const _sankey = d3
   .sankey()
   .nodeWidth(0)
   .nodeAlign(d3.sankeyCenter)
-  .nodePadding(1.5)
+  .nodePadding(1.35)
   .nodeSort(null)
   .extent([
     [width / 2, 15],
-    [width, height - 15],
+    [width, height - 25],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -367,8 +367,6 @@ function onMouseEnter(event) {
   //Format tooltip position
   const x = event.pageX;
   const y = event.pageY;
-
-  tooltip.style("transform", `translate(800px,200px)`);
 
   // tooltip.style(
   //   "transform",

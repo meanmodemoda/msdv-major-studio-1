@@ -255,3 +255,11 @@ div.swiper-scrollbar {
   width: 100%;
   text-align: left;
 }
+
+div:nth-child(2) {
+  background-color: red;
+}
+
+#my_dataviz {
+  display: grid;
+}
