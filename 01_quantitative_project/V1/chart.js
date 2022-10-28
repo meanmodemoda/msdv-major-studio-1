@@ -1,6 +1,5 @@
 async function drawChart() {
-  // 1. Access data
-
+  // 1. Access csv data
   let dataset = await d3.csv("./data/score.csv");
   //remove world from region
   const dataregion = dataset.filter((d) => d["Region"] != "World");
@@ -15,7 +14,7 @@ async function drawChart() {
 
   // add metric function
   const region = dataregion
-    .filter((d) => d["Goals"] === "1. No Poverty")
+    .filter((d) => d["Goals"] === "01. No Poverty")
     .map(regionAccessor);
   // console.log(dataregion);
 
@@ -23,14 +22,13 @@ async function drawChart() {
   // console.log(sumdata);
 
   // 2. Create chart dimensions
-
-  const width = 600;
+  const width = 460;
   let dimensions = {
     width: width,
     height: width,
     radius: width / 2,
     margin: {
-      top: 10,
+      top: 0,
       right: 10,
       bottom: 10,
       left: 10,
@@ -45,13 +43,12 @@ async function drawChart() {
   innerRadius = 80;
   outerRadius = dimensions.boundedWidth / 2;
 
-  const getCoordinatesForAngle = (angle, offset = 1) => [
-    Math.cos(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
-    Math.sin(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
-  ];
+  // const getCoordinatesForAngle = (angle, offset = 1) => [
+  //   Math.cos(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
+  //   Math.sin(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
+  // ];
 
   // 3. Draw canvas
-
   const wrapper = d3
     .select("#wrapper")
     .append("svg")
@@ -68,7 +65,6 @@ async function drawChart() {
     );
 
   // 4. Create scales
-
   const regionScale = d3
     .scaleBand()
     .domain(region)
@@ -98,7 +94,6 @@ async function drawChart() {
     ]);
 
   // 6. Draw peripherals
-
   const peripherals = bounds.append("g");
 
   const scoreTicks = radiusScale.ticks(4);
@@ -255,7 +250,7 @@ async function drawChart() {
       .attr("class", "tick-label")
       .style("font-size", "1em");
 
-    //6. Draw Interaction
+    //7. Draw Interaction
     const tooltip = d3.select("#tooltip");
 
     barChart.on("mouseover", onMouseEnter).on("mouseleave", onMouseLeave);
@@ -303,20 +298,73 @@ async function drawChart() {
     }
   }
 
+  // 8. Fetch data from API
+  let paragraph = document.querySelector(".paragraph");
+
+  //fetch Goal Description
+  function getUserData(code) {
+    let url = `https://unstats.un.org/sdgapi/v1/sdg/Goal/${code}/Target/List?includechildren=true`;
+    fetch(url)
+      .then((res) => res.json())
+      .then(function (resp) {
+        //remove existing content
+        paragraph.innerHTML = "";
+
+        //create p element
+        let description = document.createElement("p");
+        description.setAttribute("id", "description");
+        //create image element
+        let img = document.createElement("img");
+        setAttributes(img, {
+          src: `./assets/${code}.svg`,
+          width: "200px",
+          height: "auto",
+          class: "paraimg",
+        });
+        //fetch goal description
+        let goal = resp[0].description;
+
+        //helper function: split goals out for different formatting
+        function splitFormat(str) {
+          const index = goal.indexOf(" ", str.indexOf(" ") + 1);
+          let firstChunk = str.substr(0, index);
+          let secondChunk = str.substr(index + 1);
+          let span1 = document.createElement("span");
+          span1.setAttribute("id", "span1");
+          let span2 = document.createElement("span");
+          span2.setAttribute("id", "span2");
+          span1.innerHTML = firstChunk;
+          span2.innerHTML = " " + secondChunk;
+          description.appendChild(span1);
+          description.appendChild(span2);
+        }
+
+        splitFormat(goal);
+        //append elements
+        paragraph.appendChild(img);
+        paragraph.appendChild(description);
+      })
+      .catch(function (resp) {
+        document.getElementById("Output").innerHTML = "There was an error";
+      });
+
+    //helper function: set multiple attributes
+    function setAttributes(el, attrs) {
+      for (var key in attrs) {
+        el.setAttribute(key, attrs[key]);
+      }
+    }
+  }
+  //9. Button Interaction
   d3.selectAll(".swiper-slide").on("click", function (e) {
     console.log(this.id);
+    console.log(this.dataset.code);
     e.preventDefault();
     drawArc(this.id);
+    getUserData(this.dataset.code);
   });
-
-  drawArc("1. No Poverty");
-  // const chartLabel = bounds.append("g");
-  // chartLabel
-
-  //in svg you can't use z-index
-
-  // 6. Draw peripherals, part II
-
-  // 7. Set up interactions
+  // 10.
+  drawArc("01. No Poverty");
+  getUserData(1);
 }
 drawChart();

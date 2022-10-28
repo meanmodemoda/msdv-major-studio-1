@@ -54,11 +54,6 @@ async function drawChart() {
   innerRadius = 0;
   outerRadius = dimensions.boundedWidth / 2;
 
-  const getCoordinatesForAngle = (angle, offset = 1) => [
-    Math.cos(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
-    Math.sin(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
-  ];
-
   // 3. Draw canvas
 
   const wrapper = d3

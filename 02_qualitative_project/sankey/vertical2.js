@@ -31,7 +31,7 @@ const _sankey = d3
   .nodePadding(2)
   .nodeSort(null)
   .extent([
-    [width / 2, 15],
+    [width / 2.3, 15],
     [width, height - 25],
   ]);
 
@@ -149,16 +149,16 @@ d3.csv("../sankey.csv").then((data) => {
   //   .data(graph.nodes)
   //   .join("rect")
   //   .attr("x", (d) => d.x0)
-  //   .attr("y", (d) => d.y0 - 0.5)
-  //   .attr("height", 8)
+  //   .attr("y", (d) => d.y0)
+  //   // .attr("height", 8)
   //   // .attr("height", (d) => d.y1 - d.y0)
-  //   // .attr("width", (d) => d.x1 - d.x0)
-  //   // .attr("height", (d) => d.y1 - d.y0)
-  //   .attr("width", 1)
+  //   // .attr("width", (d) => d.x1 - d.x0s)
+  //   .attr("height", (d) => d.y1 - d.y0)
+  //   .attr("width", 16)
   //   .attr("fill", (d) => color(d.name))
   //   .append("title")
-  //   .text((d) => `${d.name}\n${format(d.value)}`)
-  //   .attr("transform", "rotate(270,0,0)");
+  //   .text((d) => `${d.name}\n${format(d.value)}`);
+  // // .attr("transform", "rotate(270,0,0)");
 
   // 5. Draw Sankey
   link = svg
@@ -210,7 +210,7 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("class", "link-invisible")
     .attr("id", (d, i) => d.index)
     .attr("d", d3.sankeyLinkHorizontal())
-    .attr("transform", "translate(0,-3)")
+    .attr("transform", "translate(0,-4)")
     // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
     .attr("stroke", "transparent")
     .attr("stroke-width", (d) => {
@@ -222,7 +222,7 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("class", "link")
     // .attr("id", (d, i) => d.index)
     .attr("d", d3.sankeyLinkHorizontal())
-    // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+    // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 0.5 : 0.5))
     .attr("stroke", (d) => d.uid)
     .attr("stroke-width", (d) => {
       // the first layer
@@ -239,14 +239,14 @@ d3.csv("../sankey.csv").then((data) => {
   //   .append("path")
   //   .attr("class", "link-invisible")
   //   .attr("id", (d, i) => d.index)
-  //   .attr("opacity", 0.3)
+  //   // .attr("opacity", 0.3)
   //   .attr("d", d3.sankeyLinkHorizontal())
-  //   .attr("transform", "translate(400,00) rotate(180,0,0) scale(1,-1)")
-  //   .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+  //   .attr("transform", "translate(350,0) rotate(180,0,0) scale(1,-1)")
+  //   .attr("stroke-opacity", (d) => (d.source.height == 1 ? 0.1 : 0.1))
   //   .attr("stroke", (d) => d.uid)
   //   .attr("stroke-width", (d) => {
   //     return d.width;
-  //   });
+  // });
 
   // link
   //   .append("title")
@@ -279,18 +279,19 @@ d3.csv("../sankey.csv").then((data) => {
     .style("transform", `translate(175px,18px) rotate(90deg)`);
 
   //text label
-  // svg
-  //   .append("g")
-  //   .style("font", "6px sans-serif")
-  //   .selectAll("text")
-  //   .data(graph.nodes)
-  //   .join("text")
-  //   .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
-  //   .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
-  //   .attr("dy", "0.2em")
-  //   .attr("font-size")
-  //   .attr("text-anchor", (d) => (d.x0 < width / 5 ? "start" : "end"))
-  //   .text((d) => (d.height <= 1 ? null : d.name));
+  svg
+    .append("g")
+    .style("font", "6px sans-serif")
+    .selectAll("text")
+    .data(graph.nodes)
+    .join("text")
+    .attr("x", (d) => (d.x0 < width / 2 ? d.x1 - 3 : d.x0 - 6))
+    .attr("y", (d) => (d.y1 + d.y0) / 2 - 2)
+    .attr("dy", "0.4em")
+    // .attr("font-size")
+    .attr("text-anchor", "end")
+    .text((d) => (d.x0 > width / 2 ? null : d.name))
+    .attr("transform", `rotate(180,0)`);
 
   //append label
   svg
@@ -300,15 +301,17 @@ d3.csv("../sankey.csv").then((data) => {
     .append("textPath")
     .attr("xlink:href", "#1")
     .text("Goals")
-    .attr("text-align", "right");
+    .attr("font-size", "0.4rem")
+    .attr("text-align", "left");
 
   svg
     .append("g")
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
-    .attr("startOffset", "75%")
+    .attr("startOffset", "70%")
     .attr("xlink:href", "#1")
+    .attr("font-size", "0.4rem")
     .text("Targets");
 
   const themes = svg
@@ -316,7 +319,9 @@ d3.csv("../sankey.csv").then((data) => {
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
+    .attr("startOffset", "5%")
     .attr("xlink:href", "#0")
+    .attr("font-size", "0.4rem")
     .text("Themes")
     .attr("alignment-baseline", "top");
 });
@@ -330,7 +335,7 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
-  console.log(this);
+  console.log(this, event);
   // d3.select(this).style("stroke-width", "2px");
 
   if (event.source.height == 1) {

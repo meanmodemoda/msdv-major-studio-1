@@ -28,8 +28,8 @@ console.log(x);
 
 for (let i = 1; i <= 10; i++) {
   let coordinate = {};
-  coordinate.x = r * offset * Math.cos(angle * i) + 150;
-  coordinate.y = r * offset * Math.sin(angle * i) + 150;
+  coordinate.x = r * offset * Math.cos(angle * i) + width;
+  coordinate.y = r * offset * Math.sin(angle * i) + height;
   coordinates.push(coordinate);
 }
 

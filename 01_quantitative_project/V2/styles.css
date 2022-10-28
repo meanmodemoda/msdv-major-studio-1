@@ -12,7 +12,7 @@ body {
   /* padding: 2em 2em; */
   font-size: 16px;
   color: #34495e;
-  background: #f8f9fa;
+  background: #eceded;
 }
 
 svg {
@@ -161,13 +161,13 @@ h4 {
 }
 
 .overlay {
-  position: absolute;
+  /* position: absolute; */
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
-  width: 100%;
+  width: 30%;
   opacity: 0;
   transition: 0.5s ease;
   background-color: #f8f9fa;
@@ -180,7 +180,7 @@ img:hover {
 li:hover .text {
   opacity: 1;
 }
-.container:hover .overlay {
+#my_dataviz:hover .overlay {
   opacity: 0;
 }
 
@@ -256,10 +256,89 @@ div.swiper-scrollbar {
   text-align: left;
 }
 
-div:nth-child(2) {
-  background-color: red;
+#my_dataviz {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
+  grid-template-rows: repeat(3, 1fr);
+  grid-template-areas:
+    "menu world world intro intro"
+    "menu world world area1 area2"
+    "area3 area4 area5 area6 area7";
 }
 
-#my_dataviz {
-  display: grid;
+#intro {
+  /* background: red; */
+  grid-area: intro;
+  position: absolute;
+  text-align: left;
+  /* padding-left: 2rem; */
+  /* padding-right: 12rem; */
+  /* padding-top: 2rem; */
+}
+
+#intro p {
+  text-align: center;
+  font-size: 1.1.rem;
+  line-height: 1.5rem;
+  /* width: 80%; */
+}
+#world {
+  grid-area: world;
+}
+
+#esa {
+  grid-area: area1;
+}
+
+#eeca {
+  grid-area: area2;
+}
+#laca {
+  grid-area: area3;
+}
+#mena {
+  grid-area: area4;
+}
+#oc {
+  grid-area: area5;
+}
+#oecd {
+  grid-area: area6;
+}
+
+#ss {
+  grid-area: area7;
+}
+
+#world svg {
+  position: absolute;
+  padding-left: 6rem;
+  padding-top: 6rem;
+  /* background: red; */
+  justify-self: center;
+  transform: translateY(300px);
+  transform: scale(2.1);
+}
+
+#world text {
+  font-size: 8px;
+}
+
+#menu {
+  padding-left: 2rem;
+  padding-top: 1rem;
+  grid-area: menu;
+  position: absolute;
+  /* background: red; */
+  width: 100%;
+}
+
+h3 {
+  font-family: "Marcellus";
+  font-weight: 800;
+  font-size: 2.5rem;
+  margin-bottom: 0;
+  /* background: red; */
+  text-align: center;
 }

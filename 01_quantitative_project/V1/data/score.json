@@ -1,0 +1,866 @@
+[
+ {
+   "Region": "East & South Asia",
+   "Goals": "01. No Poverty",
+   "Value": 76.8,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "02. Zero Hunger",
+   "Value": 65.5,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 69.6,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "04. Quality Education",
+   "Value": 86.3,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "05. Gender Equality",
+   "Value": 55.9,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 65.1,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 66.1,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 69.5,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 57.8,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 37.1,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 63.2,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 93.4,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "13. Climate Action",
+   "Value": 91.4,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "14. LIfe below Water",
+   "Value": 56.2,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "15. Life on Land",
+   "Value": 51.5,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 61.7,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 50.8,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "East & South Asia",
+   "Goals": "Overall",
+   "Value": 65.8,
+   "Color": ""
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "01. No Poverty",
+   "Value": 95.7,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "02. Zero Hunger",
+   "Value": 58.1,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 74.1,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "04. Quality Education",
+   "Value": 86.9,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "05. Gender Equality",
+   "Value": 60.5,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 71.3,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 63.2,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 68.9,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 51.2,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 82.7,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 72.8,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 87.4,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "13. Climate Action",
+   "Value": 80.1,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "14. LIfe below Water",
+   "Value": 61.9,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "15. Life on Land",
+   "Value": 65.8,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 61.9,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 65.7,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "East Europe & Central Asia",
+   "Goals": "Overall",
+   "Value": 71.1,
+   "Color": ""
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "01. No Poverty",
+   "Value": 80.2,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "02. Zero Hunger",
+   "Value": 63.8,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 75.2,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "04. Quality Education",
+   "Value": 88.6,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "05. Gender Equality",
+   "Value": 70.3,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 80.8,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 84.5,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 65.2,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 48,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 20.3,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 76,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 86.5,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "13. Climate Action",
+   "Value": 92.5,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "14. LIfe below Water",
+   "Value": 61.1,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "15. Life on Land",
+   "Value": 61.6,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 60,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 66.9,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "Latin America & Caribbean",
+   "Goals": "Overall",
+   "Value": 69.5,
+   "Color": ""
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "01. No Poverty",
+   "Value": 86.4,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "02. Zero Hunger",
+   "Value": 60.4,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 72.5,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "04. Quality Education",
+   "Value": 68.8,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "05. Gender Equality",
+   "Value": 43.6,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 58.2,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 64.7,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 62.1,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 50.7,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 73.6,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 61.2,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 89.3,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "13. Climate Action",
+   "Value": 81,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "14. LIfe below Water",
+   "Value": 63.3,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "15. Life on Land",
+   "Value": 64.2,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 68,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 63.2,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "Mid East & North Africa",
+   "Goals": "Overall",
+   "Value": 66.5,
+   "Color": ""
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "01. No Poverty",
+   "Value": 33.4,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "02. Zero Hunger",
+   "Value": 28.6,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 44.7,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "04. Quality Education",
+   "Value": 58.7,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "05. Gender Equality",
+   "Value": 43.4,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 15.8,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 45.7,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 66.5,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 12.3,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 47.8,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 75.3,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 86.3,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "13. Climate Action",
+   "Value": 97.9,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "14. LIfe below Water",
+   "Value": 65.7,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "15. Life on Land",
+   "Value": 51.1,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 62.1,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 45.2,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "Oceania",
+   "Goals": "Overall",
+   "Value": 51.8,
+   "Color": ""
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "01. No Poverty",
+   "Value": 97.8,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "02. Zero Hunger",
+   "Value": 69.5,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 89.4,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "04. Quality Education",
+   "Value": 94.6,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "05. Gender Equality",
+   "Value": 74.6,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 84.8,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 74.3,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 77,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 90.1,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 65.1,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 87.7,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 70.8,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "13. Climate Action",
+   "Value": 62.2,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "14. LIfe below Water",
+   "Value": 62,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "15. Life on Land",
+   "Value": 65.4,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 76.1,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 70,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "OECD members",
+   "Goals": "Overall",
+   "Value": 77.1,
+   "Color": ""
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "01. No Poverty",
+   "Value": 24.2,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "02. Zero Hunger",
+   "Value": 57.3,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 40.5,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "04. Quality Education",
+   "Value": 42.4,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "05. Gender Equality",
+   "Value": 52.3,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 51.8,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 54.1,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 58.6,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 24.2,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 33.9,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 46.7,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 95.9,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "13. Climate Action",
+   "Value": 97,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "14. LIfe below Water",
+   "Value": 67.7,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "15. Life on Land",
+   "Value": 66.2,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 49.6,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 47.9,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "Sub-Saharan Africa",
+   "Goals": "Overall",
+   "Value": 53.5,
+   "Color": ""
+ },
+ {
+   "Region": "World",
+   "Goals": "01. No Poverty",
+   "Value": 73.1,
+   "Color": "#E5233D"
+ },
+ {
+   "Region": "World",
+   "Goals": "02. Zero Hunger",
+   "Value": 64.4,
+   "Color": "#DEA739"
+ },
+ {
+   "Region": "World",
+   "Goals": "03. Good Health and Well-Being",
+   "Value": 69.4,
+   "Color": "#4CA146"
+ },
+ {
+   "Region": "World",
+   "Goals": "04. Quality Education",
+   "Value": 80.2,
+   "Color": "#C7212E"
+ },
+ {
+   "Region": "World",
+   "Goals": "05. Gender Equality",
+   "Value": 59,
+   "Color": "#EF402D"
+ },
+ {
+   "Region": "World",
+   "Goals": "06. Clean Water and Sanitation",
+   "Value": 65.4,
+   "Color": "#27BFE6"
+ },
+ {
+   "Region": "World",
+   "Goals": "07. Affordable and Clean Energy",
+   "Value": 67.4,
+   "Color": "#FBC412"
+ },
+ {
+   "Region": "World",
+   "Goals": "08. Decent Work and Economic Growth",
+   "Value": 68.2,
+   "Color": "#A21D43"
+ },
+ {
+   "Region": "World",
+   "Goals": "09. Industry, Innovation, and Infrastructure",
+   "Value": 60.1,
+   "Color": "#F26A2E"
+ },
+ {
+   "Region": "World",
+   "Goals": "10. Reduced Inequalities",
+   "Value": 36.8,
+   "Color": "#E01583"
+ },
+ {
+   "Region": "World",
+   "Goals": "11. Sustainable Cities and Communities",
+   "Value": 66.4,
+   "Color": "#F89D2A"
+ },
+ {
+   "Region": "World",
+   "Goals": "12. Responsible Consumption and Production",
+   "Value": 88.8,
+   "Color": "#BF8D2C"
+ },
+ {
+   "Region": "World",
+   "Goals": "13. Climate Action",
+   "Value": 86,
+   "Color": "#407F46"
+ },
+ {
+   "Region": "World",
+   "Goals": "14. LIfe below Water",
+   "Value": 59.5,
+   "Color": "#2097D4"
+ },
+ {
+   "Region": "World",
+   "Goals": "15. Life on Land",
+   "Value": 58.1,
+   "Color": "#59BA48"
+ },
+ {
+   "Region": "World",
+   "Goals": "16. Peace, Justice and Strong Institutions",
+   "Value": 63.4,
+   "Color": "#126A9E"
+ },
+ {
+   "Region": "World",
+   "Goals": "17. Partnerships for the Goals",
+   "Value": 55.8,
+   "Color": "#15496B"
+ },
+ {
+   "Region": "World",
+   "Goals": "Overall",
+   "Value": 66,
+   "Color": ""
+ }
+]
