@@ -1,7 +1,7 @@
 // const e = require("express");
 let link;
-const width = 400;
-const height = 400;
+const width = innerWidth;
+const height = innerHeight;
 
 const nameRange = [
   "01. No Poverty",
@@ -28,7 +28,7 @@ const _sankey = d3
   .sankey()
   .nodeWidth(0)
   .nodeAlign(d3.sankeyCenter)
-  .nodePadding(2)
+  .nodePadding(4)
   .nodeSort(null)
   .extent([
     [width / 2, 15],
@@ -47,17 +47,17 @@ const format = (d) => `${f(d)} TWh`;
 //2. Create Bound
 const chart = d3
   .select("#chart")
-  .attr("viewBox", `0 0 ${width} ${height}`)
+  // .attr("viewBox", `0 0 ${width} ${height}`)
   // .attr("preserveAspectRatio", "xMaxYMid")
-  .style("VerticalAlignment", "Top")
-  .style("width", "100%")
-  .style("height", "auto")
+  // .style("VerticalAlignment", "Top")
+  .attr("width", width)
+  .attr("height", height)
   // .style("border", "1px solid #000")
   .append("g");
 
 const svg = d3.select("#chart g");
 
-svg.attr("transform", `rotate(-90, 0, 0) translate(-${width}, 0)`);
+// svg.attr("transform", `rotate(-90, 0, 0) translate(-${width}, 0)`);
 
 //3. Load Data
 d3.csv("../sankey.csv").then((data) => {
