@@ -175,8 +175,9 @@ function displayData(data) {
           .endAngle((d) => goalScale(goalAccessor(d)) + goalScale.bandwidth())
           .padAngle(0.5)
           .padRadius(innerRadius)
-      );
-
+      )
+      .on("mouseover", onMouseEnter)
+      .on("mouseleave", onMouseLeave);
     // .attr("d", function (d) {
     //   return d3
     //     .line()
@@ -230,9 +231,51 @@ function displayData(data) {
         .style("font-size", "12px")
         .text(r.split(" ")[0].slice(0, 2));
     });
+
+    //6. Draw Interaction
+    const tooltip = d3.select("#tooltip");
+
+    function onMouseEnter(event, datum) {
+      d3.selectAll(this);
+      console.log(datum);
+
+      tooltip
+        .select("#tooltip-region")
+        .text(datum.region)
+        .style("font-weight", "700");
+
+      tooltip
+        .select("#tooltip-goal")
+        .text(datum.goal)
+        .style("font-weight", "700")
+        .style("color", datum.Color);
+      // .style("font-size", "16px");
+
+      tooltip
+        .select("#tooltip-score")
+        .text(`${datum.value}%`)
+        .style("font-weight", "700");
+
+      //Format tooltip position
+      const x = event.pageX;
+      const y = event.pageY;
+
+      // console.log(event.pageX);
+      tooltip.style(
+        "transform",
+
+        `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
+      );
+
+      tooltip.style("opacity", 1);
+    }
+
+    function onMouseLeave(event) {
+      d3.select(this);
+      tooltip.style("opacity", 0);
+    }
   });
 }
-
 function appendImage() {
   const menu = d3.select("#menu");
   const goal = [

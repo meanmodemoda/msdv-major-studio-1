@@ -259,7 +259,7 @@ async function drawChart() {
 
     function onMouseEnter(event, datum) {
       d3.select(this);
-      // console.log(this);
+      console.log(event);
 
       tooltip
         .select("#tooltip-region")
