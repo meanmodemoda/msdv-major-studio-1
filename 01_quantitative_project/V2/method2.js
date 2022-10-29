@@ -34,6 +34,7 @@ function displayData(data) {
 
   const datagoal = data.filter((d) => d.goal != "Overall");
   const sumstat = d3.groups(datagoal, (d) => d.region); // nest function allows to group the calculation per level of a factor
+  const sumgoal = d3.groups(datagoal, (d) => d.goal);
   const goal = d3.groups(data, (d) => d.goal).map((d) => d[0]);
 
   console.log(goal);
@@ -165,6 +166,7 @@ function displayData(data) {
       .attr("class", "bar-chart")
       .attr("opacity", 0.7)
       .attr("fill", (d) => d.Color)
+      .attr("class", (d) => "c" + d.Color.slice(1, 8))
       .attr(
         "d",
         d3
@@ -230,31 +232,52 @@ function displayData(data) {
         .attr("xlink:href", "#goal" + i)
         .style("font-size", "12px")
         .text(r.split(" ")[0].slice(0, 2));
+      // .attr("text-anchor", "end");
+      // .attr("startOffset", "30%");
     });
 
     //6. Draw Interaction
     const tooltip = d3.select("#tooltip");
 
     function onMouseEnter(event, datum) {
-      d3.selectAll(this);
-      console.log(datum);
+      const classy = d3.select(this).attr("class");
 
-      tooltip
-        .select("#tooltip-region")
-        .text(datum.region)
-        .style("font-weight", "700");
+      // console.log(sumgoal);
+      d3.selectAll(`.${classy}`)
+        .style("stroke", "white")
+        .style("stroke-width", "4");
+
+      let table = [];
+      let values = [];
+      let html = "";
+      for (let d of sumgoal) {
+        if (d[0] === datum.goal) {
+          for (let d1 of d[1]) {
+            table.push(d1.region);
+            values.push(d1.value);
+            html += `
+          </tr><tr><td>${d1.region}</td><td>${d1.value}%</td></tr>`;
+          }
+        }
+      }
+      // console.log(html);
 
       tooltip
         .select("#tooltip-goal")
         .text(datum.goal)
         .style("font-weight", "700")
         .style("color", datum.Color);
-      // .style("font-size", "16px");
 
       tooltip
-        .select("#tooltip-score")
-        .text(`${datum.value}%`)
+        .select("#tooltip-region")
+        .html(
+          `<table><tr>
+        <th>Region</th>
+        <th>Score</th>
+        </tr>${html}</table>`
+        )
         .style("font-weight", "700");
+      // .style("font-size", "16px");
 
       //Format tooltip position
       const x = event.pageX;
@@ -271,7 +294,8 @@ function displayData(data) {
     }
 
     function onMouseLeave(event) {
-      d3.select(this);
+      const classy = d3.select(this).attr("class");
+      d3.selectAll(`.${classy}`).style("stroke", "none");
       tooltip.style("opacity", 0);
     }
   });
@@ -299,16 +323,16 @@ function appendImage() {
   ];
   for (let i = 1; i <= 17; i++) {
     menu
-      .append("embed")
+      .append("img")
       // this is calling the svg that has the corressponding name w/ the attr
       .attr("src", "assets/" + i + ".svg")
       .attr("class", "graphic")
-      .attr("class", goal[i])
+      .attr("id", goal[i])
       .attr("width", "80px");
   }
 }
 
-d3.selectAll(".graphic").on("click", function (e) {
-  console.log(this.id);
+d3.selectAll(".graphic").on("mouseover", function (event, datum) {
   e.preventDefault();
+  console.log(this.id);
 });
