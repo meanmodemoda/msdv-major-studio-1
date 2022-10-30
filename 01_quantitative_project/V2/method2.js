@@ -1,5 +1,5 @@
 // set the dimensions and margins of the graph
-const width = 300;
+const width = 250;
 let dimensions = {
   width: width,
   height: width,
@@ -25,8 +25,8 @@ outerRadius = dimensions.boundedWidth / 2;
 
 //Read the data
 d3.csv("./data/score.csv").then(function (data) {
-  displayData(data);
   appendImage();
+  displayData(data);
 });
 
 function displayData(data) {
@@ -37,7 +37,7 @@ function displayData(data) {
   const sumgoal = d3.groups(datagoal, (d) => d.goal);
   const goal = d3.groups(data, (d) => d.goal).map((d) => d[0]);
 
-  console.log(goal);
+  // console.log(goal);
   // get unique list of regions
   const region = Array.from(sumstat).map((d) => d[0]);
   const regionAccessor = (d) => d.region;
@@ -45,7 +45,7 @@ function displayData(data) {
   const scoreAccessor = (d) => d.value;
   const colorAccessor = (d) => d.color;
 
-  console.log(region);
+  // console.log(region);
   // sumstat.forEach((d) => console.log(d));
   // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
   regionAlias = ["esa", "eeca", "laca", "mena", "oc", "oecd", "ss", "world"];
@@ -230,7 +230,7 @@ function displayData(data) {
         .attr("class", "tick-label")
         .append("textPath")
         .attr("xlink:href", "#goal" + i)
-        .style("font-size", "12px")
+        .style("font-size", "10px")
         .text(r.split(" ")[0].slice(0, 2));
       // .attr("text-anchor", "end");
       // .attr("startOffset", "30%");
@@ -300,6 +300,7 @@ function displayData(data) {
     }
   });
 }
+
 function appendImage() {
   const menu = d3.select("#menu");
   const goal = [
@@ -321,18 +322,29 @@ function appendImage() {
     "16. Peace, Justice and Strong Institutions",
     "17. Partnerships for the Goals",
   ];
-  for (let i = 1; i <= 17; i++) {
-    menu
-      .append("img")
-      // this is calling the svg that has the corressponding name w/ the attr
-      .attr("src", "assets/" + i + ".svg")
-      .attr("class", "graphic")
-      .attr("id", goal[i])
-      .attr("width", "80px");
+
+  // for (let i = 0; i < 17; i++) {
+  //   menu
+  //     .append("img")
+  //     .attr("class", "graphic")
+  //     // this is calling the svg that has the corressponding name w/ the attr
+  //     .attr("src", "assets/" + (i + 1) + ".svg")
+  //     .attr("id", goal[i])
+  //     .style("width", "70px");
+  //   // .style("pointer-events", "visible");
+  // }
+  // const imgs = d3.selectAll(".graphic");
+  const circle = menu
+    .append("svg")
+    .append("g")
+    .append("circle")
+    .attr("cx", 200)
+    .attr("cy", 200)
+    .attr("r", 100)
+    .style("fill", "black")
+    .on("click", onClick);
+
+  function onClick(event) {
+    console.log(event);
   }
 }
-
-d3.selectAll(".graphic").on("mouseover", function (event, datum) {
-  e.preventDefault();
-  console.log(this.id);
-});

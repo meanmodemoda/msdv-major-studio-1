@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
     <link rel="stylesheet" href="./styles.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
@@ -17,18 +17,17 @@
 <body>
     <!-- <nav class="header sticky">
     <h2 class="title"> -->
-    <!-- SDG SCOREBOARD 2022 -->
     <!-- </h2>
   </nav> -->
     <!-- <div class="tagline"><h4>Plotting world and regional SDG scores</h4></div> -->
     <!-- <div id="world"></div> -->
     <div id="my_dataviz">
-        <div id="intro"><h3>Plotting SDG Regional Scores</h3><p>According to Sustainable Development Report 2022, for the second year in a row, the world is no longer making progress on the SDGs. 
-            This visualization explores the 2022 SDG progress scores at regional level. The world is lagging behind significantly in areas such as Gender Equality (Goal 5) and Reducing Equalities (Goal 10).
-            Regional differences are also prominent, particularly in areas such as Responsible Consumption and Production (Goal 12) and Climate Action (Goal 13). 
+     
+        <div id="intro"><h3>Plotting 17 SDG Regional Scores</h3><p>
+            This visualization explores the 17 Sustainable Development Goals' progress scores at regional level. Hover over the graph to compare global and regional progress.
             Data was gathered from Sustainable Development Report's<a href="https://dashboards.sdgindex.org/explorer"> SDG Index Dashboard</a>.</p></div>
-        <div id="menu"><p>Click on below icons to compare individual scores</p></div>
-        
+        <div id="menu"><p>Sustainable Development Goals</p></div>
+        <!-- <p>Click on below icons to compare individual scores</p> -->
     </div>
 
 <div class="tooltip" id="tooltip">
@@ -44,8 +43,8 @@
 <div class="tooltip-metric tooltip-score">
 
     <div id="tooltip-score"></div>
-  
 </div> 
+
 <script src="https://d3js.org/d3.v7.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <!-- <script src="./chart3.js"></script> -->
