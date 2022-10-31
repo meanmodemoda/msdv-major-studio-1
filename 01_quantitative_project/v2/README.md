@@ -3,9 +3,11 @@
 This is my first quantitative project from the Major Studio 1 class. I wasn't happy with the [initial version](https://muons.com/msdv-major-studio-1/01_quantitative_project/v1) which is hard to draw insight from and visually not as cohesive. I decided to redo the project using small multiples and multiple interaction points.
 
 [Version 1](https://muons.com/msdv-major-studio-1/01_quantitative_project/v1)
+
 <img src="./v1.png" width="900" alt="Version 1">
 
 [Version 1](https://muons.com/msdv-major-studio-1/01_quantitative_project/v2)
+
 <img src="./v2.png" width="900" alt="Version 2">
 
 ### Process
