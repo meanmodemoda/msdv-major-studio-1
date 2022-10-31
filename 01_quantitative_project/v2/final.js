@@ -1,4 +1,4 @@
-// set the dimensions and margins of the graph
+// 1.Set the dimensions and margins of the graph
 const width = 250;
 let dimensions = {
   width: width,
@@ -12,6 +12,7 @@ let dimensions = {
   },
 };
 
+//Select svg
 const svg = d3.select("#my_dataviz");
 
 dimensions.boundedWidth =
@@ -23,33 +24,31 @@ dimensions.boundedRadius =
 innerRadius = 0;
 outerRadius = dimensions.boundedWidth / 2;
 
-//Read the data
+//2. Read the data
 d3.csv("./data/score.csv").then(function (data) {
   appendImage();
   displayData(data);
 });
 
 function displayData(data) {
-  // group the data: I want to draw one line per group
-
+  //Process the data
   const datagoal = data.filter((d) => d.goal != "Overall");
-  const sumstat = d3.groups(datagoal, (d) => d.region); // nest function allows to group the calculation per level of a factor
+  //Group data for multiples
+  const sumstat = d3.groups(datagoal, (d) => d.region);
   const sumgoal = d3.groups(datagoal, (d) => d.goal);
   const goal = d3.groups(data, (d) => d.goal).map((d) => d[0]);
 
-  // console.log(goal);
-  // get unique list of regions
+  // Get unique list of regions
   const region = Array.from(sumstat).map((d) => d[0]);
   const regionAccessor = (d) => d.region;
   const goalAccessor = (d) => d.goal;
   const scoreAccessor = (d) => d.value;
   const colorAccessor = (d) => d.color;
 
-  // console.log(region);
-  // sumstat.forEach((d) => console.log(d));
-  // Add an svg element for each group. The will be one beside each other and will go on the next row when no more room available
+  //For easy id names
   regionAlias = ["esa", "eeca", "laca", "mena", "oc", "oecd", "ss", "world"];
-  // .selectAll("chart")
+
+  //3. Draw chart for each sumstat group
   sumstat.forEach((d, i) => {
     const chart = svg
       .append("div")
@@ -65,7 +64,8 @@ function displayData(data) {
           dimensions.margin.top + dimensions.boundedRadius
         }px)`
       );
-    //draw scales
+
+    //4. Draw scales
     const goalScale = d3
       .scaleBand()
       .domain(goal)
@@ -157,13 +157,19 @@ function displayData(data) {
       }
     });
 
-    // Draw the path
+    // 5. Draw charts
     chart
       .append("g")
       .selectAll("path")
       .data(d[1])
       .join("path")
-      .attr("class", "bar-chart")
+      .attr("id", (d) =>
+        d.goal
+          .slice(3)
+          .replace(/[^\w\s\']|_/g, "")
+          .split(" ")
+          .join("")
+      )
       .attr("opacity", 0.7)
       .attr("fill", (d) => d.Color)
       .attr("class", (d) => "c" + d.Color.slice(1, 8))
@@ -180,16 +186,6 @@ function displayData(data) {
       )
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
-    // .attr("d", function (d) {
-    //   return d3
-    //     .line()
-    //     .x(function (d) {
-    //       return x(d.goal);
-    //     })
-    //     .y(function (d) {
-    //       return y(+d.value);
-    //     })(d[1]);
-    // });
 
     //Add titles
     chart
@@ -199,9 +195,6 @@ function displayData(data) {
       .attr("x", 0)
       .text(d[0])
       .attr("text-anchor", "middle");
-    // .style("fill", function (d) {
-    //   return color(d[0]);
-    // });
 
     textPath
       .selectAll("path")
@@ -232,21 +225,21 @@ function displayData(data) {
         .attr("xlink:href", "#goal" + i)
         .style("font-size", "10px")
         .text(r.split(" ")[0].slice(0, 2));
-      // .attr("text-anchor", "end");
-      // .attr("startOffset", "30%");
     });
 
-    //6. Draw Interaction
+    //7. Draw Interaction
     const tooltip = d3.select("#tooltip");
 
     function onMouseEnter(event, datum) {
       const classy = d3.select(this).attr("class");
 
-      // console.log(sumgoal);
+      // console.log(this);
+      //Find same classed items
       d3.selectAll(`.${classy}`)
         .style("stroke", "white")
-        .style("stroke-width", "4");
+        .style("stroke-width", "2");
 
+      //Return all items' data and write into html tables
       let table = [];
       let values = [];
       let html = "";
@@ -287,13 +280,14 @@ function displayData(data) {
       tooltip.style(
         "transform",
 
-        `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
+        `translate(` + `calc(-6% + ${x}px),` + `calc(10% + ${y}px)` + `)`
       );
 
       tooltip.style("opacity", 1);
     }
 
     function onMouseLeave(event) {
+      //remove tooltip
       const classy = d3.select(this).attr("class");
       d3.selectAll(`.${classy}`).style("stroke", "none");
       tooltip.style("opacity", 0);
@@ -302,6 +296,7 @@ function displayData(data) {
 }
 
 function appendImage() {
+  //add SDG icons
   const menu = d3.select("#menu");
   const goal = [
     "01. No Poverty",
@@ -322,29 +317,48 @@ function appendImage() {
     "16. Peace, Justice and Strong Institutions",
     "17. Partnerships for the Goals",
   ];
+  //append images
+  for (let i = 0; i < 17; i++) {
+    menu
+      .append("div")
+      .attr("class", "container")
+      .append("img")
+      .attr("class", "graphic")
+      // this is calling the svg that has the corressponding name w/ the attr
+      .attr("src", "assets/" + (i + 1) + ".svg")
+      .attr("id", goal[i])
+      .style("width", "65px");
+    // .style("pointer-events", "visible");
+  }
 
-  // for (let i = 0; i < 17; i++) {
-  //   menu
-  //     .append("img")
-  //     .attr("class", "graphic")
-  //     // this is calling the svg that has the corressponding name w/ the attr
-  //     .attr("src", "assets/" + (i + 1) + ".svg")
-  //     .attr("id", goal[i])
-  //     .style("width", "70px");
-  //   // .style("pointer-events", "visible");
-  // }
-  // const imgs = d3.selectAll(".graphic");
-  const circle = menu
-    .append("svg")
-    .append("g")
-    .append("circle")
-    .attr("cx", 200)
-    .attr("cy", 200)
-    .attr("r", 100)
-    .style("fill", "black")
-    .on("click", onClick);
+  //reason why mouse event couldn't fire was because imgs were buried, gave them a high z-index mouse event worked
+  const imgs = d3.selectAll(".graphic").on("click", onClick);
 
   function onClick(event) {
-    console.log(event);
+    // console.log(
+    //   this.id
+    //     .slice(3)
+    //     .replace(/[^\w\s\']|_/g, "")
+    //     .split(" ")
+    //     .join("")
+    // );
+
+    //select highlighted id
+    const highlighted = d3.selectAll(
+      `#${this.id
+        .slice(3)
+        .replace(/[^\w\s\']|_/g, "")
+        .split(" ")
+        .join("")}`
+    );
+    //set highlighted style and class
+    highlighted
+      .attr("class", "highlight")
+      .style("stroke", "white")
+      .style("stroke-width", "2");
+    //remove highlighted style
+    setTimeout(function () {
+      d3.selectAll(".highlight").style("stroke", "none");
+    }, 3000);
   }
 }

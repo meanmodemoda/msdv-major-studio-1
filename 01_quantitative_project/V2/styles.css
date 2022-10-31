@@ -137,34 +137,46 @@ h4 {
 .container {
   /* padding: 1rem; */
   position: relative;
-  width: 5em;
+  display: inline-block;
+  /* width: 5em; */
 }
 
-.overlay {
-  /* position: absolute; */
+/* .overlay {
+  position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
   width: 30%;
-  opacity: 0;
   transition: 0.5s ease;
   background-color: #f8f9fa;
   opacity: 0.7;
-}
+} */
 
 img {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  position: absolute;
+  cursor: pointer;
 }
 img:hover {
-  border: "white";
+  /* color: #fff; */
+  background-color: #000000;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
 }
-li:hover .text {
+
+/* li:hover .text {
   opacity: 1;
 }
 #my_dataviz:hover .overlay {
   opacity: 0;
-}
+} */
 
 img {
   display: inline-block;
@@ -190,6 +202,7 @@ img {
 #my_dataviz {
   position: relative;
   display: grid;
+  cursor: pointer;
   grid-template-columns: 1fr, 1fr, 1fr, 1fr, 1fr;
   grid-template-rows: repeat(3, 1fr);
   grid-template-areas:
@@ -268,6 +281,9 @@ img {
   /* background: red; */
 }
 
+#menu p {
+  font-size: 0.9rem;
+}
 h3 {
   font-family: "Marcellus";
   font-weight: 800;
