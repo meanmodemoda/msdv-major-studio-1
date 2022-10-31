@@ -5,14 +5,18 @@
 }
 
 body {
+  max-width: 1280px;
+  min-width: 960px;
   font-family: "DM Sans";
-  display: flex;
-  flex-direction: column;
+  /* /* display: flex; */
+  /* flex-direction: column;  */
   align-items: center;
   /* padding: 2em 2em; */
   font-size: 16px;
   color: #34495e;
   background: #eceded;
+  margin: 0 auto;
+  width: 100%;
 }
 
 svg {
@@ -309,4 +313,42 @@ td {
 .highlight {
   stroke: white;
   stroke-width: 2;
+}
+
+#outro {
+  /* background: red; */
+  /* color: #808080; */
+  /* color: white; */
+  /* margin-top: -1rem; */
+  /* height: 8rem; */
+  text-align: center;
+  vertical-align: bottom;
+  /* background-color: black; */
+}
+
+p#outro-assignment {
+  /* height: 2rem; */
+  font-size: 0.9rem;
+  /* background-color: black; */
+  margin: 1rem 0;
+  vertical-align: center;
+}
+
+.icon {
+  width: 14px;
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+  transform: translate(10%, -15%);
+}
+
+.icon:hover {
+  background: transparent;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px;
+  transform: translate(25%, -25%);
+}
+
+#filler {
+  opacity: 0;
+  font-size: 3px;
 }

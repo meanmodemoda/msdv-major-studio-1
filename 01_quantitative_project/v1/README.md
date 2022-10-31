@@ -14,9 +14,9 @@ After the second review of your project, incorporate the feedback and refine you
 
 ### Process Update
 
-I took the feedback of my classmates and redesigned the dashboard. I eliminated all additional colors and will stick with the current SDG color palette which is already quite colorful.
+I took the feedback of my classmates and redesigned the dashboard. I eliminated all additional colors and stick to the current SDG color palette which is already quite colorful.
 
-I also completed the below features as planned. Click [here](https://muons.com/msdv-major-studio-1/v01_quantitative_project/) for the live project.
+I also completed the below features as planned. Click [here](https://muons.com/msdv-major-studio-1/v01_quantitative_project/v1) for the live project.
 
 - Score grid rating
 - Body text
@@ -27,13 +27,13 @@ I also completed the below features as planned. Click [here](https://muons.com/m
 
 ### Presentation Screenshots
 
-<img src="../week05_quan_final/1.png" width="900" alt="Slide 1">
-<img src="../week05_quan_final/2.png" width="900" alt="Slide 2">
-<img src="../week05_quan_final/3.png" width="900" alt="Slide 3">
-<img src="../week05_quan_final/4.png" width="900" alt="Slide 4">
-<img src="../week05_quan_final/5.png" width="900" alt="Slide 5">
-<img src="../week05_quan_final/6.png" width="900" alt="Slide 6">
-<img src="../week05_quan_final/7.png" width="900" alt="Slide 7">
-<img src="../week05_quan_final/8.png" width="900" alt="Slide 8">
+<img src="../../week05_quan_final/1.png" width="900" alt="Slide 1">
+<img src="../../week05_quan_final/2.png" width="900" alt="Slide 2">
+<img src="../../week05_quan_final/3.png" width="900" alt="Slide 3">
+<img src="../../week05_quan_final/4.png" width="900" alt="Slide 4">
+<img src="../../week05_quan_final/5.png" width="900" alt="Slide 5">
+<img src="../../week05_quan_final/6.png" width="900" alt="Slide 6">
+<img src="../../week05_quan_final/7.png" width="900" alt="Slide 7">
+<img src="../../week05_quan_final/8.png" width="900" alt="Slide 8">
 
-[Project Link](https://muons.com/msdv-major-studio-1/01_quantitative_project/)
+[Project Link](https://muons.com/msdv-major-studio-1/01_quantitative_project/v1)
