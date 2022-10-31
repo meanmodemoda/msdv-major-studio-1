@@ -14,7 +14,7 @@ async function drawChart() {
 
   // add metric function
   const region = dataregion
-    .filter((d) => d["Goals"] === "01. No Poverty")
+    .filter((d) => d["Goals"] === "1. No Poverty")
     .map(regionAccessor);
   // console.log(dataregion);
 
@@ -259,7 +259,7 @@ async function drawChart() {
 
     function onMouseEnter(event, datum) {
       d3.select(this);
-      console.log(event);
+      // console.log(this);
 
       tooltip
         .select("#tooltip-region")
@@ -317,7 +317,7 @@ async function drawChart() {
         let img = document.createElement("img");
         setAttributes(img, {
           src: `./assets/${code}.svg`,
-          width: "200px",
+          width: "400px",
           height: "auto",
           class: "paraimg",
         });
@@ -364,7 +364,7 @@ async function drawChart() {
     getUserData(this.dataset.code);
   });
   // 10.
-  drawArc("01. No Poverty");
+  drawArc("1. No Poverty");
   getUserData(1);
 }
 drawChart();

@@ -216,15 +216,18 @@ img {
   grid-area: intro;
   position: absolute;
   text-align: left;
-  /* padding-left: 2rem; */
+  padding-left: 1rem;
   /* padding-right: 12rem; */
-  /* padding-top: 2rem; */
+  /* padding-top: 1rem; */
 }
 
 #intro p {
-  text-align: center;
+  padding-top: 1rem;
+  text-align: justify;
   font-size: 1rem;
   line-height: 1.4rem;
+  width: 100%;
+  position: absolute;
   /* width: 80%; */
 }
 #world {
@@ -301,4 +304,9 @@ td {
 
 .graphic {
   width: 33%;
+}
+
+.highlight {
+  stroke: white;
+  stroke-width: 2;
 }

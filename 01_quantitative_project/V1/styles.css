@@ -30,7 +30,7 @@ svg {
   position: relative;
   font-family: "Oswald";
   width: 100%;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 900;
   padding-left: 1em;
   line-height: 0.1em;
@@ -184,13 +184,14 @@ li:hover .text {
   opacity: 0;
 }
 
-.swiper-slide {
-  /* display: inline-block; */
+img.swiper-slide {
+  width: 40px;
+  height: auto;
 }
 .swiper {
   /* padding: 4em; */
-  width: 600px;
-  height: 100px;
+  width: 400px;
+  height: 60px;
   /* background: red; */
 }
 
@@ -198,15 +199,15 @@ li:hover .text {
   padding-top: 1em;
 }
 
-/* img {
+img {
   display: block;
   position: relative;
   left: 0;
   bottom: 0;
-  width: 100%;
+  width: 60px;
   height: auto;
   object-fit: cover;
-} */
+}
 
 /* .swiper-pagination {
   &-bullet {
@@ -254,4 +255,40 @@ div.swiper-scrollbar {
 .tagline {
   width: 100%;
   text-align: left;
+}
+
+.content {
+  width: 80%;
+  /* margin-top: -2%; */
+  padding-right: 20%;
+  /* background: red; */
+}
+
+img.paraimg {
+  /* float: left; */
+
+  /* background: red; */
+}
+
+#description {
+  text-align: justify;
+  /* padding: 10px; */
+  /* margin-top: -2%; */
+  /* margin-left: 10%; */
+  font-size: 16px;
+}
+
+#span1 {
+  font-weight: 900;
+}
+
+#wrapper {
+  float: right;
+  /* background: red; */
+}
+
+.paragraph {
+  width: 40%;
+  padding-right: 10%;
+  padding-left: 5%;
 }
