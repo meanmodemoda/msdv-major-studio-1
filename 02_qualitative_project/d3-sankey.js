@@ -48,7 +48,7 @@
   }
 
   function ascendingBreadth(a, b) {
-    return a.y0 - b.y0 + 200;
+    return a.y0 - b.y0;
   }
 
   function value(d) {

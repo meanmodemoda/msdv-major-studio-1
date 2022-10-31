@@ -298,7 +298,7 @@ d3.csv("../sankey.csv").then((data) => {
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
-    .attr("xlink:href", "#1")
+    .attr("xlink:href", "#a1")
     .text("Goals")
     .attr("text-align", "right");
 

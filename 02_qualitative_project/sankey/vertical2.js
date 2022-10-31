@@ -1,7 +1,6 @@
-// const e = require("express");
 let link;
-const width = 400;
-const height = 400;
+const width = 360;
+const height = 380;
 
 const nameRange = [
   "01. No Poverty",
@@ -27,12 +26,12 @@ const nameRange = [
 const _sankey = d3
   .sankey()
   .nodeWidth(0)
-  .nodeAlign(d3.sankeyCenter)
-  .nodePadding(2)
+  .nodeAlign(d3.sankeyJustify)
+  .nodePadding(1.8)
   .nodeSort(null)
   .extent([
-    [width / 2.3, 15],
-    [width, height - 25],
+    [width / 2.2, 15],
+    [width, height - 30],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -82,7 +81,7 @@ d3.csv("../sankey.csv").then((data) => {
     });
   });
 
-  console.log(data[0]);
+  // console.log(data[0]);
 
   // return only the distinct / unique nodes
   const unique = d3
@@ -158,7 +157,7 @@ d3.csv("../sankey.csv").then((data) => {
   //   .attr("fill", (d) => color(d.name))
   //   .append("title")
   //   .text((d) => `${d.name}\n${format(d.value)}`);
-  // // .attr("transform", "rotate(270,0,0)");
+  // .attr("transform", "rotate(270,0,0)");
 
   // 5. Draw Sankey
   link = svg
@@ -205,10 +204,10 @@ d3.csv("../sankey.csv").then((data) => {
       }
     });
 
-  link
+  const invia = link
     .append("path")
     .attr("class", "link-invisible")
-    .attr("id", (d, i) => d.index)
+    .attr("id", (d, i) => "a" + d.index)
     .attr("d", d3.sankeyLinkHorizontal())
     .attr("transform", "translate(0,-4)")
     // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
@@ -216,6 +215,33 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("stroke-width", (d) => {
       return d.width;
     });
+
+  const invib = link
+    .append("g")
+    .append("path")
+    .attr("class", "link-invisible")
+    .attr("id", (d, i) => "b" + d.index)
+    .attr("d", d3.sankeyLinkHorizontal())
+    .attr("transform", "translate(-6,8)")
+    // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 1 : 0.5))
+    .attr("stroke", "transparent")
+    .attr("stroke-width", (d) => {
+      return d.width;
+    });
+
+  // link
+  //   .append("g")
+  //   .append("path")
+  //   .attr("class", "link-reverse")
+  //   // .attr("id", (d, i) => d.index)
+  //   .attr("opacity", 0.3)
+  //   .attr("d", d3.sankeyLinkHorizontal())
+  //   .attr("transform", "translate(350,0) rotate(180,0,0) scale(1,-1)")
+  //   .attr("stroke-opacity", (d) => (d.source.height == 1 ? 0.1 : 0.1))
+  //   .attr("stroke", (d) => d.uid)
+  //   .attr("stroke-width", (d) => {
+  //     return d.width;
+  //   });
 
   link
     .append("path")
@@ -234,19 +260,6 @@ d3.csv("../sankey.csv").then((data) => {
     })
     .on("mouseover", onMouseEnter)
     .on("mouseleave", onMouseLeave);
-
-  // link
-  //   .append("path")
-  //   .attr("class", "link-invisible")
-  //   .attr("id", (d, i) => d.index)
-  //   // .attr("opacity", 0.3)
-  //   .attr("d", d3.sankeyLinkHorizontal())
-  //   .attr("transform", "translate(350,0) rotate(180,0,0) scale(1,-1)")
-  //   .attr("stroke-opacity", (d) => (d.source.height == 1 ? 0.1 : 0.1))
-  //   .attr("stroke", (d) => d.uid)
-  //   .attr("stroke-width", (d) => {
-  //     return d.width;
-  // });
 
   // link
   //   .append("title")
@@ -269,14 +282,18 @@ d3.csv("../sankey.csv").then((data) => {
     .append("g")
     .append("text")
     .attr("class", "tagline")
-    .text(`The Flowing Tree of SDG`)
-    .style("font", "8px DM Sans")
+    .append("textPath")
+    .attr("xlink:href", "#b172")
+    .text(`The Flowing Tree of SDGs`)
+    .style("font", "8px Marcellus")
     .attr("x", width / 2 + 25)
     .attr("y", 22)
     .attr("text-anchor", "start")
+    .attr("font-family", "")
     .attr("font-weight", "400")
     .style("fill", "gray")
-    .style("transform", `translate(175px,18px) rotate(90deg)`);
+    .attr("startOffset", "10%");
+  // .style("transform", `translate(195px,40px) rotate(140deg)`);
 
   //text label
   svg
@@ -290,27 +307,39 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("dy", "0.4em")
     // .attr("font-size")
     .attr("text-anchor", "end")
-    .text((d) => (d.x0 > width / 2 ? null : d.name))
-    .attr("transform", `rotate(180,0)`);
+    .text(function (d) {
+      if (d.x0 > width / 2) {
+        return null;
+      } else if (d.name != "Other") {
+        return d.name.slice(4);
+      } else {
+        return d.name;
+      }
+    })
+    .attr("transform", `rotate(180,0)`)
+    .attr("font-family", "DM Sans")
+    .attr("font-size", "0.3rem")
+    .attr("alignment-baseline", "central");
 
-  //append label
+  //append labels
   svg
     .append("g")
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
-    .attr("xlink:href", "#1")
+    .attr("xlink:href", "#a1")
     .text("Goals")
     .attr("font-size", "0.4rem")
-    .attr("text-align", "left");
+    .attr("text-align", "left")
+    .attr("startOffset", "10%");
 
   svg
     .append("g")
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
-    .attr("startOffset", "70%")
-    .attr("xlink:href", "#1")
+    .attr("startOffset", "75%")
+    .attr("xlink:href", "#a1")
     .attr("font-size", "0.4rem")
     .text("Targets");
 
@@ -320,7 +349,7 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("class", "tick-label")
     .append("textPath")
     .attr("startOffset", "5%")
-    .attr("xlink:href", "#0")
+    .attr("xlink:href", "#a0")
     .attr("font-size", "0.4rem")
     .text("Themes")
     .attr("alignment-baseline", "top");

@@ -232,6 +232,7 @@ function displayData(data) {
 
     function onMouseEnter(event, datum) {
       const classy = d3.select(this).attr("class");
+      // console.log(classy);
 
       // console.log(this);
       //Find same classed items
