@@ -234,7 +234,7 @@ function displayData(data) {
       const classy = d3.select(this).attr("class");
       // console.log(classy);
 
-      // console.log(this);
+      console.log(this);
       //Find same classed items
       d3.selectAll(`.${classy}`)
         .style("stroke", "white")
@@ -343,6 +343,7 @@ function appendImage() {
     //     .split(" ")
     //     .join("")
     // );
+    console.log(this);
 
     //select highlighted id
     const highlighted = d3.selectAll(

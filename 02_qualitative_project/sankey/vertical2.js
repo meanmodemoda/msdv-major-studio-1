@@ -30,8 +30,8 @@ const _sankey = d3
   .nodePadding(1.8)
   .nodeSort(null)
   .extent([
-    [width / 2.2, 15],
-    [width, height - 30],
+    [width / 2.1, 10],
+    [width - 5, height - 30],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -46,7 +46,7 @@ const format = (d) => `${f(d)} TWh`;
 //2. Create Bound
 const chart = d3
   .select("#chart")
-  .attr("viewBox", `0 0 ${width} ${height}`)
+  .attr("viewBox", `0 0 ${width} ${height / 2}`)
   // .attr("preserveAspectRatio", "xMaxYMid")
   .style("VerticalAlignment", "Top")
   .style("width", "100%")
@@ -229,21 +229,7 @@ d3.csv("../sankey.csv").then((data) => {
       return d.width;
     });
 
-  // link
-  //   .append("g")
-  //   .append("path")
-  //   .attr("class", "link-reverse")
-  //   // .attr("id", (d, i) => d.index)
-  //   .attr("opacity", 0.3)
-  //   .attr("d", d3.sankeyLinkHorizontal())
-  //   .attr("transform", "translate(350,0) rotate(180,0,0) scale(1,-1)")
-  //   .attr("stroke-opacity", (d) => (d.source.height == 1 ? 0.1 : 0.1))
-  //   .attr("stroke", (d) => d.uid)
-  //   .attr("stroke-width", (d) => {
-  //     return d.width;
-  //   });
-
-  link
+  const main = link
     .append("path")
     .attr("class", "link")
     // .attr("id", (d, i) => d.index)
@@ -260,6 +246,29 @@ d3.csv("../sankey.csv").then((data) => {
     })
     .on("mouseover", onMouseEnter)
     .on("mouseleave", onMouseLeave);
+
+  const reverse = link
+    .append("g")
+    .append("path")
+    .attr("class", "link-reverse")
+    .attr("id", (d, i) => "c" + d.index)
+    .attr("opacity", 0)
+    .attr("d", d3.sankeyLinkHorizontal())
+    .attr("transform", "translate(425,3) rotate(180,0,0) scale(1,-1)")
+    // .attr("stroke-opacity", (d) => (d.source.height == 1 ? 0.1 : 0.1))
+    .attr("stroke", (d) => d.uid)
+    .attr("stroke-width", (d) => {
+      return d.width * 2;
+    });
+
+  // const pathArray = ["#c9", "#c34", "#c56", "#c58", "#c63", "#c82", "#c138"];
+
+  // pathArray.forEach((p) => {
+  //   d3.select(p)
+  //     .style("stroke", "grey")
+  //     .style("stroke-width", 1)
+  //     .style("opacity", 0.3);
+  // });
 
   // link
   //   .append("title")
@@ -295,7 +304,7 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("startOffset", "10%");
   // .style("transform", `translate(195px,40px) rotate(140deg)`);
 
-  //text label
+  //text labels
   svg
     .append("g")
     .style("font", "6px sans-serif")
@@ -322,7 +331,7 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("alignment-baseline", "central");
 
   //append labels
-  svg
+  const goals = svg
     .append("g")
     .append("text")
     .attr("class", "tick-label")
@@ -330,10 +339,10 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("xlink:href", "#a1")
     .text("Goals")
     .attr("font-size", "0.4rem")
-    .attr("text-align", "left")
-    .attr("startOffset", "10%");
+    .attr("text-align", "left");
+  // .attr("startOffset", "5%");
 
-  svg
+  const targets = svg
     .append("g")
     .append("text")
     .attr("class", "tick-label")
@@ -353,6 +362,117 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("font-size", "0.4rem")
     .text("Themes")
     .attr("alignment-baseline", "top");
+
+  // const egi = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#c9")
+  //   .text(`Education, Gender, and Inequality`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("x", width / 2 + 25)
+  //   .attr("y", 22)
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+  // // .attr("startOffset", "5%");
+
+  // const health = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#c34")
+  //   .text(`Health, Well-Being, and Demography`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("x", width / 2 + 25)
+  //   .attr("y", 22)
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+  // // .attr("startOffset", "10%");
+
+  // const energy = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("alignment-baseline", "hanging")
+  //   .attr("xlink:href", "#c56")
+  //   .text(`Energy Decarbonisation and Sustainable Industry`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+  // // .attr("startOffset", "10%");
+
+  // const food = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#c58")
+  //   .attr("alignment-baseline", "top")
+  //   .text(`Sustainable Food, Land, Water, and Oceans`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+  // .attr("startOffset", "10%");
+
+  // const cities = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#c63")
+  //   .attr("alignment-baseline", "hanging")
+  //   .text(`Sustainable Cities and Communities`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("x", width / 2 + 25)
+  //   .attr("y", 22)
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+
+  // const digital = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#c82")
+  //   .text(`Digital Revolution for Sustainable Development`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("alignment-baseline", "hanging")
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+  // // .attr("startOffset", "10%");
+
+  // const other = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "transformation")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#c138")
+  //   .text(`Other Transformations`)
+  //   .style("font", "5px Marcellus")
+  //   .attr("x", width / 2 + 25)
+  //   .attr("y", 22)
+  //   .attr("text-anchor", "start")
+  //   .attr("font-family", "")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "gray");
+  // // .attr("startOffset", "10%");
+
+  d3.selectAll("#c9,#c34,#c56,#c58,#c63,#c82,#c138").attr("stroke", "red");
 });
 
 const tooltip = d3.select("#tooltip");
