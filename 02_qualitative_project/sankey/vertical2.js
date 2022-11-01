@@ -484,7 +484,9 @@ const imgPicker = (str) => {
 };
 
 function onMouseEnter(event) {
-  console.log(this, event);
+  // console.log(this, event);
+
+  console.log(event.width);
   // d3.select(this).style("stroke-width", "2px");
 
   if (event.source.height == 1) {

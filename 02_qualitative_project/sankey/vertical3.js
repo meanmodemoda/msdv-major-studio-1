@@ -22,6 +22,26 @@ const nameRange = [
   "17. Partnerships for the Goals",
 ];
 
+const palette = [
+  "#E5233D",
+  "#DEA739",
+  "#4CA146",
+  "#C7212E",
+  "#EF402D",
+  "#27BFE6",
+  "#FBC412",
+  "#A21D43",
+  "#F26A2E",
+  "#E01583",
+  "#F89D2A",
+  "#BF8D2C",
+  "#407F46",
+  "#2097D4",
+  "#59BA48",
+  "#126A9E",
+  "#15496B",
+];
+
 //1. Initiate Sankey
 const _sankey = d3
   .sankey()
@@ -31,7 +51,7 @@ const _sankey = d3
   .nodeSort(null)
   .extent([
     [width / 2.1, 10],
-    [width - 5, height - 30],
+    [width, height - 30],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -46,7 +66,7 @@ const format = (d) => `${f(d)} TWh`;
 //2. Create Bound
 const chart = d3
   .select("#chart")
-  .attr("viewBox", `0 0 ${width} ${height / 2}`)
+  .attr("viewBox", `0 0 ${width} ${height * 0.5}`)
   // .attr("preserveAspectRatio", "xMaxYMid")
   .style("VerticalAlignment", "Top")
   .style("width", "100%")
@@ -110,26 +130,6 @@ d3.csv("../sankey.csv").then((data) => {
       name: d,
     };
   });
-
-  const palette = [
-    "#E5233D",
-    "#DEA739",
-    "#4CA146",
-    "#C7212E",
-    "#EF402D",
-    "#27BFE6",
-    "#FBC412",
-    "#A21D43",
-    "#F26A2E",
-    "#E01583",
-    "#F89D2A",
-    "#BF8D2C",
-    "#407F46",
-    "#2097D4",
-    "#59BA48",
-    "#126A9E",
-    "#15496B",
-  ];
 
   // const _color = d3.scaleOrdinal(d3.schemeCategory10);
   // const color = (name) => _color(name.replace(/ .*/, ""));
@@ -327,6 +327,7 @@ d3.csv("../sankey.csv").then((data) => {
     .attr("transform", `rotate(180,0)`)
     .attr("font-family", "DM Sans")
     .attr("font-size", "0.3rem")
+
     .attr("alignment-baseline", "central");
 
   //append labels
@@ -339,7 +340,7 @@ d3.csv("../sankey.csv").then((data) => {
     .text("Goals")
     .attr("font-size", "0.4rem")
     .attr("text-align", "left");
-  // .attr("startOffset", "5%");
+  // .attr("startOffset", "80%");
 
   const targets = svg
     .append("g")
@@ -356,10 +357,10 @@ d3.csv("../sankey.csv").then((data) => {
     .append("text")
     .attr("class", "tick-label")
     .append("textPath")
-    .attr("startOffset", "5%")
+    .attr("startOffset", "8%")
     .attr("xlink:href", "#a0")
     .attr("font-size", "0.4rem")
-    .text("Themes")
+    .text("Connections")
     .attr("alignment-baseline", "top");
 
   // const egi = svg
@@ -482,38 +483,112 @@ const imgPicker = (str) => {
   return newStr;
 };
 
-function onMouseEnter(event) {
-  console.log(this, event);
-  // d3.select(this).style("stroke-width", "2px");
+//helper function
+const convertName = (name) => {
+  if (name != "Other") {
+    return name.slice(4);
+  } else {
+    return name;
+  }
+};
 
+const connections = [
+  "01. Education, Gender, and Inequality",
+  "02. Health, Wellbeing, and Demography",
+  "03. Energy Decarbonisation and Sustainable Industry",
+  "04. Sustainable Food, Land, Water, and Oceans",
+  "05. Sustainable Cities and Communities",
+  "06. Digital Revolution for Sustainable Development",
+  "Other",
+];
+
+const palette2 = [
+  "#C6202E",
+  "#4CA146",
+  "#BF8D2D",
+  "#2096D3",
+  "#F79D2A",
+  "#F26A2D",
+  "#14699D",
+];
+
+//color helper
+let obj = {};
+const test = connections.map((d, i) => {
+  obj[d] = palette2[i];
+});
+
+let obj2 = {};
+const test2 = nameRange.map((d, i) => {
+  obj2[d] = palette[i];
+});
+
+console.log(obj2);
+
+function onMouseEnter(event) {
+  const width = d3.select(this).style("stroke-width");
+  // d3.select(this).style("transform", `scale(1.2,1)`);
+  console.log(obj[event.source.name]);
   if (event.source.height == 1) {
     let imgCode = imgPicker(event.source.name);
     let img = `../assets/${imgCode}.png`;
     tooltip
-      .select("#tooltip-goal")
+      .select(".tooltip-goal")
       .html(
-        `<div class="first-layer"><img src=${img} width="150px"/>
-        <div id="first-layer">
-        <h3 style=("font-size","5em")>Goal ${event.source.name}</h3>
-        <div class="placeholder"></div>
-        <p>Target ${event.target.name}</p>
+        `<div class="first-layer">
+        <img src=${img} width="150px"/>
+        <div class="text">
+        <div class="goal-text">
+        <h2 style="color:${obj2[event.source.name]}">Goal ${
+          event.source.name
+        }</h2>
+        </div>
+        <br>
+        <div class="target">
+        <h3>Target ${event.target.name.slice(
+          0,
+          event.target.name.indexOf(" ")
+        )}</h3>
+        <p>${event.target.name.slice(event.target.name.indexOf(" "))}</p>
+        </div>
+        <br>
+        </div>
+        </div>`
+      )
+      .style("font-weight", "400")
+      .style("color", "#34495e");
+  }
+  if (event.source.height == 2 && event.source.name != "Other") {
+    tooltip
+      .data(connections)
+      .select(".tooltip-goal")
+      .html(
+        `<div class="first-layer">
+        <div class="text">
+        <br>
+        <h1 style="color:${obj[event.source.name]}"> ${convertName(
+          event.source.name
+        )}</h1>
+        <p>is one of the six SDG Transformations that connects Goal ${
+          event.target.name
+        } with other SDGs.</p>
         </div>
         </div>`
       )
       .style("font-weight", "400");
   }
 
-  if (event.source.height == 2) {
-    let imgCode = imgPicker(event.target.name);
-    let img = `../assets/${imgCode}.png`;
+  if (event.source.name == "Other") {
     tooltip
-      .select("#tooltip-goal")
+      .data(connections)
+      .select(".tooltip-goal")
       .html(
-        `<div class="first-layer"><img src=${img} width="150px"/>
-        <div id="first-layer">
-        <h3 style=("font-size","5em")>Transformation ${event.source.name}</h3>
-        <div class="placeholder"></div>
-        <p>Goal ${event.target.name}</p>
+        `<div class="first-layer">
+        <div class="text">
+       <p>
+        Goal ${event.target.name}
+      is a standalone SDG.</p> 
+        
         </div>
         </div>`
       )
@@ -528,8 +603,9 @@ function onMouseEnter(event) {
   //   "transform",
   //   `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
   // );
-  tooltip.style("width", "30%");
+  // tooltip.style("width", "30%");
   tooltip.style("opacity", 1);
+  // tooltip.style("color", "#34495e");
 }
 
 function onMouseLeave(event) {
