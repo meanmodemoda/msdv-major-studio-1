@@ -141,23 +141,23 @@ d3.csv("../sankey.csv").then((data) => {
 
   // add rects
 
-  // svg
-  //   .append("g")
-  //   // .attr("stroke", "#000")
-  //   .selectAll("rect")
-  //   .data(graph.nodes)
-  //   .join("rect")
-  //   .attr("x", (d) => d.x0)
-  //   .attr("y", (d) => d.y0)
-  //   // .attr("height", 8)
-  //   // .attr("height", (d) => d.y1 - d.y0)
-  //   // .attr("width", (d) => d.x1 - d.x0s)
-  //   .attr("height", (d) => d.y1 - d.y0)
-  //   .attr("width", 16)
-  //   .attr("fill", (d) => color(d.name))
-  //   .append("title")
-  //   .text((d) => `${d.name}\n${format(d.value)}`);
-  // .attr("transform", "rotate(270,0,0)");
+  svg
+    .append("g")
+    // .attr("stroke", "#000")
+    .selectAll("rect")
+    .data(graph.nodes)
+    .join("rect")
+    .attr("x", (d) => d.x0)
+    .attr("y", (d) => d.y0)
+    // .attr("height", 8)
+    // .attr("height", (d) => d.y1 - d.y0)
+    // .attr("width", (d) => d.x1 - d.x0s)
+    .attr("height", (d) => d.y1 - d.y0)
+    .attr("width", 16)
+    .attr("fill", (d) => color(d.name))
+    .append("title")
+    .text((d) => `${d.name}\n${format(d.value)}`)
+    .attr("transform", "rotate(270,0,0)");
 
   // 5. Draw Sankey
   link = svg
