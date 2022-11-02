@@ -1,0 +1,359 @@
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  max-width: 1280px;
+  min-width: 960px;
+  font-family: "DM Sans";
+  /* /* display: flex; */
+  /* flex-direction: column;  */
+  align-items: center;
+  /* padding: 2em 2em; */
+  font-size: 16px;
+  color: #34495e;
+  background: #eceded;
+  margin: 0 auto;
+  width: 100%;
+}
+
+svg {
+  overflow: visible;
+}
+
+.header {
+  position: sticky;
+  width: 100%;
+  height: 20%;
+  background-color: #0080ff;
+  overflow: hidden;
+}
+.title {
+  position: relative;
+  font-family: "Oswald";
+  width: 100%;
+  font-size: 3em;
+  font-weight: 900;
+  padding-left: 1em;
+  line-height: 0.1em;
+  padding-bottom: 0;
+  color: #f8f9fa;
+}
+
+h4 {
+  padding-left: 2em;
+  padding-top: 0.2em;
+  font-size: 1.5rem;
+  font-weight: 400;
+  background: #f8f9fa;
+  margin: 0;
+}
+
+.wrapper {
+  width: 50%;
+  padding-top: 4rem;
+  padding-bottom: 1rem;
+  position: relative;
+  /* background: pink; */
+}
+.grid-line {
+  stroke: #dadadd;
+  fill: none;
+}
+
+.tick-label {
+  dominant-baseline: middle;
+  fill: #8395a7;
+  font-size: 0.8em;
+  font-weight: 900;
+  letter-spacing: 0.005em;
+}
+
+.tick-label-score {
+  font-size: 0.7em;
+  fill: #8395a7;
+  opacity: 0.8;
+  dominant-baseline: middle;
+}
+
+.annotation-line {
+  stroke: #34495e;
+  opacity: 0.4;
+}
+
+.annotation-text {
+  fill: #34495e;
+  font-size: 0.7em;
+  opacity: 1;
+  dominant-baseline: middle;
+}
+
+.listener-circle {
+  fill: transparent;
+  /* don't fill with none, because you cant see mouse event */
+}
+
+.tooltip-line {
+  fill: #8395a7;
+  opacity: 0.2;
+  mix-blend-mode: multiply;
+  pointer-events: none;
+}
+
+.tooltip {
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15em;
+  padding: 0.6em 1em;
+  background: #fff;
+  text-align: center;
+  line-height: 1.4em;
+  font-size: 0.9em;
+  border: 1px solid #ddd;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.tooltip-metric {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  font-size: 0.9em;
+}
+
+.paragraph p {
+  /* background: green; */
+}
+
+.header {
+  /* background: yellow; */
+}
+.header h2 {
+  text-align: left;
+  /* background: pink; */
+}
+
+.container {
+  /* padding: 1rem; */
+  position: relative;
+  display: inline-block;
+  /* width: 5em; */
+}
+
+/* .overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  transition: 0.5s ease;
+  background-color: #f8f9fa;
+  opacity: 0.7;
+} */
+
+img {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 30%;
+  position: absolute;
+  cursor: pointer;
+}
+img:hover {
+  /* color: #fff; */
+  background-color: #000000;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+/* li:hover .text {
+  opacity: 1;
+}
+#my_dataviz:hover .overlay {
+  opacity: 0;
+} */
+
+img {
+  display: inline-block;
+  position: relative;
+  left: 0;
+  bottom: 0;
+  width: 80%;
+  height: auto;
+  object-fit: cover;
+}
+
+.footnote {
+  text-align: right;
+  padding-right: 1em;
+  width: 100%;
+}
+
+.tagline {
+  width: 100%;
+  text-align: left;
+}
+
+#my_dataviz {
+  position: relative;
+  display: grid;
+  cursor: pointer;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr ;
+  grid-template-areas:
+    "intro intro intro . "
+    "world  area1 area2 area3"
+    "area4 area5 area6 area7";
+}
+
+#intro {
+  /* background: red; */
+  grid-area: intro;
+  position: absolute;
+  text-align: left;
+  /* padding-left: 1rem; */
+  /* padding-right: 12rem; */
+  /* padding-top: 1rem; */
+}
+
+#intro p {
+  padding-top: 1rem;
+  text-align: justify;
+  font-size: 1rem;
+  line-height: 1.4rem;
+  width: 100%;
+  position: absolute;
+  /* width: 80%; */
+}
+#world {
+  grid-area: world;
+}
+
+#esa {
+  grid-area: area1;
+}
+
+#eeca {
+  grid-area: area2;
+}
+#laca {
+  grid-area: area3;
+}
+#mena {
+  grid-area: area4;
+}
+#oc {
+  grid-area: area5;
+}
+#oecd {
+  grid-area: area6;
+}
+
+#ss {
+  grid-area: area7;
+}
+
+/* #world svg {
+  position: absolute;
+  padding-left: 6rem;
+  padding-top: 5rem;
+  /* background: red; */
+  /* justify-self: center; */
+  /* transform: translateY(300px); */
+  /* transform: scale(2.1); */
+/* } */ 
+
+#world text {
+  font-size: 8px;
+}
+
+/* #menu {
+  padding-left: 1rem;
+  padding-top: 1rem;
+  grid-area: menu;
+  position: absolute;
+  /* background: red; */
+  /* width: 100%;
+  display: inline;
+  z-index: 20;
+  /* background: red; */
+} */ */
+
+#menu p {
+  font-size: 0.9rem;
+}
+h3 {
+  font-family: "Marcellus";
+  font-weight: 800;
+  font-size: 2rem;
+  margin-bottom: 0;
+  /* background: red; */
+  text-align: center;
+}
+
+table,
+th,
+td {
+  border-bottom: 0.25pt solid;
+}
+
+.graphic {
+  width: 33%;
+}
+
+.highlight {
+  stroke: white;
+  stroke-width: 2;
+}
+
+#outro {
+  /* background: red; */
+  /* color: #808080; */
+  /* color: white; */
+  /* margin-top: -1rem; */
+  /* height: 8rem; */
+  text-align: center;
+  vertical-align: bottom;
+  /* background-color: black; */
+}
+
+p#outro-assignment {
+  /* height: 2rem; */
+  font-size: 0.9rem;
+  /* background-color: black; */
+  margin: 1rem 0;
+  vertical-align: center;
+}
+
+.icon {
+  width: 14px;
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+  transform: translate(10%, -15%);
+}
+
+.icon:hover {
+  background: transparent;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px;
+  transform: translate(25%, -25%);
+}
+
+#filler {
+  opacity: 0;
+  font-size: 3px;
+}
+
+.grey {
+  fill:grey;
+  /* opacity: 1; */
+}
