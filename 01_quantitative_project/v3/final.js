@@ -252,7 +252,7 @@ function displayData(data) {
       const angle = (Math.PI * 2 * rank) / 17;
       // console.log(datum);
 
-      [a, b] = getCoordinatesForAngle(angle, 1.5);
+      [a, b] = getCoordinatesForAngle(angle, 1.4);
 
       // console.log(d3.selectAll(`.${classy}`));
       // console.log(datum.goal);
@@ -268,7 +268,8 @@ function displayData(data) {
           .attr("x", a)
           .attr("y", b)
           .text((d) => `${d.value}%`)
-          .attr("fill", "black");
+          .attr("fill", "black")
+          .attr("font-size", "12px");
       });
 
       //Return all items' data and write into html tables
@@ -290,18 +291,21 @@ function displayData(data) {
       tooltip
         .select("#tooltip-goal")
         .text(datum.goal)
+        .style("font-size", "12px")
         .style("font-weight", "700")
         .style("color", datum.Color);
 
       tooltip
         .select("#tooltip-region")
+
         .html(
           `<table><tr>
         <th>Region</th>
         <th>Score</th>
         </tr>${html}</table>`
         )
-        .style("font-weight", "400");
+        .style("font-weight", "400")
+        .style("font-size", "12px");
       // .style("font-size", "16px");
 
       //Format tooltip position
