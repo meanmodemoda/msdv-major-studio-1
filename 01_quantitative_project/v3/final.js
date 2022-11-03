@@ -270,6 +270,7 @@ function displayData(data) {
           .text((d) => `${d.value}%`)
           .attr("fill", "black")
           .attr("font-size", "12px");
+        // .attr("transform", "translateX(-50px)");
       });
 
       //Return all items' data and write into html tables
