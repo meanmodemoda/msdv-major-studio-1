@@ -268,7 +268,8 @@ function displayData(data) {
           .attr("x", a)
           .attr("y", b)
           .text((d) => `${d.value}%`)
-          .attr("fill", "black")
+          .attr("fill", (d) => d.Color)
+          .attr("font-weight", "700")
           .attr("font-size", "12px");
         // .attr("transform", "translateX(-50px)");
       });
