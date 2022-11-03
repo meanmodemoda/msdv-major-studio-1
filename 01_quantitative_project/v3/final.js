@@ -26,9 +26,13 @@ outerRadius = dimensions.boundedWidth / 2;
 
 //2. Read the data
 d3.csv("./data/score.csv").then(function (data) {
-  appendImage();
   displayData(data);
 });
+
+const getCoordinatesForAngle = (angle, offset = 1) => [
+  Math.cos(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
+  Math.sin(angle - Math.PI / 2) * dimensions.boundedRadius * offset,
+];
 
 function displayData(data) {
   //Process the data
@@ -58,6 +62,7 @@ function displayData(data) {
       .attr("height", dimensions.height)
       .append("g")
       .attr("class", "multiple")
+      .attr("id", `id${i}`)
       .style(
         "transform",
         `translate(${dimensions.margin.left + dimensions.boundedRadius}px, ${
@@ -158,6 +163,7 @@ function displayData(data) {
     });
 
     // 5. Draw charts
+    d[1].sort((a, b) => a.goal - b.goal);
     chart
       .append("g")
       .selectAll("path")
@@ -171,6 +177,7 @@ function displayData(data) {
           .split(" ")
           .join("")
       )
+      .attr("data-index", (d, i) => i)
       .attr("opacity", 0.7)
       .attr("fill", (d) => d.Color)
       .attr("class", (d) => "c" + d.Color.slice(1, 8))
@@ -230,7 +237,6 @@ function displayData(data) {
 
     //7. Draw Interaction
     const tooltip = d3.select("#tooltip");
-
     function onMouseEnter(event, datum) {
       const classy = d3.select(this).attr("class");
       // console.log(classy);
@@ -241,6 +247,29 @@ function displayData(data) {
       d3.selectAll(`.${classy}`).classed("grey", false);
       // .style("stroke", "white")
       // .style("stroke-width", "2");
+
+      const rank = d3.select(this).attr("data-index");
+      const angle = (Math.PI * 2 * rank) / 17;
+      // console.log(datum);
+
+      [a, b] = getCoordinatesForAngle(angle, 1.5);
+
+      // console.log(d3.selectAll(`.${classy}`));
+      // console.log(datum.goal);
+      // console.log(d[1]);
+
+      sumstat.forEach((d, i) => {
+        d3.select(`#id${i}`)
+          .append("g")
+          .selectAll("text")
+          .data(d[1].filter((d) => d.goal == datum.goal))
+          .join("text")
+          .attr("class", "temp")
+          .attr("x", a)
+          .attr("y", b)
+          .text((d) => `${d.value}%`)
+          .attr("fill", "black");
+      });
 
       //Return all items' data and write into html tables
       let table = [];
@@ -272,65 +301,24 @@ function displayData(data) {
         <th>Score</th>
         </tr>${html}</table>`
         )
-        .style("font-weight", "700");
+        .style("font-weight", "400");
       // .style("font-size", "16px");
 
       //Format tooltip position
-      const x = event.pageX;
-      const y = event.pageY;
+      // const x = event.pageX;
+      // const y = event.pageY;
 
       // console.log(event.pageX);
-      tooltip.style(
-        "transform",
-
-        `translate(` + `calc(-6% + ${x}px),` + `calc(10% + ${y}px)` + `)`
-      );
+      // tooltip.style("transform", `translate(${window.innerWidth - 300}px,5px)`);
 
       tooltip.style("opacity", 1);
     }
-
     function onMouseLeave(event) {
       //remove tooltip
       const classy = d3.select(this).attr("class");
       d3.selectAll("path").classed("grey", false);
-      tooltip.style("opacity", 0);
+      // tooltip.style("opacity", 0);
+      d3.selectAll(".temp").remove();
     }
   });
-}
-
-function appendImage() {
-  //add SDG icons
-  const menu = d3.select("#menu");
-
-  //reason why mouse event couldn't fire was because imgs were buried, gave them a high z-index mouse event worked
-  const imgs = d3.selectAll(".graphic").on("click", onClick);
-
-  function onClick(event) {
-    // console.log(
-    //   this.id
-    //     .slice(3)
-    //     .replace(/[^\w\s\']|_/g, "")
-    //     .split(" ")
-    //     .join("")
-    // );
-    console.log(this);
-
-    //select highlighted id
-    const highlighted = d3.selectAll(
-      `#${this.id
-        .slice(3)
-        .replace(/[^\w\s\']|_/g, "")
-        .split(" ")
-        .join("")}`
-    );
-    //set highlighted style and class
-    highlighted
-      .attr("class", "highlight")
-      .style("stroke", "white")
-      .style("stroke-width", "2");
-    //remove highlighted style
-    setTimeout(function () {
-      d3.selectAll(".highlight").style("stroke", "none");
-    }, 3000);
-  }
 }

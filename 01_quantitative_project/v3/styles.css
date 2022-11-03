@@ -106,7 +106,7 @@ h4 {
   opacity: 0;
   position: absolute;
   top: 0;
-  left: 0;
+ right: 15%;
   width: 15em;
   padding: 0.6em 1em;
   background: #fff;
@@ -210,9 +210,9 @@ img {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr ;
   grid-template-areas:
-    "intro intro intro . "
-    "world  area1 area2 area3"
-    "area4 area5 area6 area7";
+    "intro intro intro tooltip"
+    "area1 area2 area3 area4"
+    " area5 area6 area7 world ";
 }
 
 #intro {
@@ -262,6 +262,9 @@ img {
   grid-area: area7;
 }
 
+#tooltip {
+  grid-area: tooltip;
+}
 /* #world svg {
   position: absolute;
   padding-left: 6rem;
@@ -271,10 +274,6 @@ img {
   /* transform: translateY(300px); */
   /* transform: scale(2.1); */
 /* } */ 
-
-#world text {
-  font-size: 8px;
-}
 
 /* #menu {
   padding-left: 1rem;
