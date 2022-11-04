@@ -179,7 +179,7 @@ function displayData(data) {
           .join("")
       )
       .attr("data-index", (d, i) => i)
-      .attr("opacity", 0.7)
+
       .attr("fill", (d) => d.Color)
       .attr("class", (d) => "c" + d.Color.slice(1, 8))
       .attr(
@@ -193,10 +193,11 @@ function displayData(data) {
           .padAngle(0)
           .padRadius(0)
       )
+      .attr("opacity", 0)
       .transition()
       .ease(d3.easeCubicInOut)
       .delay(100)
-      .duration((d, i) => i * 50)
+      .duration((d, i) => i * 100)
       .attr(
         "d",
         d3
@@ -208,7 +209,8 @@ function displayData(data) {
           .padAngle(0.5)
           .padRadius(innerRadius)
           .startAngle((d) => goalScale(goalAccessor(d)))
-      );
+      )
+      .attr("opacity", 0.7);
 
     d3.selectAll("path")
       .on("mouseover", onMouseEnter)
