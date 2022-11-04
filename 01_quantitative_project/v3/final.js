@@ -25,7 +25,7 @@ innerRadius = 0;
 outerRadius = dimensions.boundedWidth / 2;
 
 //2. Read the data
-d3.csv("./data/score.csv").then(function (data) {
+d3.csv("../data/score.csv").then(function (data) {
   displayData(data);
 });
 
@@ -164,6 +164,7 @@ function displayData(data) {
 
     // 5. Draw charts
     d[1].sort((a, b) => a.goal - b.goal);
+
     chart
       .append("g")
       .selectAll("path")
@@ -187,11 +188,18 @@ function displayData(data) {
           .arc()
           .innerRadius(innerRadius)
           .outerRadius((d) => radiusScale(scoreAccessor(d)))
-          .startAngle((d) => goalScale(goalAccessor(d)))
+          .startAngle(0)
+
           .endAngle((d) => goalScale(goalAccessor(d)) + goalScale.bandwidth())
           .padAngle(0.5)
           .padRadius(innerRadius)
+
+          .startAngle((d) => goalScale(goalAccessor(d)))
       )
+
+      // .transition()
+      // .ease(d3.easeBounce)
+      // .duration((d, i) => i * 500)
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
 

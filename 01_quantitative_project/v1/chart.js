@@ -1,24 +1,24 @@
 async function drawChart() {
   // 1. Access csv data
-  let dataset = await d3.csv("./data/score.csv");
+  let dataset = await d3.csv("../data/score.csv");
   //remove world from region
-  const dataregion = dataset.filter((d) => d["Region"] != "World");
-  const dataworld = dataset.filter((d) => d["Region"] == "World");
+  const dataregion = dataset.filter((d) => d["region"] != "World");
+  const dataworld = dataset.filter((d) => d["region"] == "World");
   // console.log(dataset);
   console.log(dataworld);
-  const regionAccessor = (d) => d["Region"];
-  const goalAccessor = (d) => d["Goals"];
-  const scoreAccessor = (d) => d["Value"];
+  const regionAccessor = (d) => d["region"];
+  const goalAccessor = (d) => d["goal"];
+  const scoreAccessor = (d) => d["value"];
   const colorAccessor = (d) => d["Color"];
   // console.log(regionAccessor(dataset[1]));
 
   // add metric function
   const region = dataregion
-    .filter((d) => d["Goals"] === "1. No Poverty")
+    .filter((d) => d.goal === "1. No Poverty")
     .map(regionAccessor);
   // console.log(dataregion);
 
-  const sumdata = d3.group(dataregion, (d) => d["Goals"]);
+  const sumdata = d3.group(dataregion, (d) => d.goal);
   // console.log(sumdata);
 
   // 2. Create chart dimensions
@@ -316,7 +316,7 @@ async function drawChart() {
         //create image element
         let img = document.createElement("img");
         setAttributes(img, {
-          src: `./assets/${code}.svg`,
+          src: `../assets/${code}.svg`,
           width: "400px",
           height: "auto",
           class: "paraimg",

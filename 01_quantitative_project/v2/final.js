@@ -25,7 +25,7 @@ innerRadius = 0;
 outerRadius = dimensions.boundedWidth / 2;
 
 //2. Read the data
-d3.csv("./data/score.csv").then(function (data) {
+d3.csv("../data/score.csv").then(function (data) {
   appendImage();
   displayData(data);
 });
@@ -326,7 +326,7 @@ function appendImage() {
       .append("img")
       .attr("class", "graphic")
       // this is calling the svg that has the corressponding name w/ the attr
-      .attr("src", "assets/" + (i + 1) + ".svg")
+      .attr("src", "../assets/" + (i + 1) + ".svg")
       .attr("id", goal[i])
       .style("width", "65px");
     // .style("pointer-events", "visible");
