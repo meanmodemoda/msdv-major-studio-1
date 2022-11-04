@@ -196,7 +196,7 @@ function displayData(data) {
       .attr("opacity", 0)
       .transition()
       .ease(d3.easeCubicInOut)
-      .delay(100)
+      // .delay(100)
       .duration((d, i) => i * 100)
       .attr(
         "d",
