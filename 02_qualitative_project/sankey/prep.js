@@ -1,3 +1,22 @@
+//1. Initiate Sankey
+const _sankey = d3
+  .sankey()
+  .nodeWidth(0)
+  .nodeAlign(d3.sankeyJustify)
+  .nodePadding(1.5)
+  .nodeSort(null)
+  .iterations(6)
+  .extent([
+    [width / 1.5, 20],
+    [width, height - 55],
+  ]);
+
+const sankey = ({ nodes, links }) =>
+  _sankey({
+    nodes: nodes.map((d) => Object.assign({}, d)),
+    links: links.map((d) => Object.assign({}, d)),
+  });
+
 function prepData(data) {
   const sankeydata = {
     nodes: [],
@@ -19,16 +38,17 @@ function prepData(data) {
     });
   });
 
-  // console.log(data[0]);
+  // console.log(sankeydata.nodes);
 
   // return only the distinct / unique nodes
-  const unique = d3
-    .nest()
-    .key((d) => d.name)
-    .entries(sankeydata.nodes);
 
-  sankeydata.nodes = unique.map((d) => d.key);
-  // console.log(sankeydata.nodes);
+  let unique = [];
+
+  sankeydata.nodes.forEach((d, i) => {
+    if (!unique.includes(d.name)) unique.push(d.name);
+  });
+  // console.log(unique);
+  sankeydata.nodes = Array.from(unique);
 
   // console.log(sankeydata.nodes);
   // loop through each link replacing the text with its index from node
@@ -49,4 +69,33 @@ function prepData(data) {
     };
   });
   graph = sankey(sankeydata);
+  graph.links.forEach((d, i) => {
+    if (d.source.height == 2) {
+      // d.x1 = d.x1 - 4;
+      // d.source.x0 = d.source.x0 - 10;
+      d.target.x0 = d.target.x0 - 15;
+      d.target.x1 = d.target.x1 - 15;
+    }
+    // if (d.source.height == 1) {
+    //   d.source.x1 = d.source.x1 + 20;
+    //   // d.source.x0 = d.source.x0 - 50;
+    // }
+  });
+
+  console.log(graph.links);
 }
+
+//helper function
+const imgPicker = (str) => {
+  const newStr = str.split(" ")[0].slice(0, 2);
+  return newStr;
+};
+
+//helper function
+const convertName = (name) => {
+  if (name != "Other") {
+    return name.slice(4);
+  } else {
+    return name;
+  }
+};
