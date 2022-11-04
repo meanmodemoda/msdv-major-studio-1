@@ -186,20 +186,31 @@ function displayData(data) {
         "d",
         d3
           .arc()
+          .innerRadius(0)
+          .outerRadius(0)
+          .startAngle(0)
+          .endAngle(0)
+          .padAngle(0)
+          .padRadius(0)
+      )
+      .transition()
+      .ease(d3.easeCubicInOut)
+      .delay(100)
+      .duration((d, i) => i * 50)
+      .attr(
+        "d",
+        d3
+          .arc()
           .innerRadius(innerRadius)
           .outerRadius((d) => radiusScale(scoreAccessor(d)))
-          .startAngle(0)
-
+          .startAngle((d) => goalScale(goalAccessor(d)))
           .endAngle((d) => goalScale(goalAccessor(d)) + goalScale.bandwidth())
           .padAngle(0.5)
           .padRadius(innerRadius)
-
           .startAngle((d) => goalScale(goalAccessor(d)))
-      )
+      );
 
-      // .transition()
-      // .ease(d3.easeBounce)
-      // .duration((d, i) => i * 500)
+    d3.selectAll("path")
       .on("mouseover", onMouseEnter)
       .on("mouseleave", onMouseLeave);
 
