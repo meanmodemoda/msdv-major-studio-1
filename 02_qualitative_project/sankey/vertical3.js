@@ -6,7 +6,7 @@ const height = 370;
 //2. Create Bound
 const chart = d3
   .select("#chart")
-  .attr("viewBox", `0 0 ${width} ${height / 2}`)
+  .attr("viewBox", `0 0 ${width} ${height / 1.8}`)
   // .attr("preserveAspectRatio", "xMaxYMid")
   .style("VerticalAlignment", "Top")
   .style("width", "100%")
@@ -50,21 +50,21 @@ function displayData(data) {
   //   .data(graph.nodes)
   //   .join("rect")
   //   .attr("class", "end")
-  //   .attr("x", (d) => d.x1)
+  //   .attr("x", (d) => d.x1 - 50)
   //   .attr("y", (d) => d.y0)
   //   // .attr("height", 8)
   //   // .attr("height", (d) => d.y1 - d.y0)
   //   // .attr("width", (d) => d.x1 - d.x0)
   //   .attr("height", (d) => d.y1 - d.y0)
-  //   .attr("width", (d) => (d.height == 2 ? 1 : null))
+  //   .attr("width", (d) => (d.height == 2 ? 50 : null))
   //   .attr("fill", (d, i) => color2(d.name))
   //   .on("mouseover", onMouseEnter2)
   //   .on("mouseleave", onMouseLeave);
-  // // .append("title");
+  // .append("title");
   // .text((d) => `${d.name}\n${format(d.value)}`)
   // .attr("transform", "rotate(270,0,0)");
 
-  // console.log(graph.nodes);
+  console.log(graph.nodes);
   // 5. Draw Sankey
 
   swapText();
@@ -72,25 +72,25 @@ function displayData(data) {
   const transformations = svg
     .append("g")
     .style("font", "6px DM Sans")
-    .style("font-weight", "700")
+    .style("font-weight", "400")
     .selectAll("text")
     .data(graph.nodes)
     .join("text")
-    .attr("x", (d) => (d.depth == 0 ? d.x0 - 24 : null))
+    .attr("x", (d) => (d.depth == 0 ? d.x0 - 44 : null))
     .attr("y", function (d) {
       if (d.name != connections[1] && d.name !== connections[5]) {
-        return (d.y1 + d.y0) / 2 - 5;
+        return (d.y1 + d.y0) / 2 - 1;
       } else if (d.name == connections[1]) {
-        return (d.y1 + d.y0) / 2 + 4;
+        return (d.y1 + d.y0) / 2 + 1;
       } else {
-        return (d.y1 + d.y0) / 2;
+        return (d.y1 + d.y0) / 2 - 2;
       }
     })
-    .attr("dy", "0.35em")
+    .attr("dy", "0.4em")
     .attr("text-anchor", "end")
     .text((d, i) => (d.depth == 0 ? shorthand[d.name] : null))
     .attr("alignment-baseline", (d) =>
-      d.name == connections[5] ? "hanging" : "bottom"
+      d.name == connections[5] ? "hanging" : "top"
     )
     .style("fill", "black");
 
@@ -143,20 +143,20 @@ function displayData(data) {
 
   // console.log(graph.links[0]);
 
-  const tagline = svg
-    .append("g")
-    .append("text")
-    .attr("class", "tagline")
-    .append("textPath")
-    .attr("xlink:href", "#b172")
-    .text(`The Flowing Tree of SDGs`)
-    .style("font", "8px Marcellus")
-    .attr("x", width / 2 + 25)
-    .attr("y", 22)
-    .attr("text-anchor", "start")
-    .attr("font-weight", "400")
-    .style("fill", "url(#gr-simple)")
-    .attr("startOffset", "10%");
+  // const tagline = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "tagline")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#b172")
+  //   .text(`The Flowing Tree of SDGs`)
+  //   .style("font", "8px Marcellus")
+  //   .attr("x", width / 2 + 25)
+  //   .attr("y", 22)
+  //   .attr("text-anchor", "start")
+  //   .attr("font-weight", "400")
+  //   .style("fill", "url(#gr-simple)")
+  //   .attr("startOffset", "10%");
   // .style("transform", `translate(195px,40px) rotate(140deg)`);
 
   //text labels
@@ -186,65 +186,77 @@ function displayData(data) {
     .attr("alignment-baseline", "central");
 
   //append labels
-  const goals = svg
-    .append("g")
-    .append("text")
-    .attr("class", "tick-label")
-    .append("textPath")
-    .attr("xlink:href", "#a0")
-    .text("Goals")
-    .attr("font-size", "0.4rem")
-    .attr("text-align", "left")
-    .attr("startOffset", "80%");
+  // const goals = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "tick-label")
+  //   .append("textPath")
+  //   .attr("xlink:href", "#a1")
+  //   .text("Targets")
+  //   .attr("font-size", "0.4rem")
+  //   .attr("text-align", "left")
+  //   .attr("startOffset", "40%");
 
-  const targets = svg
-    .append("g")
-    .append("text")
-    .attr("class", "tick-label")
-    .append("textPath")
-    .attr("startOffset", "75%")
-    .attr("xlink:href", "#a1")
-    .attr("font-size", "0.4rem")
-    .text("Targets");
-
-  const transform = svg
-    .append("g")
-    .append("text")
-    .attr("class", "tick-label")
-    .append("textPath")
-    // .attr("startOffset", "-25%")
-    .attr("xlink:href", "#a0")
-    .attr("font-size", "0.4rem")
-    .text("Theme");
+  // const transform = svg
+  //   .append("g")
+  //   .append("text")
+  //   .attr("class", "tick-label")
+  //   .append("textPath")
+  //   .attr("startOffset", "35%")
+  //   .attr("xlink:href", "#a0")
+  //   .attr("font-size", "0.4rem")
+  //   .text("Goals");
   // d3.selectAll("#c9,#c34,#c56,#c58,#c63,#c82,#c138").attr("stroke", "red");
 
+  // Add extension lines
+
+  let guides = [];
+  const transLine = graph.links.filter((d) => d.index == 185);
+  const targetLine = graph.links.filter((d) => d.index == 172);
+  guides.push({
+    name: "Target",
+    x: targetLine[0].target.x0,
+    y: targetLine[0].y1,
+  });
+  guides.push({
+    name: "Goal",
+    x: targetLine[0].source.x0,
+    y: targetLine[0].y0,
+  });
+  guides.push({
+    name: "Trasformation",
+    x: transLine[0].source.x0,
+    y: transLine[0].y0,
+  });
+  console.log(guides);
+  guides.forEach((d, i) => {
+    svg
+      .append("g")
+      .append("line")
+      .attr("x1", d.x)
+      .attr("y1", d.y + 10)
+      .attr("x2", d.x)
+      .attr("y2", height - 25)
+      .attr("stroke", "black")
+      .attr("stroke-width", "0.1")
+      .attr("stroke-dasharray", "1");
+
+    svg
+      .append("g")
+      .append("text")
+      .text(d.name)
+      .attr("x", d.x - 5)
+      .attr("y", height - 25)
+      .attr("fill", "black")
+      .attr("text-anchor", "end")
+      .attr("font-size", "0.5rem")
+      .attr("writing-mode", "vertical-rl");
+  });
+
+  // console.log(guideline);
+
   const coordinates = graph.nodes.filter((d) => d.height == 2);
-  console.log(coordinates);
-
-  // svg
-  //   .append("g")
-
-  //   .append("path")
-  //   .attr(
-  //     "d",
-  //     `M 240 54.73
-  //     S 230 58
-  //      200 59`
-  //   )
-  //   //   .attr(
-  //   //     "d",
-  //   //     `M 240 54.73
-  //   // C 230 58
-  //   // 220 58
-  //   //   200 59  S
-  //   //   210 56 240 62.97 L 240 54.73`
-  //   //   )
-  //   .attr("stroke", "red")
-  //   .attr("stroke-width", 0.5);
-
-  // console.log(d);
-
-  svg
+  const barline = svg
     .append("g")
     .selectAll("path")
     .data(coordinates)
@@ -252,21 +264,12 @@ function displayData(data) {
     .attr(
       "d",
       (d) => `M ${d.x0} ${d.y0}
-   S${d.x0 - 20} ${(d.y0 + d.y1) / 2},
-    ${d.x0 - 70} ${(d.y0 + d.y1) / 2 - 1}  L${d.x0 - 70} ${
-        (d.y0 + d.y1) / 2 + 1
+   S${d.x0 - 25} ${(d.y0 + d.y1) / 2},
+    ${d.x0 - 40} ${(d.y0 + d.y1) / 2 - 0.5}  L${d.x0 - 40} ${
+        (d.y0 + d.y1) / 2 + 0.5
       }  S
-    ${d.x0 - 20}  ${(d.y0 + d.y1) / 2} ${d.x1} ${d.y1} L ${d.x0} ${d.y0}`
+    ${d.x0 - 25}  ${(d.y0 + d.y1) / 2} ${d.x1} ${d.y1} L ${d.x0} ${d.y0}`
     )
-    // ${d.x0 - 20} ${(d.y0 + d.y1) / 2},
-    // .attr(
-    //   "d",
-    //   (d) => `M ${d.x0} ${d.y0}
-    // C ${d.x0 - 10} ${(d.y0 + d.y1) / 2},
-    // ${d.x0 - 20} ${(d.y0 + d.y1) / 2},
-    // ${d.x0 - 40} ${(d.y0 + d.y1) / 2 + 1}  S
-    // ${d.x0 - 30}  ${(d.y0 + d.y1) / 2 - 2} ${d.x1} ${d.y1} L ${d.x0} ${d.y0}`
-    // )
     .attr("fill", (d) => color2(d.name));
   // .attr("stroke", (d) => color2(d.name));
   // .attr("stroke-width", (d) => (d.width < 1 ? 0.08 : 0.5));

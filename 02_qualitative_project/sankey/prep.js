@@ -5,10 +5,10 @@ const _sankey = d3
   .nodeAlign(d3.sankeyJustify)
   .nodePadding(1.5)
   .nodeSort(null)
-  .iterations(6)
+  .iterations(5)
   .extent([
-    [width / 1.5, 20],
-    [width, height - 55],
+    [width / 1.45, 10],
+    [width - 2, height - 75],
   ]);
 
 const sankey = ({ nodes, links }) =>
@@ -73,8 +73,8 @@ function prepData(data) {
     if (d.source.height == 2) {
       // d.x1 = d.x1 - 4;
       // d.source.x0 = d.source.x0 - 10;
-      d.target.x0 = d.target.x0 - 15;
-      d.target.x1 = d.target.x1 - 15;
+      d.target.x0 = d.target.x0 - 10;
+      d.target.x1 = d.target.x1 - 10;
     }
     // if (d.source.height == 1) {
     //   d.source.x1 = d.source.x1 + 20;
