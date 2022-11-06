@@ -240,22 +240,25 @@ ul {
 
 #tooltip-goal {
   padding-top: 5rem;
-  height: 6.5rem;
+  /* padding-left: 2rem; */
+  height: 7.5rem;
   line-height: 1.7em;
   width: 35em;
   vertical-align: bottom;
-
+  text-align: left;
   /* width: 35em */
   /* background: green; */
 }
 
 #tooltip-transformation {
-  padding-top: 2rem;
+  padding-top: 4rem;
   /* padding-left: 2rem; */
+  width: 35em;
   height: 6.5rem;
   line-height: 1.7em;
   width: 35em;
   vertical-align: bottom;
+  text-align: left;
 
   /* width: 35em */
   /* background: green; */

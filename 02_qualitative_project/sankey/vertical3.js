@@ -169,9 +169,21 @@ function displayData(data) {
       .attr("y", height - 25)
       .attr("fill", "black")
       .attr("text-anchor", "end")
-      .attr("font-size", "0.5rem")
+      .attr("font-size", "0.4rem")
       .attr("writing-mode", "vertical-rl");
   });
+
+  svg
+    .append("g")
+    .append("text")
+    .text("The Flowing Tree of SDGs")
+    .attr("x", guides[2].x - 70)
+    .attr("y", height - 25)
+    .attr("fill", "black")
+    .attr("text-anchor", "end")
+    .attr("font-size", "0.6rem")
+    .attr("font-weight", "700")
+    .attr("writing-mode", "vertical-rl");
 
   // console.log(guideline);
 

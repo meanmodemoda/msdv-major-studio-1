@@ -11,8 +11,7 @@ const test2 = nameRange.map((d, i) => {
 });
 
 function onMouseEnter(event, datum) {
-  console.log(this);
-
+  // console.log(this);
   const main = d3.selectAll("path");
   main.classed("grey", true);
 
@@ -25,40 +24,26 @@ function onMouseEnter(event, datum) {
     d3.select(this).classed("stroke", false).classed("grey", false);
   }
 
-  //ungrey parent
   const parent = d3.selectAll(`[data-target="${datum.source.name}"]`);
   parent.classed("grey", false);
 
-  //   const nodeList = parent._groups[0][0]__data__.source.name
-  // //ungrey parent's parent
-  //   console.log(nodeList);
-  // nodeList.forEach((d) => {
-  //   d3.select(`[data-target="${d.__data__.source.name}"]`).classed(
-  //     "grey",
-  //     false
-  //   );
-  // });
-
-  // if (parent.name) {
-  //   tooltip
-  //     .select("#tooltip-transformation")
-  //     .html(
-  //       `<div id="transformation"><h2 style="color:${obj[datum.name]}">${
-  //         parent.name
-  //       }</h2></div>`
-  //     )
-  //     .style("font-weight", "400");
-  // }
+  const nodeList = parent._groups[0][0].__data__.name;
+  console.log(parent);
 
   const children = d3.selectAll(`[data-source="${datum.target.name}"]`);
   children.classed("grey", false);
 
   d3.selectAll(".top").classed("top-fill", true);
+
   // main.style("stroke-width",c=>c.source)
   // d3.select(this).style("transform", `scale(1.2,1)`);
   // console.log(obj[event.source.name]);
   if (datum.source.height == 1) {
-    tooltip.select("#tooltip-transformation").classed("mute", true);
+    const nodeList = parent._groups[0][0].__data__.source.name;
+    const select = document.querySelector(`[data-target="${nodeList}"]`);
+    select.classList.remove("top-fill");
+    select.classList.remove("grey");
+
     tooltip
       .select("#tooltip-target")
       .html(
@@ -86,36 +71,33 @@ function onMouseEnter(event, datum) {
         )}</p></div>`
       )
       .style("font-weight", "400");
+
+    if (nodeList == "Other") {
+      tooltip.select("#tooltip-transformation").html(
+        `<div id="transformation"><p>Goal 08, Goal 16 and Goal 17 do not have a shared transformation theme.
+        </p></div>`
+      );
+    } else {
+      tooltip
+        .select("#tooltip-transformation")
+        .html(
+          `<div id="transformation"><h2 style="color:${obj[nodeList]}">${nodeList}</h2></div>`
+        )
+        .style("font-weight", "400");
+    }
   }
-  //   tooltip
-  //     .select("#tooltip-goal")
-  //     .html(
-  //       `<div class="first-layer">
-  //       <img src=${img} width="150px"/>
-  //       <div class="text">
-  //       <div class="goal-text">
-  //       <h2 style="color:${obj2[datum.source.name]}">Goal ${
-  //         datum.source.name
-  //       }</h2>
-  //       </div>
-  //       <br>
-  //       <div class="target">
-  //       <h3>Target ${datum.target.name.slice(
-  //         0,
-  //         datum.target.name.indexOf(" ")
-  //       )}</h3>
-  //       <p>${datum.target.name.slice(datum.target.name.indexOf(" "))}</p>
-  //       </div>
-  //       <br>
-  //       </div>
-  //       </div>`
-  //     )
-  //     .style("font-weight", "400")
-  //     .style("color", "#34495e");
-  // }
+
   if (datum.source.height == 2) {
     tooltip.select("#tooltip-target").classed("mute", true);
-    tooltip.select("#tooltip-transformation").classed("mute", true);
+    // tooltip.select("#tooltip-transformation").classed("mute", true);
+
+    const children = d3.selectAll(`[data-source="${datum.target.name}"]`);
+    children.classed("grey", false);
+
+    const nodeList = parent._groups[0][0].__data__.name;
+    const select = document.querySelector(`[data-target="${nodeList}"]`);
+    select.classList.remove("top-fill");
+
     tooltip
       .select("#tooltip-goal")
       .html(
@@ -130,6 +112,20 @@ function onMouseEnter(event, datum) {
       )}</p></div>`
       )
       .style("font-weight", "400");
+
+    if (nodeList == "Other") {
+      tooltip.select("#tooltip-transformation").html(
+        `<div id="transformation"><p>Goal 08, Goal 16 and Goal 17 do not have a shared transformation theme.
+      </p></div>`
+      );
+    } else {
+      tooltip
+        .select("#tooltip-transformation")
+        .html(
+          `<div id="transformation"><h2 style="color:${obj[nodeList]}">${nodeList}</h2></div>`
+        )
+        .style("font-weight", "400");
+    }
   }
 
   tooltip.style("opacity", 1);
