@@ -4,11 +4,11 @@ This is my first quantitative project from the Major Studio 1 class. I wasn't ha
 
 [Version 1](https://muons.com/msdv-major-studio-1/01_quantitative_project/v1)
 
-<img src="./v1.png" width="900" alt="Version 1">
+<img src="../assets/v1.png" width="500" alt="Version 1">
 
 [Version 2](https://muons.com/msdv-major-studio-1/01_quantitative_project/v2)
 
-<img src="./v2.png" width="900" alt="Version 2">
+<img src="../assets/v2.png" width="500" alt="Version 2">
 
 ### Process
 
