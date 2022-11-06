@@ -19,7 +19,7 @@ const svg = d3.select("#chart g");
 svg.attr("transform", `rotate(-90, 0, 0) translate(-${width}, 0)`);
 
 //3. Load Data
-d3.csv("../sankey.csv").then((data) => {
+d3.csv("./sankey.csv").then((data) => {
   displayData(data);
 });
 
