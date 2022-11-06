@@ -7,13 +7,13 @@ I forwent the initial dendrogram design and tried to replicate the first concept
 To change from dendrogram to Sankey diagram, I need to restructure the data from hierarchy data to flow data(nodes and links).
 Here is the code I used to transform the data.
 
-<img src="../assets/data_prep.png" width="600" alt="Design">
+<img src="../assets/data_prep.png" width="600" alt="Data">
 
 ### Design Revision
 
 I tried my best to replicate the sketched flow chart.
 
-<img src="../assets/design_draft.png" width="6000" alt="Design">
+<img src="../assets/v2.png" width="600" alt="Design">
 
 ### Remaining Work
 
