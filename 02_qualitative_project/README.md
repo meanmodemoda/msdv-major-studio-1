@@ -4,7 +4,7 @@ This visualization is the second qualitative project in my Major Studio 1 class 
 
 The data includes 6 SDG transformation focuses, 17 goals and 169 targets. I converted the data programatically from CSV to a Sankey node/link file format.
 
-<img src="../assets/data_prep.png" width="600" alt="Data Prep">
+<img src="./assets/data_prep.png" width="600" alt="Data Prep">
 
 ### Prototype
 
