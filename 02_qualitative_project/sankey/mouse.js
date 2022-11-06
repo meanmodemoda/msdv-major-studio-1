@@ -118,6 +118,8 @@ function onMouseLeave(event, datum) {
 }
 
 function onMouseEnter2(event, datum) {
+  tooltip.select("#tooltip-target").classed("mute", true);
+  tooltip.select("#tooltip-goal").classed("mute", true);
   const main = d3.selectAll(".top");
   main.classed("grey", true);
 
@@ -134,17 +136,27 @@ function onMouseEnter2(event, datum) {
   d3.selectAll(".top").classed("top-fill", true);
   d3.select(this).classed("top-fill", false);
 
-  tooltip
-    .select("#tooltip-transformation")
-    .html(
-      `<div id="transformation"><h2 style="color:${obj[datum.name]}">${
-        datum.name
-      }</h2></div>`
-    )
-    .style("font-weight", "400");
+  if (datum.name == "Other") {
+    tooltip.select("#tooltip-transformation").html(
+      `<div id="transformation"><p>Goal 08, Goal 16 and Goal 17 do not have a shared transformation theme.
+  </p></div>`
+    );
+  } else {
+    tooltip
+      .select("#tooltip-transformation")
+      .html(
+        `<div id="transformation"><h2 style="color:${obj[datum.name]}">${
+          datum.name
+        }</h2></div>`
+      )
+      .style("font-weight", "400");
+  }
+  tooltip.style("opacity", 1);
 }
 
 function onMouseLeave2(event, datum) {
+  tooltip.select("#tooltip-target").classed("mute", false);
+  tooltip.select("#tooltip-goal").classed("mute", false);
   d3.select(this).classed("stroke", false);
   const main = d3.selectAll("path").classed("grey", false);
   tooltip.style("opacity", 0);

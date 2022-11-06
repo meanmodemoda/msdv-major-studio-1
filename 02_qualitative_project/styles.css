@@ -216,7 +216,7 @@ ul {
   top: 23%;
 
   left: 60%;
-  width: 35em;
+  width: 30em;
   /* padding: 0.6em 1em; */
   color: #34495e;
   /* background: #fff; */
@@ -239,7 +239,7 @@ ul {
 }
 
 #tooltip-goal {
-  padding-top: 6rem;
+  padding-top: 5rem;
   height: 6.5rem;
   line-height: 1.7em;
   width: 35em;
@@ -249,8 +249,9 @@ ul {
   /* background: green; */
 }
 
-#tooltip-goal {
-  padding-top: 6rem;
+#tooltip-transformation {
+  padding-top: 2rem;
+  /* padding-left: 2rem; */
   height: 6.5rem;
   line-height: 1.7em;
   width: 35em;
