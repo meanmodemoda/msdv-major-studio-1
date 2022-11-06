@@ -16,7 +16,7 @@ body {
   align-items: center;
   /* padding: 2em 2em; */
   font-size: 16px;
-  color: #34495e;
+  color: #3f474e;
   background: white;
 }
 
@@ -218,7 +218,7 @@ ul {
   left: 60%;
   width: 35em;
   /* padding: 0.6em 1em; */
-  color: #34495e;
+  color: #3f474e;
   /* background: #fff; */
   text-align: left;
   line-height: 1.4em;
@@ -239,7 +239,7 @@ ul {
 }
 
 #tooltip-goal {
-  padding-top: 5rem;
+  padding-top: 6rem;
   /* padding-left: 2rem; */
   height: 7.5rem;
   line-height: 1.7em;
@@ -251,7 +251,7 @@ ul {
 }
 
 #tooltip-transformation {
-  padding-top: 4rem;
+  padding-top: 3.5rem;
   /* padding-left: 2rem; */
   width: 35em;
   height: 6.5rem;

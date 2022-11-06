@@ -66,6 +66,7 @@ function displayData(data) {
     .append("g")
     .style("font", "6px DM Sans")
     .style("font-weight", "400")
+    .style("fill", "#3f474e")
     .selectAll("text")
     .data(graph.nodes)
     .join("text")
@@ -84,8 +85,7 @@ function displayData(data) {
     .text((d, i) => (d.depth == 0 ? shorthand[d.name] : null))
     .attr("alignment-baseline", (d) =>
       d.name == connections[5] ? "hanging" : "top"
-    )
-    .style("fill", "black");
+    );
 
   //Draw tree
   const main = link
