@@ -14,6 +14,7 @@ Thanks to professor Richard The's guidance, I went through 3 rounds of iteration
 
 <img src="./assets/sketch.JPG" width="500" alt="sketch">
 <br>
+
 [Current Iteration](https://muons.com/msdv-major-studio-1/01_quantitative_project/v3)
 
 <img src="./assets/demo.gif" width="500" alt="Version 3">
