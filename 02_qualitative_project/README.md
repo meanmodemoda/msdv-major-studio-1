@@ -15,11 +15,11 @@ Thanks to professor Richard The's guidance, I went through 3 rounds of iteration
 <img src="./assets/sketch.JPG" width="500" alt="sketch">
 <br>
 
-[Current Iteration](https://muons.com/msdv-major-studio-1/01_quantitative_project/v3)
+[Current Iteration](https://muons.com/msdv-major-studio-1/02_qualitative_project/sankey)
 
 <img src="./assets/demo.gif" width="500" alt="Version 3">
 
-In this final iternation, I was able to customize the existing Sankey format and adding in additional SVG elements and bind data to it. I also further improved the hover-over effect so the entire hierachical structure can be highlighted instead of just highlighting the links and nodes separately.
+In this final iternation, I was able to customize the existing Sankey format and add in additional SVG elements and bind data to it. I also further improved the hover-over effect so the entire hierachical structure can be highlighted instead of just highlighting the links and nodes separately.
 
 ### Previous versions
 
