@@ -344,7 +344,7 @@ function displayData(data) {
       //remove tooltip
       const classy = d3.select(this).attr("class");
       d3.selectAll("path").classed("grey", false);
-      // tooltip.style("opacity", 0);
+      tooltip.style("opacity", 0);
       d3.selectAll(".temp").remove();
     }
   });
