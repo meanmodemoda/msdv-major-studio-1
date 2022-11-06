@@ -134,17 +134,17 @@ function displayData(data) {
   const transLine = graph.links.filter((d) => d.index == 185);
   const targetLine = graph.links.filter((d) => d.index == 172);
   guides.push({
-    name: "Target",
+    name: "169 Targets",
     x: targetLine[0].target.x0 - 5,
     y: targetLine[0].y1,
   });
   guides.push({
-    name: "Goal",
+    name: "17 Goals",
     x: targetLine[0].source.x0 - 9,
     y: targetLine[0].y0,
   });
   guides.push({
-    name: "Transformation",
+    name: "6 Transformations",
     x: transLine[0].source.x0 - 5,
     y: transLine[0].y0,
   });
