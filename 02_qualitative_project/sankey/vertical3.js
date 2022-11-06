@@ -93,6 +93,8 @@ function displayData(data) {
     .attr("class", "link")
     // .attr("id", (d, i) => d.index)
     .attr("d", d3.sankeyLinkHorizontal())
+    .attr("data-source", (d) => d.source.name)
+    .attr("data-target", (d) => d.target.name)
     // .attr("stroke-opacity", (d) => (d.source.x1 <= width / 2 ? 0.5 : 0.5))
     .attr("stroke", (d) => {
       // the first layer
@@ -113,21 +115,18 @@ function displayData(data) {
 
   // console.log(graph.links[0]);
 
-  // const tagline = svg
-  //   .append("g")
-  //   .append("text")
-  //   .attr("class", "tagline")
-  //   .append("textPath")
-  //   .attr("xlink:href", "#b172")
-  //   .text(`The Flowing Tree of SDGs`)
-  //   .style("font", "8px Marcellus")
-  //   .attr("x", width / 2 + 25)
-  //   .attr("y", 22)
-  //   .attr("text-anchor", "start")
-  //   .attr("font-weight", "400")
-  //   .style("fill", "url(#gr-simple)")
-  //   .attr("startOffset", "10%");
-  // .style("transform", `translate(195px,40px) rotate(140deg)`);
+  const tagline = svg
+    .append("g")
+    .append("text")
+    .attr("class", "tagline")
+    .text(`The Flowing Tree of SDGs`)
+    .style("font", "8px Marcellus")
+    .attr("x", width / 2 + 25)
+    .attr("y", 22)
+    .attr("text-anchor", "start")
+    .attr("font-weight", "400")
+    .attr("fill", "black")
+    .style("transform", `translate(195px,40px) rotate(140deg)`);
 
   // Add guidelines
 
@@ -177,13 +176,16 @@ function displayData(data) {
   // console.log(guideline);
 
   // Add extensions
-  const coordinates = graph.nodes.filter((d) => d.height == 2);
+  let coordinates = {};
+  coordinates.nodes = graph.nodes.filter((d) => d.height == 2);
+  coordinates.links = graph.links.filter((d) => d.source.height == 2);
   const barline = svg
     .append("g")
     .selectAll("path")
-    .data(coordinates)
+    .data(coordinates.nodes)
     .join("path")
     .attr("class", "top")
+    .attr("data-target", (d) => d.name)
     .attr(
       "d",
       (d) => `M ${d.x0} ${d.y0}

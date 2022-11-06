@@ -11,11 +11,12 @@ const test2 = nameRange.map((d, i) => {
 });
 
 function onMouseEnter(event, datum) {
+  console.log(this);
+
   const main = d3.selectAll("path");
   main.classed("grey", true);
 
   //conditional on strokewidth
-
   if (this.getAttribute("stroke-width") < 0.3) {
     d3.select(this).classed("stroke", true).classed("grey", false);
   }
@@ -23,6 +24,34 @@ function onMouseEnter(event, datum) {
   if (this.getAttribute("stroke-width") > 0.3) {
     d3.select(this).classed("stroke", false).classed("grey", false);
   }
+
+  //ungrey parent
+  const parent = d3.selectAll(`[data-target="${datum.source.name}"]`);
+  parent.classed("grey", false);
+
+  //   const nodeList = parent._groups[0][0]__data__.source.name
+  // //ungrey parent's parent
+  //   console.log(nodeList);
+  // nodeList.forEach((d) => {
+  //   d3.select(`[data-target="${d.__data__.source.name}"]`).classed(
+  //     "grey",
+  //     false
+  //   );
+  // });
+
+  // if (parent.name) {
+  //   tooltip
+  //     .select("#tooltip-transformation")
+  //     .html(
+  //       `<div id="transformation"><h2 style="color:${obj[datum.name]}">${
+  //         parent.name
+  //       }</h2></div>`
+  //     )
+  //     .style("font-weight", "400");
+  // }
+
+  const children = d3.selectAll(`[data-source="${datum.target.name}"]`);
+  children.classed("grey", false);
 
   d3.selectAll(".top").classed("top-fill", true);
   // main.style("stroke-width",c=>c.source)
@@ -118,9 +147,10 @@ function onMouseLeave(event, datum) {
 }
 
 function onMouseEnter2(event, datum) {
+  console.log(this);
   tooltip.select("#tooltip-target").classed("mute", true);
   tooltip.select("#tooltip-goal").classed("mute", true);
-  const main = d3.selectAll(".top");
+  const main = d3.selectAll("path");
   main.classed("grey", true);
 
   //conditional on strokewidth
@@ -135,6 +165,17 @@ function onMouseEnter2(event, datum) {
 
   d3.selectAll(".top").classed("top-fill", true);
   d3.select(this).classed("top-fill", false);
+
+  const children = d3.selectAll(`[data-source="${datum.name}"]`);
+  children.classed("grey", false);
+
+  const nodeList = children._groups[0];
+  nodeList.forEach((d) => {
+    d3.selectAll(`[data-source="${d.__data__.target.name}"]`).classed(
+      "grey",
+      false
+    );
+  });
 
   if (datum.name == "Other") {
     tooltip.select("#tooltip-transformation").html(
