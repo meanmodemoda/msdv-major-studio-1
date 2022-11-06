@@ -9,10 +9,10 @@ const connections = [
 ];
 
 const shorty = [
-  "Inequality",
+  "Inequalities",
   "Health",
+  "Industry",
   "Sustainability",
-  "Environment",
   "Communities",
   "Digital",
   "Other",
