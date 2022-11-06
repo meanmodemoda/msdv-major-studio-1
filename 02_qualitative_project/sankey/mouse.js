@@ -1,115 +1,152 @@
-//this is d3 version 5, first element passed in is datum
+const tooltip = d3.select("#tooltip");
+//color helper
+let obj = {};
+const test = connections.map((d, i) => {
+  obj[d] = palette2[i];
+});
+
+let obj2 = {};
+const test2 = nameRange.map((d, i) => {
+  obj2[d] = palette[i];
+});
+
 function onMouseEnter(event, datum) {
-  console.log(datum);
-  //color helper
-  let obj = {};
-  const test = connections.map((d, i) => {
-    obj[d] = palette2[i];
-  });
-
-  let obj2 = {};
-  const test2 = nameRange.map((d, i) => {
-    obj2[d] = palette[i];
-  });
-
-  const tooltip = d3.select("#tooltip");
   const main = d3.selectAll("path");
-  main.style("opacity", 0.3);
-  // main.style("stroke", function (d) {
-  //   return d.source.name === event.source.name ||
-  //     d.target.name === event.source.name
-  //     ? "#69b3b2"
-  //     : "d.uid";
-  // });
-  d3.select(this).style("opacity", 1);
+  main.classed("grey", true);
+
+  //conditional on strokewidth
+
+  if (this.getAttribute("stroke-width") < 0.3) {
+    d3.select(this).classed("stroke", true).classed("grey", false);
+  }
+
+  if (this.getAttribute("stroke-width") > 0.3) {
+    d3.select(this).classed("stroke", false).classed("grey", false);
+  }
+
+  d3.selectAll(".top").classed("top-fill", true);
   // main.style("stroke-width",c=>c.source)
   // d3.select(this).style("transform", `scale(1.2,1)`);
   // console.log(obj[event.source.name]);
   if (datum.source.height == 1) {
-    let imgCode = imgPicker(datum.source.name);
-    let img = `../assets/${imgCode}.png`;
+    tooltip.select("#tooltip-transformation").classed("mute", true);
     tooltip
-      .select(".tooltip-goal")
+      .select("#tooltip-target")
       .html(
-        `<div class="first-layer">
-        <img src=${img} width="150px"/>
-        <div class="text">
-        <div class="goal-text">
-        <h2 style="color:${obj2[datum.name]}">Goal ${datum.name}</h2>
-        </div>
-        <br>
-        <div class="target">
-        <h3>Target ${datum.target.name.slice(
+        `<div id="target"><h3 style="color:${
+          obj2[datum.source.name]
+        }">Target ${datum.target.name.slice(
           0,
           datum.target.name.indexOf(" ")
         )}</h3>
-        <p>${datum.target.name.slice(datum.target.name.indexOf(" "))}</p>
-        </div>
-        <br>
-        </div>
-        </div>`
+        <p>${datum.target.name.slice(datum.target.name.indexOf(" "))}</p></div>`
       )
-      .style("font-weight", "400")
-      .style("color", "#34495e");
-  }
-  if (datum.source.height == 2 && datum.source.name != "Other") {
+      .style("font-weight", "400");
+
     tooltip
-      .data(connections)
-      .select(".tooltip-goal")
+      .select("#tooltip-goal")
       .html(
-        `<div class="first-layer">
-        <div class="text">
-        <br>
-        <h1 style="color:${obj[datum.source.name]}"> ${convertName(
-          datum.source.name
-        )}</h1>
-        <p>is one of the six SDG Transformations that connects Goal ${
-          datum.target.name
-        } with other SDGs.</p>
-        </div>
-        </div>`
+        `<div id="goal"><h2 style="color:${
+          obj2[datum.source.name]
+        }">Goal ${datum.target.name.slice(
+          0,
+          datum.source.name.indexOf(" ")
+        )}</h2>
+        <p style="font-size:1.2rem">${datum.source.name.slice(
+          datum.source.name.indexOf(" ")
+        )}</p></div>`
+      )
+      .style("font-weight", "400");
+  }
+  //   tooltip
+  //     .select("#tooltip-goal")
+  //     .html(
+  //       `<div class="first-layer">
+  //       <img src=${img} width="150px"/>
+  //       <div class="text">
+  //       <div class="goal-text">
+  //       <h2 style="color:${obj2[datum.source.name]}">Goal ${
+  //         datum.source.name
+  //       }</h2>
+  //       </div>
+  //       <br>
+  //       <div class="target">
+  //       <h3>Target ${datum.target.name.slice(
+  //         0,
+  //         datum.target.name.indexOf(" ")
+  //       )}</h3>
+  //       <p>${datum.target.name.slice(datum.target.name.indexOf(" "))}</p>
+  //       </div>
+  //       <br>
+  //       </div>
+  //       </div>`
+  //     )
+  //     .style("font-weight", "400")
+  //     .style("color", "#34495e");
+  // }
+  if (datum.source.height == 2) {
+    tooltip.select("#tooltip-target").classed("mute", true);
+    tooltip.select("#tooltip-transformation").classed("mute", true);
+    tooltip
+      .select("#tooltip-goal")
+      .html(
+        `<div id="goal"><h2 style="color:${
+          obj2[datum.target.name]
+        }">Goal ${datum.target.name.slice(
+          0,
+          datum.target.name.indexOf(" ")
+        )}</h2>
+      <p style="font-size:1.2rem">${datum.target.name.slice(
+        datum.target.name.indexOf(" ")
+      )}</p></div>`
       )
       .style("font-weight", "400");
   }
 
-  if (datum.source.name == "Other") {
-    tooltip
-      .data(connections)
-      .select(".tooltip-goal")
-      .html(
-        `<div class="first-layer">
-        <div class="text">
-       <p>
-        Goal ${datum.target.name}
-      is a standalone SDG.</p> 
-        
-        </div>
-        </div>`
-      )
-      .style("font-weight", "400");
-  }
-
-  //Format tooltip position
-  const x = event.pageX;
-  const y = event.pageY;
-
-  // tooltip.style(
-  //   "transform",
-  //   `translate(` + `calc(-5% + ${x}px),` + `calc(5% + ${y}px)` + `)`
-  // );
-  // tooltip.style("width", "30%");
   tooltip.style("opacity", 1);
+
   // tooltip.style("color", "#34495e");
 }
 
 function onMouseLeave(event, datum) {
-  const tooltip = d3.select("#tooltip");
-  const main = d3.selectAll("path");
-  main.style("opacity", 1);
-  d3.select(this);
+  d3.select(this).classed("stroke", false);
+  const main = d3.selectAll("path").classed("grey", false);
   tooltip.style("opacity", 0);
+  d3.selectAll(".top").classed("top-fill", false);
+  tooltip.select("#tooltip-target").classed("mute", false);
+  d3.select("#tooltip-transformation").classed("mute", false);
 }
 
 function onMouseEnter2(event, datum) {
-  console.log(datum);
+  const main = d3.selectAll(".top");
+  main.classed("grey", true);
+
+  //conditional on strokewidth
+
+  if (this.getAttribute("stroke-width") < 0.3) {
+    d3.select(this).classed("stroke", true).classed("grey", false);
+  }
+
+  if (this.getAttribute("stroke-width") > 0.3) {
+    d3.select(this).classed("stroke", false).classed("grey", false);
+  }
+
+  d3.selectAll(".top").classed("top-fill", true);
+  d3.select(this).classed("top-fill", false);
+
+  tooltip
+    .select("#tooltip-transformation")
+    .html(
+      `<div id="transformation"><h2 style="color:${obj[datum.name]}">${
+        datum.name
+      }</h2></div>`
+    )
+    .style("font-weight", "400");
+}
+
+function onMouseLeave2(event, datum) {
+  d3.select(this).classed("stroke", false);
+  const main = d3.selectAll("path").classed("grey", false);
+  tooltip.style("opacity", 0);
+  d3.selectAll(".top").classed("top-fill", false);
 }

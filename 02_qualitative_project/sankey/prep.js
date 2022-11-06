@@ -8,7 +8,7 @@ const _sankey = d3
   .iterations(5)
   .extent([
     [width / 1.45, 10],
-    [width - 2, height - 75],
+    [width - 5, height - 75],
   ]);
 
 const sankey = ({ nodes, links }) =>
