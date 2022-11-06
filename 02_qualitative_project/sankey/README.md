@@ -11,9 +11,11 @@ Here is the code I used to transform the data.
 
 ### Design Revision
 
+<img src="../assets/v2.png" width="600" alt="Design">
+
 I tried my best to replicate the sketched flow chart.
 
-<img src="../assets/v2.png" width="600" alt="Design">
+<img src="../assets/sketch.JPG" width="600" alt="Sketch">
 
 ### Remaining Work
 
