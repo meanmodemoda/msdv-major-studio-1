@@ -1,25 +1,33 @@
-# Summary
+This visualization is the second qualitative project in my Major Studio 1 class as part of the study of the MS Data Visualization program. It turns SDG's multi-layer structure into a Sankey tree format. I customized the Sankey diagram by changing the layout design and adding in additional SVG elements.
 
-I forwent the initial dendrogram design and tried to replicate the first concept from [Week 6's](https://github.com/muonius/msdv-major-studio-1/tree/master/week06_qualitative_sketches) design. To achieve the flow effect, I decided to experiment with Sankey diagram.
+### Data
 
-### Data Preparation
+The data includes 6 SDG transformation focuses, 17 goals and 169 targets. I converted the data programatically from CSV to a Sankey node/link file format.
 
-To change from dendrogram to Sankey diagram, I need to restructure the data from hierarchy data to flow data(nodes and links).
-Here is the code I used to transform the data.
+<img src="../assets/data_prep.png" width="600" alt="Data Prep">
 
-<img src="./data_prep.png" width="600" alt="Design">
+### Prototype
 
-### Design Revision
+Thanks to professor Richard The's guidance, I went through 3 rounds of iterations and was able to significantly improve the aesthetics and readability of the graph. The chart is built with d3.js and vanilla Javascript.
 
-I tried my best to replicate the sketched flow chart.
+#### Sketch
 
-<img src="./design_draft.png" width="1000" alt="Design">
+<img src="./assets/sketch.JPG" width="500" alt="sketch">
+<br>
+[Current Iteration](https://muons.com/msdv-major-studio-1/01_quantitative_project/v3)
 
-### Remaining Work
+<img src="./assets/demo.gif" width="500" alt="Version 3">
 
-- Typography
-- Tooltip formatting
-- Tooltip responsive to window size
-- Potentially add guidelines
+In this final iternation, I was able to customize the existing Sankey format and adding in additional SVG elements and bind data to it. I also further improved the hover-over effect so the entire hierachical structure can be highlighted instead of just highlighting the links and nodes separately.
 
-[Project Link](https://muons.com/msdv-major-studio-1/02_qualitative_project/sankey)
+### Previous versions
+
+#### Version 1
+
+<img src="./assets/v1.png" width="500" alt="Version 1">
+
+#### Version 2
+
+<img src="./assets/v2.png" width="500" alt="Version 2">
+
+In the first two iterations I was having trouble formatting the Sankey chart freely to suite my design and functional needs. I spent a signficant amount of time understanding the source code better and was able to eventually improve the visualization to its current iteration.

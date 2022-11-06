@@ -1,4 +1,4 @@
-This mini dashboard is the first quantitative project in my Major Studio 1 class as part of the study of the MS Data Visualization progress. It looks into where the world is at according to goal by visualizing SDG progress scores at regional and global levels.
+This mini dashboard is the first quantitative project in my Major Studio 1 class as part of the study of the MS Data Visualization program. It looks into where the world is at according to goal by visualizing SDG progress scores at regional and global levels.
 
 ### Data
 
