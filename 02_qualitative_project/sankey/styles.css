@@ -328,3 +328,35 @@ h1 {
 .mute {
   opacity: 0;
 }
+
+#outro {
+  /* background: red; */
+  /* color: #808080; */
+  /* color: white; */
+  /* margin-top: -1rem; */
+  /* height: 8rem; */
+  text-align: center;
+  vertical-align: bottom;
+  /* background-color: black; */
+}
+
+p#outro-assignment {
+  /* height: 2rem; */
+  font-size: 0.9rem;
+  /* background-color: black; */
+  margin: 1rem 0;
+  vertical-align: center;
+}
+
+.icon {
+  width: 14px;
+  margin: auto;
+  vertical-align: middle;
+  display: inline-block;
+  transform: translate(10%, -15%);
+}
+
+.icon:hover {
+  background: transparent;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px;
+  tr

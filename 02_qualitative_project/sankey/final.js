@@ -180,9 +180,10 @@ function displayData(data) {
     .attr("x", guides[2].x - 70)
     .attr("y", height - 25)
     .attr("fill", "black")
+    .attr("font-family", "Jost")
     .attr("text-anchor", "end")
     .attr("font-size", "0.6rem")
-    .attr("font-weight", "700")
+    .attr("font-weight", "500")
     .attr("writing-mode", "vertical-rl");
 
   // console.log(guideline);
