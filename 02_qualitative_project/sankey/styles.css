@@ -148,32 +148,6 @@ li:hover .text {
   opacity: 0;
 }
 
-/* img {
-  display: block;
-  position: relative;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-} */
-
-/* .swiper-pagination {
-  &-bullet {
-    opacity: 0.8;
-    background:black;
-    &-active {
-      background: white;
-    }
-  }
-}
-
-
-  /* .arrow-icon {
-    font-size: 2rem;
-    color: purple;
-  } */
-
 .footnote {
   text-align: right;
   padding-right: 1em;
@@ -212,26 +186,26 @@ ul {
 .tooltip {
   /* opacity: 0; */
   position: absolute;
-  display: block;
-  top: 23%;
+  padding: 1em 1em;
+  /* top: 23%;
 
-  left: 60%;
   width: 35em;
-  /* padding: 0.6em 1em; */
+
   color: #3f474e;
   /* background: #fff; */
   text-align: left;
   line-height: 1.4em;
-  font-size: 0.9em;
-  /* background: green; */
-  /* border: 1px solid #ddd; */
+  /* font-size: 0.9em; */
+  background: #f4f5f5;
+  border: 1px solid #ddd;
   z-index: 10;
   pointer-events: none;
 }
 #tooltip-target {
-  display: table-cell;
-  vertical-align: bottom;
-  height: 7.5rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  vertical-align: middle;
+  /* height: 7.5rem; */
   width: 35em;
   vertical-align: bottom;
   /* background: red; */
@@ -239,13 +213,14 @@ ul {
 }
 
 #tooltip-goal {
-  padding-top: 6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   /* padding-left: 2rem; */
-  height: 7.5rem;
+  /* height: 7.5rem; */
   line-height: 1.7em;
-  width: 35em;
-  vertical-align: bottom;
-  text-align: left;
+  /* width: 35em; */
+  margin: auto;
+  vertical-align: center;
   /* width: 35em */
   /* background: green; */
 }
@@ -359,4 +334,4 @@ p#outro-assignment {
 .icon:hover {
   background: transparent;
   box-shadow: rgba(0, 0, 0, 0.25) 0 5px 5px;
-  tr
+}
