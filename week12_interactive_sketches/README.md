@@ -19,4 +19,5 @@ This visualization compares the minutes spent on leisure time and minutes spent 
 This visualization is my least favorite one. It is an aggregate of infographics that emphasize on the urgent need to tackle challenges of e-waste generated in the world and also seize the opportunity to recyle resources from e-waste which are currently significantly under-managed.
 
 <img src="./v3.png" width="800" alt="E Waste">
-[Figma Prototype](https://www.figma.com/file/ml1PKDOU70Ry1t12uLUFkv/Major-Studio-1-Project-3-Leisure-(Copy)?t=72FeCDHBuua18ZTR-0)
+
+[Figma Prototype](<https://www.figma.com/file/ml1PKDOU70Ry1t12uLUFkv/Major-Studio-1-Project-3-Leisure-(Copy)?t=72FeCDHBuua18ZTR-0>)
