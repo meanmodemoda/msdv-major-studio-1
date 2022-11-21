@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+<link rel="stylesheet" href="./styles.css" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Marcellus&family=DM+Sans:wght@400;500;700&family=Archivo+Black&family=Jost:wght@400;500&family=Oswald:wght@700&family=Prompt:wght@400;500&display=swap" rel="stylesheet">
+<title>Gender Gap in Time</title>
+
+
+
+</head>
+<body>
+<section>
+ 
+  <div>
+    <h1>This is 60 minutes</h1>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+      <filter id="paper">
+        <feTurbulence result="noise"
+          type="fractalNoise" baseFrequency=".9" />
+        
+        <feDiffuseLighting result="embross"
+          in="noise" surfaceScale="1">
+            <feDistantLight azimuth="45" elevation="45" />
+        </feDiffuseLighting>
+        <feComposite
+          in="SourceGraphic" in2="embross"
+          operator="arithmetic" k1=".75" k2=".5" k=".75" />
+      </filter>
+    
+      <filter id="pencil">
+        <!-- procedural texture -->
+        <feTurbulence result="noise"
+          type="fractalNoise" baseFrequency="0.05" seed="547" />
+        
+        <!-- 1st sketch stroke -->
+        <feDisplacementMap result="sketch-1"
+          in="SourceGraphic" in2="noise"
+          xChannelSelector="B" yChannelSelector="R" scale="8" />
+        <feConvolveMatrix result="sketch-1"
+          in="sketch-1"
+          kernelMatrix="0 0 0  0 -2 1  0 1 0" />
+    
+        <!-- 2nd sketch stroke -->
+        <feDisplacementMap result="sketch-2"
+          in="SourceGraphic" in2="noise"
+          xChannelSelector="G" yChannelSelector="B" scale="9" />
+        <feConvolveMatrix result="sketch-2"
+          in="sketch-2"
+          kernelMatrix="0 0 0  1 -1 0  0 0 0" />
+        
+        <!-- final stroke -->
+        <feDisplacementMap result="stroke"
+          in="SourceGraphic" in2="noise"
+          xChannelSelector="R" yChannelSelector="G" scale="5" />
+      
+        <!-- merge 'em all -->
+        <feMerge>
+          <feMergeNode in="sketch-1" />
+          <feMergeNode in="sketch-2" />
+          <feMergeNode in="stroke" />
+        </feMerge>
+      </filter>
+    
+      <filter id="watercolor-1">
+        <!-- procedural textures -->
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.05"
+          seed="456"
+          result="noise-lg" />
+        <feTurbulence
+          type="fractalNoise"
+          baseFrequency="0.5"
+          result="noise-md" />
+    
+        <!-- color variation -->
+        <feComposite
+          in="SourceGraphic"
+          in2="noise-lg"
+          operator="arithmetic"
+          k1=".9" k2=".2"
+          result="BaseGraphic" />
+        
+        <!-- 1st paint layer -->
+        
+        <!-- shape distort -->
+        <feDisplacementMap
+          in="BaseGraphic"
+          in2="noise-lg"
+          xChannelSelector="R"
+          yChannelSelector="G"
+          scale="5"
+          result="layer-1" />
+        <!-- border ripple -->
+        <feDisplacementMap
+          in="layer-1"
+          in2="noise-md"
+          xChannelSelector="R"
+          yChannelSelector="G"
+          scale="3" 
+          result="layer-1" />
+        <!-- border sharpness variation -->
+        <feDisplacementMap
+          in="layer-1"
+          in2="noise-lg"
+          xChannelSelector="B"
+          yChannelSelector="R"
+          scale="10"
+          result="mask-1" />
+        <feGaussianBlur
+          in="mask-1"
+          stdDeviation="1.5"
+          result="mask-1" />
+        <feComposite
+          in="layer-1"
+          in2="mask-1"
+          operator="in"
+          k1="1" k2=".8" k3=".5"
+          result="layer-1" />
+        
+        <!-- 2nd layer -->
+    
+        <!-- shape distort -->
+        <feMorphology
+          in="BaseGraphic"
+          operator="erode"
+          radius="1"
+          result="layer-2" />
+        <feDisplacementMap
+          in="layer-2"
+          in2="noise-lg"
+          xChannelSelector="B"
+          yChannelSelector="A"
+          scale="10"
+          result="layer-2" />
+        <!-- border ripple -->
+        <feDisplacementMap
+          in="layer-2"
+          in2="noise-md"
+          xChannelSelector="R"
+          yChannelSelector="A"
+          scale="1" 
+          result="layer-2" />
+        <!-- border glow #1 -->
+        <feDisplacementMap
+          in="layer-2"
+          in2="noise-lg"
+          xChannelSelector="R"
+          yChannelSelector="G"
+          scale="10"
+          result="mask-2" />
+        <feGaussianBlur
+          in="mask-2"
+          stdDeviation="2"
+          result="mask-2" />
+        <feComposite
+          in="layer-2"
+          in2="mask-2"
+          operator="arithmetic"
+          k1="0" k2="1" k3="-0.8" k4="0"
+          result="layer-2" />
+    
+        <!-- layers merge -->
+        <feBlend
+          in="layer-1"
+          in2="layer-2"
+          mode="multiply"
+          result="merge" />
+      </filter>
+        
+      <filter id="watercolor-2">
+        <!-- procedural textures -->
+        <feTurbulence result="noise-lg"
+          type="fractalNoise" baseFrequency=".04" NumOctaves="2" seed="1358" />
+        <feTurbulence result="noise-md"
+          type="fractalNoise" baseFrequency=".2" NumOctaves="3" seed="7218" />
+    
+        <!-- BaseGraphic w/ chroma variation -->
+        <feComposite result="BaseGraphic"
+          in="SourceGraphic" in2="noise-lg"
+          operator="arithmetic" k1="0.5" k2="0.6" k4="-.07" />
+    
+        <!-- 1st layer of paint w/more water -->
+        <feMorphology result="layer-1"
+          in="BaseGraphic"
+          operator="dilate" radius="2" />
+        <feDisplacementMap result="layer-1"
+          in="layer-1" in2="noise-lg"
+          xChannelSelector="R" yChannelSelector="B" scale="2" />
+        <feDisplacementMap result="layer-1"
+          in="layer-1" in2="noise-md"
+          xChannelSelector="R" yChannelSelector="B" scale="4" />
+        <feDisplacementMap result="mask"
+          in="layer-1" in2="noise-lg"
+          xChannelSelector="A" yChannelSelector="A" scale="6" />
+        <feGaussianBlur result="mask"
+          in="mask" stdDeviation="1" />
+        <feComposite result="layer-1"
+          in="layer-1" in2="mask"
+          operator="arithmetic" k1="1.2" k2="-.25" k3="-.25" k4="0" />
+    
+        <!-- 2nd layer of paint w/more pigment -->
+        <feDisplacementMap result="layer-2"
+          in="BaseGraphic" in2="noise-lg"
+          xChannelSelector="G" yChannelSelector="R" scale="4" />
+        <feDisplacementMap result="layer-2"
+          in="layer-2" in2="noise-md"
+          xChannelSelector="A" yChannelSelector="G" scale="2" />
+        <feDisplacementMap result="glow"
+          in="BaseGraphic" in2="noise-lg"
+          xChannelSelector="R" yChannelSelector="A" scale="8" />
+        <feMorphology result="glow-diff"
+          in="glow"
+          operator="erode" radius="1" />
+        <feComposite result="glow"
+          in="glow" in2="glow-diff"
+          operator="out" />
+        <feGaussianBlur result="glow"
+          in="glow" stdDeviation="1.6" />
+        <feComposite result="layer-2"
+          in="layer-2" in2="glow"
+          operator="arithmetic" k1="1.5" k2="0" k3=".3" />
+        <!-- k1="-.1" k2="1" k3="-.6" />-->
+    
+        <!-- merge 'em all (like multiply) -->
+        <feComposite
+          in="layer-1" in2="layer-2"
+          operator="arithmetic" k1="-0.8" k2="0.8" k3="1.4" />
+      </filter>
+    
+      <filter id="watercolor-3">
+        <!-- procedural textures -->
+        <feTurbulence result="noise-lg"
+          type="fractalNoise" baseFrequency=".05" NumOctaves="3" seed="1358" />
+        <feTurbulence result="noise-md"
+          type="fractalNoise" baseFrequency=".2" NumOctaves="3" seed="7218" />
+        
+        <feDisplacementMap result="layer-1"
+          in="SourceGraphic" in2="noise-lg"
+          xChannelSelector="R" yChannelSelector="B" scale="2" />
+        <feDisplacementMap result="layer-1"
+          in="layer-1" in2="noise-md"
+          xChannelSelector="R" yChannelSelector="B" scale="4" />
+        
+        <feDisplacementMap result="fx-1"
+          in="SourceGraphic" in2="noise-lg"
+          xChannelSelector="A" yChannelSelector="A" scale="6" />
+        <feGaussianBlur result="fx-1"
+          in="fx-1"
+          stdDeviation="1" />
+        
+        <feComposite result="layer-1"
+          in="layer-1" in2="fx-1"
+          operator="arithmetic" k1="1" k2=".5" k3="-.5" k4="0" /><!---->
+      </filter>
+
+      <g id='svg' class="watercolor-1"></g>
+      <g id='svg2' class="watercolor-2"></g>
+      <g id="output"></g>
+    <!-- 	<rect x="0" y="0" width="20" height="100" fill="rgb(50,124,188)" class="watercolor-1"/>
+        <rect x="20" y="0" width="20" height="100" fill="rgb(50,124,188)" class="watercolor-1"/>
+          <rect x="40" y="0" width="20" height="100" fill="rgb(50,124,188)" class="watercolor-1"/> -->
+    <!-- 				<rect x="0" y="0" width="40" height="40" fill="rgb(100,144,188)" class="watercolor-2"/> -->
+        <!-- <rect x="0" y="50" width="40" height="40" fill="#FBBE85" class="watercolor-2"/>
+          <rect x="0" y="0" width="40" height="40" fill="#AFBAFC" class="watercolor-2"/>
+        <rect x="50" y="0" width="40" height="40" fill="#F47F33" class="watercolor-2"/>
+      <rect x="50" y="50" width="40" height="40" fill="#92C5E1" class="watercolor-2"/> -->
+    <!-- <!-- 	<circle cx="30" cy="30" r="24" fill="rgb(50,124,188)" class="watercolor-1" /> -->
+    <!-- 	<circle cx="70" cy="30" r="24" fill="rgb(50,124,188)" class="watercolor-2" /> -->
+    <!-- 	<circle cx="50" cy="70" r="24" fill="rgb(50,124,188)" class="watercolor-3" />  -->
+    
+      <!--<text x="5" y="50" class="paint" font-size="32"
+            style="fill:rgb(50,124,188);font-weight:900">
+        Hello
+      </text>-->
+    </svg>
+    
+   
+  </div>
+
+</section>
+<script src="https://d3js.org/d3.v7.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
+<script src="https://unpkg.com/svg2roughjs/dist/svg2roughjs.umd.min.js"></script>
+<script src="./test.js"></script>
+
+</body>

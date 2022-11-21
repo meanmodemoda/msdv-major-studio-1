@@ -1,0 +1,481 @@
+﻿gender,age,category,week
+Men,18,Leisure,13
+Men,19,Leisure,13
+Men,20,Leisure,13
+Men,21,Leisure,13
+Men,22,Leisure,12
+Men,23,Leisure,12
+Men,24,Leisure,12
+Men,25,Leisure,12
+Men,26,Leisure,12
+Men,27,Leisure,10
+Men,28,Leisure,10
+Men,29,Leisure,10
+Men,30,Leisure,10
+Men,31,Leisure,10
+Men,32,Leisure,10
+Men,33,Leisure,11
+Men,34,Leisure,11
+Men,35,Leisure,11
+Men,36,Leisure,11
+Men,37,Leisure,11
+Men,38,Leisure,11
+Men,39,Leisure,12
+Men,40,Leisure,12
+Men,41,Leisure,12
+Men,42,Leisure,12
+Men,43,Leisure,12
+Men,44,Leisure,12
+Men,45,Leisure,11
+Men,46,Leisure,11
+Men,47,Leisure,11
+Men,48,Leisure,11
+Men,49,Leisure,11
+Men,50,Leisure,11
+Men,51,Leisure,11
+Men,52,Leisure,11
+Men,53,Leisure,11
+Men,54,Leisure,11
+Men,55,Leisure,11
+Men,56,Leisure,11
+Men,57,Leisure,11
+Men,58,Leisure,11
+Men,59,Leisure,11
+Men,60,Leisure,12
+Men,61,Leisure,12
+Men,62,Leisure,12
+Men,63,Leisure,12
+Men,64,Leisure,12
+Men,65,Leisure,12
+Women,18,Leisure,12
+Women,19,Leisure,12
+Women,20,Leisure,12
+Women,21,Leisure,12
+Women,22,Leisure,10
+Women,23,Leisure,10
+Women,24,Leisure,10
+Women,25,Leisure,10
+Women,26,Leisure,10
+Women,27,Leisure,10
+Women,28,Leisure,10
+Women,29,Leisure,10
+Women,30,Leisure,9
+Women,31,Leisure,9
+Women,32,Leisure,9
+Women,33,Leisure,9
+Women,34,Leisure,9
+Women,35,Leisure,9
+Women,36,Leisure,9
+Women,37,Leisure,9
+Women,38,Leisure,9
+Women,39,Leisure,9
+Women,40,Leisure,10
+Women,41,Leisure,10
+Women,42,Leisure,10
+Women,43,Leisure,10
+Women,44,Leisure,10
+Women,45,Leisure,10
+Women,46,Leisure,10
+Women,47,Leisure,10
+Women,48,Leisure,10
+Women,49,Leisure,10
+Women,50,Leisure,10
+Women,51,Leisure,10
+Women,52,Leisure,10
+Women,53,Leisure,10
+Women,54,Leisure,10
+Women,55,Leisure,10
+Women,56,Leisure,10
+Women,57,Leisure,10
+Women,58,Leisure,10
+Women,59,Leisure,10
+Women,60,Leisure,10
+Women,61,Leisure,10
+Women,62,Leisure,10
+Women,63,Leisure,10
+Women,64,Leisure,10
+Women,65,Leisure,10
+Men,18,Other,1
+Men,19,Other,1
+Men,20,Other,1
+Men,21,Other,1
+Men,22,Other,1
+Men,23,Other,1
+Men,24,Other,1
+Men,25,Other,1
+Men,26,Other,1
+Men,27,Other,1
+Men,28,Other,1
+Men,29,Other,1
+Men,30,Other,1
+Men,31,Other,1
+Men,32,Other,1
+Men,33,Other,1
+Men,34,Other,1
+Men,35,Other,1
+Men,36,Other,1
+Men,37,Other,1
+Men,38,Other,1
+Men,39,Other,1
+Men,40,Other,1
+Men,41,Other,1
+Men,42,Other,1
+Men,43,Other,1
+Men,44,Other,1
+Men,45,Other,1
+Men,46,Other,1
+Men,47,Other,1
+Men,48,Other,1
+Men,49,Other,1
+Men,50,Other,1
+Men,51,Other,1
+Men,52,Other,1
+Men,53,Other,1
+Men,54,Other,1
+Men,55,Other,1
+Men,56,Other,1
+Men,57,Other,1
+Men,58,Other,1
+Men,59,Other,1
+Men,60,Other,1
+Men,61,Other,1
+Men,62,Other,1
+Men,63,Other,1
+Men,64,Other,1
+Men,65,Other,1
+Women,18,Other,1
+Women,19,Other,1
+Women,20,Other,1
+Women,21,Other,1
+Women,22,Other,1
+Women,23,Other,1
+Women,24,Other,1
+Women,25,Other,1
+Women,26,Other,1
+Women,27,Other,1
+Women,28,Other,1
+Women,29,Other,1
+Women,30,Other,1
+Women,31,Other,1
+Women,32,Other,1
+Women,33,Other,1
+Women,34,Other,1
+Women,35,Other,1
+Women,36,Other,1
+Women,37,Other,1
+Women,38,Other,1
+Women,39,Other,1
+Women,40,Other,1
+Women,41,Other,1
+Women,42,Other,1
+Women,43,Other,1
+Women,44,Other,1
+Women,45,Other,1
+Women,46,Other,1
+Women,47,Other,1
+Women,48,Other,1
+Women,49,Other,1
+Women,50,Other,1
+Women,51,Other,1
+Women,52,Other,1
+Women,53,Other,1
+Women,54,Other,1
+Women,55,Other,1
+Women,56,Other,1
+Women,57,Other,1
+Women,58,Other,1
+Women,59,Other,1
+Women,60,Other,1
+Women,61,Other,1
+Women,62,Other,1
+Women,63,Other,1
+Women,64,Other,1
+Women,65,Other,1
+Men,18,Paid work or study,10
+Men,19,Paid work or study,10
+Men,20,Paid work or study,10
+Men,21,Paid work or study,10
+Men,22,Paid work or study,12
+Men,23,Paid work or study,12
+Men,24,Paid work or study,12
+Men,25,Paid work or study,12
+Men,26,Paid work or study,12
+Men,27,Paid work or study,12
+Men,28,Paid work or study,12
+Men,29,Paid work or study,12
+Men,30,Paid work or study,12
+Men,31,Paid work or study,12
+Men,32,Paid work or study,12
+Men,33,Paid work or study,11
+Men,34,Paid work or study,11
+Men,35,Paid work or study,11
+Men,36,Paid work or study,11
+Men,37,Paid work or study,11
+Men,38,Paid work or study,11
+Men,39,Paid work or study,11
+Men,40,Paid work or study,11
+Men,41,Paid work or study,11
+Men,42,Paid work or study,11
+Men,43,Paid work or study,11
+Men,44,Paid work or study,11
+Men,45,Paid work or study,12
+Men,46,Paid work or study,12
+Men,47,Paid work or study,12
+Men,48,Paid work or study,12
+Men,49,Paid work or study,12
+Men,50,Paid work or study,12
+Men,51,Paid work or study,12
+Men,52,Paid work or study,12
+Men,53,Paid work or study,12
+Men,54,Paid work or study,12
+Men,55,Paid work or study,11
+Men,56,Paid work or study,11
+Men,57,Paid work or study,11
+Men,58,Paid work or study,11
+Men,59,Paid work or study,11
+Men,60,Paid work or study,11
+Men,61,Paid work or study,11
+Men,62,Paid work or study,11
+Men,63,Paid work or study,11
+Men,64,Paid work or study,11
+Men,65,Paid work or study,11
+Women,18,Paid work or study,10
+Women,19,Paid work or study,10
+Women,20,Paid work or study,10
+Women,21,Paid work or study,10
+Women,22,Paid work or study,10
+Women,23,Paid work or study,10
+Women,24,Paid work or study,10
+Women,25,Paid work or study,10
+Women,26,Paid work or study,9
+Women,27,Paid work or study,9
+Women,28,Paid work or study,9
+Women,29,Paid work or study,9
+Women,30,Paid work or study,7
+Women,31,Paid work or study,7
+Women,32,Paid work or study,7
+Women,33,Paid work or study,7
+Women,34,Paid work or study,7
+Women,35,Paid work or study,7
+Women,36,Paid work or study,8
+Women,37,Paid work or study,8
+Women,38,Paid work or study,8
+Women,39,Paid work or study,8
+Women,40,Paid work or study,8
+Women,41,Paid work or study,8
+Women,42,Paid work or study,8
+Women,43,Paid work or study,8
+Women,44,Paid work or study,8
+Women,45,Paid work or study,8
+Women,46,Paid work or study,8
+Women,47,Paid work or study,8
+Women,48,Paid work or study,8
+Women,49,Paid work or study,7
+Women,50,Paid work or study,7
+Women,51,Paid work or study,7
+Women,52,Paid work or study,7
+Women,53,Paid work or study,7
+Women,54,Paid work or study,7
+Women,55,Paid work or study,7
+Women,56,Paid work or study,7
+Women,57,Paid work or study,7
+Women,58,Paid work or study,7
+Women,59,Paid work or study,7
+Women,60,Paid work or study,7
+Women,61,Paid work or study,7
+Women,62,Paid work or study,7
+Women,63,Paid work or study,7
+Women,64,Paid work or study,7
+Women,65,Paid work or study,7
+Men,18,Personal care,24
+Men,19,Personal care,24
+Men,20,Personal care,24
+Men,21,Personal care,24
+Men,22,Personal care,23
+Men,23,Personal care,23
+Men,24,Personal care,23
+Men,25,Personal care,23
+Men,26,Personal care,23
+Men,27,Personal care,23
+Men,28,Personal care,23
+Men,29,Personal care,23
+Men,30,Personal care,23
+Men,31,Personal care,23
+Men,32,Personal care,23
+Men,33,Personal care,23
+Men,34,Personal care,23
+Men,35,Personal care,23
+Men,36,Personal care,23
+Men,37,Personal care,23
+Men,38,Personal care,23
+Men,39,Personal care,23
+Men,40,Personal care,23
+Men,41,Personal care,23
+Men,42,Personal care,23
+Men,43,Personal care,23
+Men,44,Personal care,23
+Men,45,Personal care,23
+Men,46,Personal care,23
+Men,47,Personal care,23
+Men,48,Personal care,23
+Men,49,Personal care,23
+Men,50,Personal care,23
+Men,51,Personal care,23
+Men,52,Personal care,23
+Men,53,Personal care,23
+Men,54,Personal care,23
+Men,55,Personal care,24
+Men,56,Personal care,24
+Men,57,Personal care,24
+Men,58,Personal care,24
+Men,59,Personal care,24
+Men,60,Personal care,24
+Men,61,Personal care,24
+Men,62,Personal care,24
+Men,63,Personal care,24
+Men,64,Personal care,24
+Men,65,Personal care,24
+Women,18,Personal care,25
+Women,19,Personal care,25
+Women,20,Personal care,25
+Women,21,Personal care,25
+Women,22,Personal care,24
+Women,23,Personal care,24
+Women,24,Personal care,24
+Women,25,Personal care,24
+Women,26,Personal care,24
+Women,27,Personal care,24
+Women,28,Personal care,24
+Women,29,Personal care,24
+Women,30,Personal care,24
+Women,31,Personal care,24
+Women,32,Personal care,24
+Women,33,Personal care,24
+Women,34,Personal care,24
+Women,35,Personal care,24
+Women,36,Personal care,23
+Women,37,Personal care,23
+Women,38,Personal care,23
+Women,39,Personal care,23
+Women,40,Personal care,23
+Women,41,Personal care,23
+Women,42,Personal care,23
+Women,43,Personal care,23
+Women,44,Personal care,23
+Women,45,Personal care,23
+Women,46,Personal care,23
+Women,47,Personal care,23
+Women,48,Personal care,23
+Women,49,Personal care,24
+Women,50,Personal care,24
+Women,51,Personal care,24
+Women,52,Personal care,24
+Women,53,Personal care,24
+Women,54,Personal care,24
+Women,55,Personal care,24
+Women,56,Personal care,24
+Women,57,Personal care,24
+Women,58,Personal care,24
+Women,59,Personal care,24
+Women,60,Personal care,24
+Women,61,Personal care,24
+Women,62,Personal care,24
+Women,63,Personal care,24
+Women,64,Personal care,24
+Women,65,Personal care,24
+Men,18,Unpaid work,4
+Men,19,Unpaid work,4
+Men,20,Unpaid work,4
+Men,21,Unpaid work,4
+Men,22,Unpaid work,4
+Men,23,Unpaid work,4
+Men,24,Unpaid work,4
+Men,25,Unpaid work,4
+Men,26,Unpaid work,4
+Men,27,Unpaid work,6
+Men,28,Unpaid work,6
+Men,29,Unpaid work,6
+Men,30,Unpaid work,6
+Men,31,Unpaid work,6
+Men,32,Unpaid work,6
+Men,33,Unpaid work,6
+Men,34,Unpaid work,6
+Men,35,Unpaid work,6
+Men,36,Unpaid work,6
+Men,37,Unpaid work,6
+Men,38,Unpaid work,6
+Men,39,Unpaid work,5
+Men,40,Unpaid work,5
+Men,41,Unpaid work,5
+Men,42,Unpaid work,5
+Men,43,Unpaid work,5
+Men,44,Unpaid work,5
+Men,45,Unpaid work,5
+Men,46,Unpaid work,5
+Men,47,Unpaid work,5
+Men,48,Unpaid work,5
+Men,49,Unpaid work,5
+Men,50,Unpaid work,5
+Men,51,Unpaid work,5
+Men,52,Unpaid work,5
+Men,53,Unpaid work,5
+Men,54,Unpaid work,5
+Men,55,Unpaid work,5
+Men,56,Unpaid work,5
+Men,57,Unpaid work,5
+Men,58,Unpaid work,5
+Men,59,Unpaid work,5
+Men,60,Unpaid work,4
+Men,61,Unpaid work,4
+Men,62,Unpaid work,4
+Men,63,Unpaid work,4
+Men,64,Unpaid work,4
+Men,65,Unpaid work,4
+Women,18,Unpaid work,4
+Women,19,Unpaid work,4
+Women,20,Unpaid work,4
+Women,21,Unpaid work,4
+Women,22,Unpaid work,7
+Women,23,Unpaid work,7
+Women,24,Unpaid work,7
+Women,25,Unpaid work,7
+Women,26,Unpaid work,8
+Women,27,Unpaid work,8
+Women,28,Unpaid work,8
+Women,29,Unpaid work,8
+Women,30,Unpaid work,11
+Women,31,Unpaid work,11
+Women,32,Unpaid work,11
+Women,33,Unpaid work,11
+Women,34,Unpaid work,11
+Women,35,Unpaid work,11
+Women,36,Unpaid work,11
+Women,37,Unpaid work,11
+Women,38,Unpaid work,11
+Women,39,Unpaid work,11
+Women,40,Unpaid work,10
+Women,41,Unpaid work,10
+Women,42,Unpaid work,10
+Women,43,Unpaid work,10
+Women,44,Unpaid work,10
+Women,45,Unpaid work,10
+Women,46,Unpaid work,10
+Women,47,Unpaid work,10
+Women,48,Unpaid work,10
+Women,49,Unpaid work,10
+Women,50,Unpaid work,10
+Women,51,Unpaid work,10
+Women,52,Unpaid work,10
+Women,53,Unpaid work,10
+Women,54,Unpaid work,10
+Women,55,Unpaid work,10
+Women,56,Unpaid work,10
+Women,57,Unpaid work,10
+Women,58,Unpaid work,10
+Women,59,Unpaid work,10
+Women,60,Unpaid work,10
+Women,61,Unpaid work,10
+Women,62,Unpaid work,10
+Women,63,Unpaid work,10
+Women,64,Unpaid work,10
+Women,65,Unpaid work,10

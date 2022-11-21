@@ -1,0 +1,36 @@
+/* svg {
+  display: block;
+  width: 90vh;
+  height: 90vh;
+  margin: 5vh auto;
+  box-shadow: 0 0 5px #ccc;
+}  */
+
+#svg {
+  border-radius: 30px;
+}
+svg .paper {
+  fill: rgb(255, 255, 250);
+  filter: url(#paper);
+}
+svg .pencil {
+  fill: none;
+  stroke: black;
+  stroke-width: 0.3;
+  filter: url(#pencil);
+}
+svg .watercolor-1 {
+  stroke: none;
+  fill-opacity: 0.8;
+  filter: url(#watercolor-1);
+}
+svg .watercolor-2 {
+  stroke: none;
+  fill-opacity: 0.8;
+  filter: url(#watercolor-2);
+}
+svg .watercolor-3 {
+  stroke: none;
+  fill-opacity: 0.8;
+  filter: url(#watercolor-3);
+}
