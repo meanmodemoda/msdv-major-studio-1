@@ -1,67 +1,331 @@
-﻿Country,Gender,Leisure,Unpaid work,Paid work or study,Personal care,Other
-Mexico,Men,0.13,0.09,0.33,0.43,0.01
-China,Men,0.17,0.06,0.27,0.48,0.01
-Korea,Men,0.19,0.03,0.29,0.47,0.02
-Lithuania,Men,0.20,0.11,0.25,0.45,0.01
-India,Men,0.20,0.04,0.27,0.49,0.01
-Portugal,Men,0.20,0.07,0.26,0.47,0.00
-Latvia,Men,0.20,0.09,0.26,0.44,0.00
-Japan,Men,0.20,0.03,0.31,0.43,0.03
-Australia,Men,0.21,0.12,0.21,0.45,0.01
-Canada,Men,0.21,0.10,0.24,0.43,0.02
-Luxembourg,Men,0.21,0.08,0.23,0.47,0.01
-Türkiye,Men,0.21,0.05,0.25,0.47,0.02
-United States,Men,0.21,0.11,0.23,0.44,0.01
-New Zealand,Men,0.21,0.10,0.23,0.44,0.01
-Austria,Men,0.21,0.09,0.25,0.43,0.01
-Hungary,Men,0.21,0.11,0.19,0.48,0.01
-Poland,Men,0.22,0.11,0.22,0.45,0.01
-France,Men,0.22,0.09,0.16,0.52,0.01
-United Kingdom,Men,0.23,0.10,0.21,0.44,0.02
-Netherlands,Men,0.23,0.10,0.20,0.46,0.01
-South Africa,Men,0.23,0.07,0.20,0.48,0.01
-Slovenia,Men,0.23,0.12,0.21,0.44,0.00
-Ireland,Men,0.23,0.09,0.24,0.41,0.03
-Sweden,Men,0.23,0.12,0.22,0.42,0.00
-Denmark,Men,0.24,0.13,0.18,0.45,0.01
-Estonia,Men,0.24,0.11,0.18,0.46,0.00
-Germany,Men,0.24,0.10,0.20,0.44,0.01
-Spain,Men,0.24,0.10,0.16,0.48,0.01
-Finland,Men,0.25,0.11,0.17,0.44,0.03
-Belgium,Men,0.25,0.10,0.19,0.45,0.01
-Italy,Men,0.25,0.09,0.15,0.49,0.01
-Norway,Men,0.26,0.12,0.19,0.43,0.01
-Greece,Men,0.26,0.07,0.19,0.48,0.00
-Australia,Women,0.19,0.22,0.12,0.46,0.02
-Austria,Women,0.19,0.19,0.17,0.45,0.00
-Belgium,Women,0.22,0.16,0.14,0.47,0.01
-Canada,Women,0.18,0.16,0.19,0.45,0.02
-Denmark,Women,0.22,0.17,0.14,0.47,0.01
-Estonia,Women,0.19,0.17,0.17,0.46,0.00
-Finland,Women,0.21,0.16,0.15,0.45,0.03
-France,Women,0.19,0.16,0.12,0.53,0.01
-Germany,Women,0.22,0.17,0.14,0.46,0.01
-Greece,Women,0.22,0.18,0.13,0.47,0.00
-Hungary,Women,0.18,0.20,0.14,0.47,0.01
-Ireland,Women,0.20,0.20,0.14,0.43,0.03
-Italy,Women,0.20,0.21,0.09,0.49,0.01
-Japan,Women,0.18,0.16,0.19,0.44,0.04
-Korea,Women,0.17,0.15,0.19,0.47,0.02
-Latvia,Women,0.17,0.18,0.20,0.45,0.00
-Lithuania,Women,0.15,0.20,0.19,0.45,0.01
-Luxembourg,Women,0.18,0.17,0.17,0.48,0.01
-Mexico,Women,0.11,0.24,0.17,0.46,0.02
-Netherlands,Women,0.21,0.16,0.14,0.48,0.01
-New Zealand,Women,0.21,0.18,0.14,0.46,0.01
-Norway,Women,0.25,0.16,0.14,0.45,0.00
-Poland,Women,0.18,0.20,0.14,0.46,0.01
-Portugal,Women,0.14,0.23,0.16,0.47,0.00
-Slovenia,Women,0.20,0.20,0.16,0.44,0.00
-Spain,Women,0.20,0.20,0.12,0.48,0.01
-Sweden,Women,0.21,0.15,0.19,0.44,0.00
-Turkey,Women,0.19,0.21,0.09,0.48,0.03
-United Kingdom,Women,0.20,0.17,0.15,0.45,0.02
-United States,Women,0.18,0.18,0.17,0.45,0.02
-China,Women,0.15,0.16,0.20,0.48,0.01
-India,Women,0.15,0.24,0.13,0.46,0.01
-South Africa,Women,0.20,0.17,0.14,0.48,0.01
+﻿country,gender,category,value
+Australia,Men,Leisure,0.21
+Australia,Men,Unpaid care work,0.12
+Australia,Men,Paid work or study,0.21
+Australia,Men,Personal care,0.45
+Australia,Men,Other,0.01
+Australia,Women,Leisure,0.19
+Australia,Women,Unpaid care work,0.22
+Australia,Women,Paid work or study,0.12
+Australia,Women,Personal care,0.46
+Australia,Women,Other,0.02
+Austria,Men,Leisure,0.21
+Austria,Men,Unpaid care work,0.09
+Austria,Men,Paid work or study,0.25
+Austria,Men,Personal care,0.43
+Austria,Men,Other,0.01
+Austria,Women,Leisure,0.19
+Austria,Women,Unpaid care work,0.19
+Austria,Women,Paid work or study,0.17
+Austria,Women,Personal care,0.45
+Austria,Women,Other,0
+Belgium,Men,Leisure,0.25
+Belgium,Men,Unpaid care work,0.1
+Belgium,Men,Paid work or study,0.19
+Belgium,Men,Personal care,0.45
+Belgium,Men,Other,0.01
+Belgium,Women,Leisure,0.22
+Belgium,Women,Unpaid care work,0.16
+Belgium,Women,Paid work or study,0.14
+Belgium,Women,Personal care,0.47
+Belgium,Women,Other,0.01
+Canada,Men,Leisure,0.21
+Canada,Men,Unpaid care work,0.1
+Canada,Men,Paid work or study,0.24
+Canada,Men,Personal care,0.43
+Canada,Men,Other,0.02
+Canada,Women,Leisure,0.18
+Canada,Women,Unpaid care work,0.16
+Canada,Women,Paid work or study,0.19
+Canada,Women,Personal care,0.45
+Canada,Women,Other,0.02
+China,Men,Leisure,0.17
+China,Men,Unpaid care work,0.06
+China,Men,Paid work or study,0.27
+China,Men,Personal care,0.48
+China,Men,Other,0.01
+China,Women,Leisure,0.15
+China,Women,Unpaid care work,0.16
+China,Women,Paid work or study,0.2
+China,Women,Personal care,0.48
+China,Women,Other,0.01
+Denmark,Men,Leisure,0.24
+Denmark,Men,Unpaid care work,0.13
+Denmark,Men,Paid work or study,0.18
+Denmark,Men,Personal care,0.45
+Denmark,Men,Other,0.01
+Denmark,Women,Leisure,0.22
+Denmark,Women,Unpaid care work,0.17
+Denmark,Women,Paid work or study,0.14
+Denmark,Women,Personal care,0.47
+Denmark,Women,Other,0.01
+Estonia,Men,Leisure,0.24
+Estonia,Men,Unpaid care work,0.11
+Estonia,Men,Paid work or study,0.18
+Estonia,Men,Personal care,0.46
+Estonia,Men,Other,0
+Estonia,Women,Leisure,0.19
+Estonia,Women,Unpaid care work,0.17
+Estonia,Women,Paid work or study,0.17
+Estonia,Women,Personal care,0.46
+Estonia,Women,Other,0
+Finland,Men,Leisure,0.25
+Finland,Men,Unpaid care work,0.11
+Finland,Men,Paid work or study,0.17
+Finland,Men,Personal care,0.44
+Finland,Men,Other,0.03
+Finland,Women,Leisure,0.21
+Finland,Women,Unpaid care work,0.16
+Finland,Women,Paid work or study,0.15
+Finland,Women,Personal care,0.45
+Finland,Women,Other,0.03
+France,Men,Leisure,0.22
+France,Men,Unpaid care work,0.09
+France,Men,Paid work or study,0.16
+France,Men,Personal care,0.52
+France,Men,Other,0.01
+France,Women,Leisure,0.19
+France,Women,Unpaid care work,0.16
+France,Women,Paid work or study,0.12
+France,Women,Personal care,0.53
+France,Women,Other,0.01
+Germany,Men,Leisure,0.24
+Germany,Men,Unpaid care work,0.1
+Germany,Men,Paid work or study,0.2
+Germany,Men,Personal care,0.44
+Germany,Men,Other,0.01
+Germany,Women,Leisure,0.22
+Germany,Women,Unpaid care work,0.17
+Germany,Women,Paid work or study,0.14
+Germany,Women,Personal care,0.46
+Germany,Women,Other,0.01
+Greece,Men,Leisure,0.26
+Greece,Men,Unpaid care work,0.07
+Greece,Men,Paid work or study,0.19
+Greece,Men,Personal care,0.48
+Greece,Men,Other,0
+Greece,Women,Leisure,0.22
+Greece,Women,Unpaid care work,0.18
+Greece,Women,Paid work or study,0.13
+Greece,Women,Personal care,0.47
+Greece,Women,Other,0
+Hungary,Men,Leisure,0.21
+Hungary,Men,Unpaid care work,0.11
+Hungary,Men,Paid work or study,0.19
+Hungary,Men,Personal care,0.48
+Hungary,Men,Other,0.01
+Hungary,Women,Leisure,0.18
+Hungary,Women,Unpaid care work,0.2
+Hungary,Women,Paid work or study,0.14
+Hungary,Women,Personal care,0.47
+Hungary,Women,Other,0.01
+India,Men,Leisure,0.2
+India,Men,Unpaid care work,0.04
+India,Men,Paid work or study,0.27
+India,Men,Personal care,0.49
+India,Men,Other,0.01
+India,Women,Leisure,0.15
+India,Women,Unpaid care work,0.24
+India,Women,Paid work or study,0.13
+India,Women,Personal care,0.46
+India,Women,Other,0.01
+Ireland,Men,Leisure,0.23
+Ireland,Men,Unpaid care work,0.09
+Ireland,Men,Paid work or study,0.24
+Ireland,Men,Personal care,0.41
+Ireland,Men,Other,0.03
+Ireland,Women,Leisure,0.2
+Ireland,Women,Unpaid care work,0.2
+Ireland,Women,Paid work or study,0.14
+Ireland,Women,Personal care,0.43
+Ireland,Women,Other,0.03
+Italy,Men,Leisure,0.25
+Italy,Men,Unpaid care work,0.09
+Italy,Men,Paid work or study,0.15
+Italy,Men,Personal care,0.49
+Italy,Men,Other,0.01
+Italy,Women,Leisure,0.2
+Italy,Women,Unpaid care work,0.21
+Italy,Women,Paid work or study,0.09
+Italy,Women,Personal care,0.49
+Italy,Women,Other,0.01
+Japan,Men,Leisure,0.2
+Japan,Men,Unpaid care work,0.03
+Japan,Men,Paid work or study,0.31
+Japan,Men,Personal care,0.43
+Japan,Men,Other,0.03
+Japan,Women,Leisure,0.18
+Japan,Women,Unpaid care work,0.16
+Japan,Women,Paid work or study,0.19
+Japan,Women,Personal care,0.44
+Japan,Women,Other,0.04
+Korea,Men,Leisure,0.19
+Korea,Men,Unpaid care work,0.03
+Korea,Men,Paid work or study,0.29
+Korea,Men,Personal care,0.47
+Korea,Men,Other,0.02
+Korea,Women,Leisure,0.17
+Korea,Women,Unpaid care work,0.15
+Korea,Women,Paid work or study,0.19
+Korea,Women,Personal care,0.47
+Korea,Women,Other,0.02
+Latvia,Men,Leisure,0.2
+Latvia,Men,Unpaid care work,0.09
+Latvia,Men,Paid work or study,0.26
+Latvia,Men,Personal care,0.44
+Latvia,Men,Other,0
+Latvia,Women,Leisure,0.17
+Latvia,Women,Unpaid care work,0.18
+Latvia,Women,Paid work or study,0.2
+Latvia,Women,Personal care,0.45
+Latvia,Women,Other,0
+Lithuania,Men,Leisure,0.2
+Lithuania,Men,Unpaid care work,0.11
+Lithuania,Men,Paid work or study,0.25
+Lithuania,Men,Personal care,0.45
+Lithuania,Men,Other,0.01
+Lithuania,Women,Leisure,0.15
+Lithuania,Women,Unpaid care work,0.2
+Lithuania,Women,Paid work or study,0.19
+Lithuania,Women,Personal care,0.45
+Lithuania,Women,Other,0.01
+Luxembourg,Men,Leisure,0.21
+Luxembourg,Men,Unpaid care work,0.08
+Luxembourg,Men,Paid work or study,0.23
+Luxembourg,Men,Personal care,0.47
+Luxembourg,Men,Other,0.01
+Luxembourg,Women,Leisure,0.18
+Luxembourg,Women,Unpaid care work,0.17
+Luxembourg,Women,Paid work or study,0.17
+Luxembourg,Women,Personal care,0.48
+Luxembourg,Women,Other,0.01
+Mexico,Men,Leisure,0.13
+Mexico,Men,Unpaid care work,0.09
+Mexico,Men,Paid work or study,0.33
+Mexico,Men,Personal care,0.43
+Mexico,Men,Other,0.01
+Mexico,Women,Leisure,0.11
+Mexico,Women,Unpaid care work,0.24
+Mexico,Women,Paid work or study,0.17
+Mexico,Women,Personal care,0.46
+Mexico,Women,Other,0.02
+Netherlands,Men,Leisure,0.23
+Netherlands,Men,Unpaid care work,0.1
+Netherlands,Men,Paid work or study,0.2
+Netherlands,Men,Personal care,0.46
+Netherlands,Men,Other,0.01
+Netherlands,Women,Leisure,0.21
+Netherlands,Women,Unpaid care work,0.16
+Netherlands,Women,Paid work or study,0.14
+Netherlands,Women,Personal care,0.48
+Netherlands,Women,Other,0.01
+New Zealand,Men,Leisure,0.21
+New Zealand,Men,Unpaid care work,0.1
+New Zealand,Men,Paid work or study,0.23
+New Zealand,Men,Personal care,0.44
+New Zealand,Men,Other,0.01
+New Zealand,Women,Leisure,0.21
+New Zealand,Women,Unpaid care work,0.18
+New Zealand,Women,Paid work or study,0.14
+New Zealand,Women,Personal care,0.46
+New Zealand,Women,Other,0.01
+Norway,Men,Leisure,0.26
+Norway,Men,Unpaid care work,0.12
+Norway,Men,Paid work or study,0.19
+Norway,Men,Personal care,0.43
+Norway,Men,Other,0.01
+Norway,Women,Leisure,0.25
+Norway,Women,Unpaid care work,0.16
+Norway,Women,Paid work or study,0.14
+Norway,Women,Personal care,0.45
+Norway,Women,Other,0
+Poland,Men,Leisure,0.22
+Poland,Men,Unpaid care work,0.11
+Poland,Men,Paid work or study,0.22
+Poland,Men,Personal care,0.45
+Poland,Men,Other,0.01
+Poland,Women,Leisure,0.18
+Poland,Women,Unpaid care work,0.2
+Poland,Women,Paid work or study,0.14
+Poland,Women,Personal care,0.46
+Poland,Women,Other,0.01
+Portugal,Men,Leisure,0.2
+Portugal,Men,Unpaid care work,0.07
+Portugal,Men,Paid work or study,0.26
+Portugal,Men,Personal care,0.47
+Portugal,Men,Other,0
+Portugal,Women,Leisure,0.14
+Portugal,Women,Unpaid care work,0.23
+Portugal,Women,Paid work or study,0.16
+Portugal,Women,Personal care,0.47
+Portugal,Women,Other,0
+Slovenia,Men,Leisure,0.23
+Slovenia,Men,Unpaid care work,0.12
+Slovenia,Men,Paid work or study,0.21
+Slovenia,Men,Personal care,0.44
+Slovenia,Men,Other,0
+Slovenia,Women,Leisure,0.2
+Slovenia,Women,Unpaid care work,0.2
+Slovenia,Women,Paid work or study,0.16
+Slovenia,Women,Personal care,0.44
+Slovenia,Women,Other,0
+South Africa,Men,Leisure,0.23
+South Africa,Men,Unpaid care work,0.07
+South Africa,Men,Paid work or study,0.2
+South Africa,Men,Personal care,0.48
+South Africa,Men,Other,0.01
+South Africa,Women,Leisure,0.2
+South Africa,Women,Unpaid care work,0.17
+South Africa,Women,Paid work or study,0.14
+South Africa,Women,Personal care,0.48
+South Africa,Women,Other,0.01
+Spain,Men,Leisure,0.24
+Spain,Men,Unpaid care work,0.1
+Spain,Men,Paid work or study,0.16
+Spain,Men,Personal care,0.48
+Spain,Men,Other,0.01
+Spain,Women,Leisure,0.2
+Spain,Women,Unpaid care work,0.2
+Spain,Women,Paid work or study,0.12
+Spain,Women,Personal care,0.48
+Spain,Women,Other,0.01
+Sweden,Men,Leisure,0.23
+Sweden,Men,Unpaid care work,0.12
+Sweden,Men,Paid work or study,0.22
+Sweden,Men,Personal care,0.42
+Sweden,Men,Other,0
+Sweden,Women,Leisure,0.21
+Sweden,Women,Unpaid care work,0.15
+Sweden,Women,Paid work or study,0.19
+Sweden,Women,Personal care,0.44
+Sweden,Women,Other,0
+Turkey,Women,Leisure,0.19
+Turkey,Women,Unpaid care work,0.21
+Turkey,Women,Paid work or study,0.09
+Turkey,Women,Personal care,0.48
+Turkey,Women,Other,0.03
+Türkiye,Men,Leisure,0.21
+Türkiye,Men,Unpaid care work,0.05
+Türkiye,Men,Paid work or study,0.25
+Türkiye,Men,Personal care,0.47
+Türkiye,Men,Other,0.02
+United Kingdom,Men,Leisure,0.23
+United Kingdom,Men,Unpaid care work,0.1
+United Kingdom,Men,Paid work or study,0.21
+United Kingdom,Men,Personal care,0.44
+United Kingdom,Men,Other,0.02
+United Kingdom,Women,Leisure,0.2
+United Kingdom,Women,Unpaid care work,0.17
+United Kingdom,Women,Paid work or study,0.15
+United Kingdom,Women,Personal care,0.45
+United Kingdom,Women,Other,0.02
+United States,Men,Leisure,0.21
+United States,Men,Unpaid care work,0.11
+United States,Men,Paid work or study,0.23
+United States,Men,Personal care,0.44
+United States,Men,Other,0.01
+United States,Women,Leisure,0.18
+United States,Women,Unpaid care work,0.18
+United States,Women,Paid work or study,0.17
+United States,Women,Personal care,0.45
+United States,Women,Other,0.02

@@ -1,7 +1,7 @@
 var total = 0;
 var columns = 52,
   rows = 48,
-  squareSize = 20,
+  squareSize = 8,
   squareValue = 1,
   gap = 2,
   theData = [];
@@ -17,7 +17,7 @@ d3.csv("../data/age.csv").then(function (data) {
   var color = d3
     .scaleOrdinal()
     .domain(category)
-    .range(["blue", "red", "yellow", "green", "grey"]);
+    .range(["#AFBAFC", "#FBBE85", "#92C5E1", "#F47F33", "#FEF793"]);
   //.range(["#3C1900","#DDC0B4","#C99F88","#B17E65","#A16A54","#855137","#5F3310"])
   const data1 = d3.groups(data, (d) => d.gender);
 
@@ -47,12 +47,6 @@ d3.csv("../data/age.csv").then(function (data) {
       });
     });
 
-    theData = theData.sort((a, b) => {
-      category.indexOf(a.category) - category.indexOf(b.category);
-    });
-
-    console.log(theData);
-
     width = squareSize * columns + columns * gap + 25;
     height = squareSize * rows + rows * gap + 25;
 
@@ -74,9 +68,11 @@ d3.csv("../data/age.csv").then(function (data) {
     var waffle = d3
       .select("#waffle1")
       .append("svg")
-      .attr("class", data[0])
+      .attr("class", data[0].toLowerCase())
       .attr("width", width)
-      .attr("height", height)
+      .attr("height", height);
+
+    waffle
       .append("g")
       .selectAll("rect")
       .data(theData)

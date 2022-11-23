@@ -1,3 +1,9 @@
 #waffle1 {
-  display: block;
+  /* display: block; */
+}
+
+.men {
+  /* stroke: black; */
+  fill-opacity: 1;
+  filter: url(#watercolor-2);
 }
