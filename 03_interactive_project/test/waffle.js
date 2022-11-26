@@ -15,6 +15,7 @@ let diff = {
   "Paid work or study": 0,
 };
 
+let waffle;
 let leisureDiff, unpaidDiff, paidDiff;
 
 //Section 2: Create Waffle Chart
@@ -41,9 +42,20 @@ let waffleData = [],
 
 d3.csv("../data/age.csv").then(function (data) {
   /// Section 1: Create Slider
-
+  const dataGender = d3.groups(data, (d) => d.gender);
   // Update the current slider value (each time you drag the slider handle)
+  dataGender.forEach((data) => {
+    prepareData(data);
+    initializeLayout();
+    drawWaffle(data, 18);
+  });
+
   slider.oninput = function () {
+    clearLayout();
+    dataGender.forEach((d) => {
+      initializeLayout();
+      drawWaffle(d, this.value);
+    });
     output.innerHTML = this.value;
     if (this.value > 18) {
       calculator(data, this.value, comparison);
@@ -51,29 +63,21 @@ d3.csv("../data/age.csv").then(function (data) {
       summary.innerHTML = `<p>On average, at the age of <span>18</span>, women have 1 weeks less leisure time than men.`;
     }
   };
-
-  const dataGender = d3.groups(data, (d) => d.gender);
-
-  dataGender.forEach((data) => {
-    prepareData(data);
-    initializeLayout();
-    drawWaffle(data);
-  });
 });
 
-function drawWaffle(data) {
-  let waffle = d3
+function drawWaffle(data, age) {
+  waffle = d3
     .select("#waffle")
     .append("svg")
     .attr("id", data[0].toLowerCase())
     .attr("class", "watercolor")
     .attr("width", width)
     .attr("height", height);
-
+  newData = waffleData.filter((d) => d.age <= age);
   waffle
     .append("g")
     .selectAll("rect")
-    .data(waffleData)
+    .data(newData)
     .join("rect")
     .attr("width", squareSize)
     .attr("height", squareSize)
@@ -152,4 +156,8 @@ function calculator(data, sliderValue, comparison) {
 
   let summary = document.querySelector("#summary");
   summary.innerHTML = `<p>By age of <span>${sliderValue}</span>,women have ${diff["Leisure"]} weeks less leisure time and ${diff["Unpaid care work"]} weeks more unpaid care time than men. They also have ${diff["Paid work or study"]} weeks less paid work or study.</p>`;
+}
+
+function clearLayout() {
+  d3.select("#waffle").html("");
 }
