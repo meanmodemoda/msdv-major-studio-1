@@ -99,7 +99,35 @@
         in="layer-1" in2="fx-1"
         operator="arithmetic" k1="1" k2=".5" k3="-.5" k4="0" /><!---->
     </filter>
+    <def class="path">
+      <rect x="120" y="0" width="120" height="120" fill="#AFBAFC" class="watercolor" ></rect>
+      </def>
   </svg>
+
+
+ <div id="men-leisure">
+    <svg id="square-men-leisure" class="watercolor" stroke-width="1px"></svg>
+  <svg id="square-men-leisure-water" class="watercolor">
+      <rect x="0" y="0" width="120" height="120" fill="#AFBAFC" ></rect>
+      <rect x="140" y="0" width="120" height="120" stroke="black" fill="none" stroke-width="5px"></rect>
+    </svg>
+    
+ </div> 
+
+ <div id="women-leisure">
+  <svg id="square-women-leisure-water" class="watercolor">
+    <!-- <rect x="10" y="10" width="100" height="120" fill="#AFBAFC" ></rect> -->
+  </svg>
+  <svg id="square-women-leisure"></svg>
+
+  <!-- <svg id="water"></svg> -->
+</div> 
+  <div id="output2">
+  </div>
+  <!-- <svg>
+    <rect x="0" y="0" width="100" height="100" fill="blue" class="watercolor"/>
+  </svg> -->
+
   <div class="slidecontainer">
     <span>18</span><input type="range" min="18" max="65" value="18" class="slider" id="myRange"><span>65</span>
     <div id="demo"></div>
@@ -108,13 +136,16 @@
   </div>
  <div id="summary"></div>
   <div id="stack"></div>
-  <div id="legend1"></div>
+
   <div id="legend"></div>
 
 <script src="https://d3js.org/d3.v7.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+<script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 <script src="https://unpkg.com/roughjs@latest/bundled/rough.js"></script>
 <script src="https://unpkg.com/svg2roughjs/dist/svg2roughjs.umd.min.js"></script>
+<!-- <script src="./DrawSVGPlugin3.min.js"></script> -->
+<script src="./square.js"></script>
 <script src="./waffle.js"></script>
 <script src="./stack.js"></script>
 

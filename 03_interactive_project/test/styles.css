@@ -1,9 +1,58 @@
-#waffle1 {
+#waffle {
   /* display: block; */
 }
 
 .watercolor {
   /* stroke: black; */
   fill-opacity: 1;
+  filter: url(#watercolor-2);
+}
+
+#square {
+  position: relative;
+}
+
+#square-men-leisure {
+  width: 800px;
+  height: 200px;
+}
+
+#square-men-leisure-water {
+  fill-opacity: 1;
+  filter: url(#watercolor-2);
+}
+
+#square-women-leisure {
+  position: absolute;
+}
+
+#square-women-leisure-water {
+  fill-opacity: 1;
+  filter: url(#watercolor-2);
+}
+
+/* #output {
+  animation: dash 1s linear;
+  animation-fill-mode: forwards;
+}
+
+@keyframes dash {
+  100% {
+    stroke-dashoffset: 0;
+  }
+} */
+
+#output1 {
+  position: relative;
+  /* background: red; */
+}
+
+#output2 {
+  top: 0;
+  left: 0;
+  position: absolute;
+}
+
+.square-men-leisure {
   filter: url(#watercolor-2);
 }

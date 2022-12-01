@@ -36,25 +36,26 @@ let columns = 52,
   height = squareSize * rows + rows * gap + 25;
 
 let waffleData = [],
+  // let newData,
   uniqueAge,
   colorWaffleScale,
   yWaffleScale;
 
 d3.csv("../data/age.csv").then(function (data) {
-  /// Section 1: Create Slider
   const dataGender = d3.groups(data, (d) => d.gender);
-  // Update the current slider value (each time you drag the slider handle)
+  // Initial setup
   dataGender.forEach((data) => {
     prepareData(data);
     initializeLayout();
-    drawWaffle(data, 18);
+    drawWaffle(data, waffleData, 18);
   });
-
+  // Update the current slider value (each time you drag the slider handle)
   slider.oninput = function () {
     clearLayout();
-    dataGender.forEach((d) => {
+    const waffleGender = d3.groups(waffleData, (d) => d.gender);
+    waffleGender.forEach((d) => {
       initializeLayout();
-      drawWaffle(d, this.value);
+      drawWaffle(d, d[1], this.value);
     });
     output.innerHTML = this.value;
     if (this.value > 18) {
@@ -65,7 +66,8 @@ d3.csv("../data/age.csv").then(function (data) {
   };
 });
 
-function drawWaffle(data, age) {
+function drawWaffle(data, data2, age) {
+  let newData = data2.filter((d) => d.age <= age);
   waffle = d3
     .select("#waffle")
     .append("svg")
@@ -73,7 +75,7 @@ function drawWaffle(data, age) {
     .attr("class", "watercolor")
     .attr("width", width)
     .attr("height", height);
-  newData = waffleData.filter((d) => d.age <= age);
+
   waffle
     .append("g")
     .selectAll("rect")
@@ -103,6 +105,7 @@ function prepareData(data) {
           .split("")
           .map(function () {
             return {
+              gender: data[0],
               age: +age[0],
               squareValue: squareValue,
               units: d.units,
@@ -159,5 +162,5 @@ function calculator(data, sliderValue, comparison) {
 }
 
 function clearLayout() {
-  d3.select("#waffle").html("");
+  d3.selectAll("#waffle").html("");
 }
