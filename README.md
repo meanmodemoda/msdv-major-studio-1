@@ -17,5 +17,7 @@ Small multiples of nightingale charts with multi-point tooltip
 Custom Sankey diagram and advanced tooltips through hierarchial data manipulation
 
 - Interactive
-  [Playground](https://github.com/muonius/msdv-major-studio-1/tree/master/03_interactive_project)
-  [Current Iteration](https://github.com/muonius/msdv-ms1-interactive-leisure-time)
+  - [Playground](https://github.com/muonius/msdv-major-studio-1/tree/master/03_interactive_project)
+  - [Current Iteration](https://github.com/muonius/msdv-ms1-interactive-leisure-time)
+
+Svelte scrollytelling and tween animation, interactive waffle chart and small multiples of stacked bar chart
