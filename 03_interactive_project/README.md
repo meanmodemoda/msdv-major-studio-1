@@ -4,8 +4,6 @@ This is my final interactive project at the Major Studio 1 class during my study
 
 [Gender Gap in Leisure Time](https://ourworldindata.org/grapher/minutes-spent-on-leisure?time=latest) based on OECD Gender Data 2020
 
-<img src="./assets/data_prep.png" width="600" alt="Data Prep">
-
 ### Repo
 
 These are archived original vanilla Javascript files which later I converted to Svelte. For current iteration, go to [live project](https://muons.com/msdv-ms1-interactive-leisure-time/) or latest [project documentation](https://github.com/muonius/msdv-ms1-interactive-leisure-time).
