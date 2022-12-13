@@ -69,14 +69,14 @@ squareML.appendChild(
 
 // svg1.svg.setAttribute("class", "watercolor");
 
-const svg2 = new svg2roughjs.Svg2Roughjs("#output2");
-svg2.svg = document.querySelector(".path");
-// svg2roughjs.roughConfig = {
-//   hachureAngle: 60,
-//   hachureGap: 30,
-// };
-svg2.sketch();
-svg2.svg.setAttribute("class", "watercolor");
+// const svg2 = new svg2roughjs.Svg2Roughjs("#output2");
+// svg2.svg = document.querySelector(".path");
+// // svg2roughjs.roughConfig = {
+// //   hachureAngle: 60,
+// //   hachureGap: 30,
+// // };
+// svg2.sketch();
+// svg2.svg.setAttribute("class", "watercolor");
 // const svg2roughjs = new Svg2Roughjs("#output2");
 // const svg2 = document.querySelector(".path");
 // svg2roughjs.svg = svg2; // or maybe use the DOMParser to load an SVG file instead
