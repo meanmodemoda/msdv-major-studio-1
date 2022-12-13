@@ -10,14 +10,15 @@ Below is a summary of projects and skills/knowledge gained. Please visit individ
 
 - [Quantatitive](https://github.com/muonius/msdv-major-studio-1/tree/master/01_quantitative_project)
 
-Small multiples of nightingale charts with multi-point tooltip
+  Small multiples of nightingale charts with multi-point tooltip
 
 - [Qualitative](https://github.com/muonius/msdv-major-studio-1/tree/master/02_qualitative_project)
 
-Custom Sankey diagram and advanced tooltips through hierarchial data manipulation
+  Custom Sankey diagram and advanced tooltips through hierarchial data manipulation
 
 - Interactive
+
   - [Playground](https://github.com/muonius/msdv-major-studio-1/tree/master/03_interactive_project)
   - [Current Iteration](https://github.com/muonius/msdv-ms1-interactive-leisure-time)
 
-Svelte scrollytelling and tween animation, interactive waffle chart and small multiples of stacked bar chart
+    Svelte scrollytelling and tween animation, interactive waffle chart and small multiples of stacked bar chart
