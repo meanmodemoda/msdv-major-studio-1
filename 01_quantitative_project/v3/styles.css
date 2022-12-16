@@ -4,6 +4,18 @@
   box-sizing: inherit;
 }
 
+a:link {
+  color: #34495e;
+  font-weight: 700;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: #34495e;
+  background-color: transparent;
+  text-decoration: none;
+}
 body {
   max-width: 1280px;
   min-width: 960px;
